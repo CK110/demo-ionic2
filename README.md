@@ -24,3 +24,17 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+## 常用命令
+```bash
+$ ionic generate 
+$ ionic generate component
+$ ionic generate directive
+$ ionic generate page
+$ ionic generate pipe
+$ ionic generate provider
+$ ionic generate tabs
+$ ionic generate component foo
+$ ionic generate page Login
+$ ionic generate pipe MyFilterPipe
+```
+
