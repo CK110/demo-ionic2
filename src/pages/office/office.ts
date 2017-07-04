@@ -21,4 +21,8 @@ export class OfficePage {
     console.log('ionViewDidLoad OfficePage');
   }
 
+  navigate(param:String){
+    console.log(param);
+  }
+
 }

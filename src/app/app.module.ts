@@ -11,7 +11,11 @@ import { PersonPage } from '../pages/person/person';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { OfficePageModule } from '../pages/office/office.module'
+import { OfficePageModule } from '../pages/office/office.module';
+
+import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.module';
+
+const Third_Comonent_Module =[RollnoticeComponentModule];
 
 const Tab_Root_Page = [MessagePage,TodoPage,ContactPage,PersonPage];
 const Tab_Root_Page_Module = [OfficePageModule];
@@ -22,11 +26,12 @@ const Tab_Root_Page_Module = [OfficePageModule];
     MyApp,
 
     TabsPage,
-    Tab_Root_Page
+    Tab_Root_Page,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    Third_Comonent_Module,
     Tab_Root_Page_Module,
   ],
   bootstrap: [IonicApp],

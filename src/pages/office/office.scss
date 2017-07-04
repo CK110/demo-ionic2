@@ -1,3 +1,17 @@
 page-office {
+    .item-header {
+        border-left: 4px solid color($colors, primary);
+        padding-left: 6px;
+    }
 
+    .micro-app-icon-img{
+        height: 40px;
+        width: 40px;
+        border-radius: 3px;
+        display: block;
+    }
+
+    .micro-app-name{
+        font-size: 12px;
+    }
 }

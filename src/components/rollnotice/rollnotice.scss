@@ -1,0 +1,22 @@
+zj-rollnotice {            
+    .title{
+        display: inline-block;
+        border:1px solid;
+        color:red;
+        border-radius:4px;
+        padding: 0 4px;
+
+    }
+    .main{
+        display: inline-block;
+        left: 15px;
+        overflow: hidden; 
+        white-space: nowrap; 
+        text-overflow: ellipsis;
+        width:99%;
+
+    }
+    .more{
+        display: inline-block;
+    }
+}

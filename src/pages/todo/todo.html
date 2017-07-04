@@ -19,15 +19,20 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
+        <ion-avatar item-start>
+          <img src="assets/icon/favicon.ico">
+        </ion-avatar>        
         <h3>{{ todo.processName }}</h3>
         <p>
           {{todo.starterName}} &mdash;
@@ -36,10 +41,12 @@
       </button>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'myAdd'">
+    <ion-list *ngSwitchCase="'myAdd'"> 
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
+        <ion-avatar item-start>
+          <img src="assets/icon/favicon.ico">
+        </ion-avatar>  
         <h3>{{ todo.processName }}</h3>
-
       </button>
     </ion-list>
   </div>
