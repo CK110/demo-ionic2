@@ -1,3 +1,63 @@
 page-contact {
 
+  #indexs-title {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #FFF;
+    font-size: 300%;
+    display: none;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #indexs-bar {
+    width: 20px;
+    text-align: center;
+    float: right;
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+    height: 100%;
+    font-weight: bold;
+    .index-bar {
+      margin: 1px 0;
+      line-height: 20px;
+    }
+  }
+  .content-md {
+    #indexs-bar {
+      top: 120px;
+    }
+  }
+  .content-ios {
+    #indexs-bar {
+      top: 120px;
+    }
+  }
+  .content-wp {
+    #indexs-bar {
+      top: 120px;
+    }
+  }
+  .scroll-content {
+    // right: 20px;
+  }
+  .item-divider-md,
+  .item-divider-ios,
+  .item-divider-wp {
+    background-color: #eee;
+  }
+
+  .last-item{
+      .item-inner{
+          border-bottom:0px !important;
+      }
+  }
 }
