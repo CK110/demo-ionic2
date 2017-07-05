@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+//模拟后台
+import { fakeBackendProvider } from '../mock/mock';
+import { HttpModule } from '@angular/http';
+
 import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MessagePage } from '../pages/message/message';
@@ -30,6 +34,7 @@ const Tab_Root_Page_Module = [OfficePageModule];
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     Third_Comonent_Module,
     Tab_Root_Page_Module,
@@ -44,7 +49,11 @@ const Tab_Root_Page_Module = [OfficePageModule];
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+
+    // providers used to create fake backend
+    fakeBackendProvider,
+
   ]
 })
 export class AppModule {}
