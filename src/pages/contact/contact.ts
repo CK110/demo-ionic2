@@ -62,8 +62,8 @@ export class ContactPage {
       let val = ev.target.value;
       console.log(`seachbar value >> ${val}`);
 
-      let param = {
-      };
+      // let param = {
+      // };
     }
 
 

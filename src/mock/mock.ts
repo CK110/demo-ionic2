@@ -1,4 +1,4 @@
-import {Http, BaseRequestOptions, XHRBackend, ResponseOptions,Response} from '@angular/http';
+import {Http, BaseRequestOptions, XHRBackend,} from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import {MockAdapter} from './adpter';
 import contactAPI from './contacts/contacts';

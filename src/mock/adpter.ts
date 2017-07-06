@@ -1,5 +1,5 @@
 import {MockConnection} from "@angular/http/testing";
-import {Response, ResponseOptions, RequestMethod} from '@angular/http';
+import {RequestMethod} from '@angular/http';
 
 export class MockAdapter{
 
