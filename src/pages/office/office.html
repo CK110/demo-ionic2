@@ -9,93 +9,158 @@
 
 <ion-content>
   <zj-rollnotice></zj-rollnotice>
-  
+
   <ion-item-divider>
   </ion-item-divider>
 
   <ion-item>
-    <div class="item-header">日常办公</div>
-    <div>
+    <div class="item-header">常用功能</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">公假单</span>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="dingpiao" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">订票申请</span>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="feiyongbaoxiao" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">费用报销</span>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="zengjia" style="
+              width: 39px;
+              height: 39px;
+              font-size: 28px;
+              border-radius: 3px;
+              padding-top: 6px;
+              display: flex;
+              justify-content: center;
+              border: 1px dashed #211e1e;">
+            </ion-icon>
+            <span class="micro-app-name">添加</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item>
+    <div class="item-header">出勤休假</div>
       <ion-grid>
         <ion-row>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
+          <ion-col col-3>
+            <div class="micro-app">
+              <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+              <span class="micro-app-name">公假单</span>
             </div>
           </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
+          <ion-col col-3>
+            <div class="micro-app">
+              <ion-icon name="dingpiao" class="micro-app-icon"></ion-icon>
+              <span class="micro-app-name">休假单</span>
             </div>
           </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
-            </div>
-          </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
+          <ion-col col-3>
+            <div class="micro-app">
+              <ion-icon name="feiyongbaoxiao" class="micro-app-icon"></ion-icon>
+              <span class="micro-app-name">ATM公假</span>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="item-header">行政事务</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">订票管理</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+
+  <ion-item>
+    <div class="item-header">财务</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">费用报销</span>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">差旅报销</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item>
+    <div class="item-header">信息发布</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">公告</span>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">员工声音</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
 
   <ion-item>
     <div class="item-header">流程审批</div>
-    <div>
-      <ion-grid>
-        <ion-row>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
-            </div>
-          </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
-            </div>
-          </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
-            </div>
-          </ion-col>
-          <ion-col text-center>
-            <div (click)="navigate('xxxx')" >
-              <div style="display:flex;justify-content: center;">
-                <img class="micro-app-icon-img" src="assets/images/todo.png">                 
-              </div>
-              <span class="micro-app-name">考勤打卡</span>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">流程审批</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
-  
+
+  <ion-item>
+    <div class="item-header">档案查询</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <div class="micro-app">
+            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <span class="micro-app-name">员工档案</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
 </ion-content>

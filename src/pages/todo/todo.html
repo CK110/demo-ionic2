@@ -26,28 +26,48 @@
   </ion-refresher>
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  
+
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
-        <ion-avatar item-start>
-          <img src="assets/icon/favicon.ico">
-        </ion-avatar>        
-        <h3>{{ todo.processName }}</h3>
-        <p>
-          {{todo.starterName}} &mdash;
-          {{todo.startTimeString}}
-        </p>
+        <div style="display: flex;">
+          <ion-icon name="xuding" style="background: #96c7a3;
+            width: 43px;
+            margin-right: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+            color: #fff;"></ion-icon>
+          <div>
+            <h3>{{ todo.processName }}</h3>
+            <p>
+              {{todo.starterName}} &mdash;
+              {{todo.startTimeString}}
+            </p>
+          </div>
+        </div>
       </button>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'myAdd'"> 
+    <ion-list *ngSwitchCase="'myAdd'">
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
-        <ion-avatar item-start>
-          <img src="assets/icon/favicon.ico">
-        </ion-avatar>  
-        <h3>{{ todo.processName }}</h3>
+        <div style="display: flex;">
+          <ion-icon name="xuding" style="background: #96c7a3;
+            width: 43px;
+            margin-right: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+            color: #fff;">
+          </ion-icon>
+          <div>
+            <h3>{{ todo.processName }}</h3>
+          </div>
+        </div>
       </button>
+
     </ion-list>
   </div>
 
