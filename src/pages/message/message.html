@@ -10,9 +10,17 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
-  <ion-icon name="zhuanzhengshenqing"></ion-icon>
-
-  <!--<i class="icon iconfont icon-zhuanzhengshenqing"></i>-->
+  <ion-list>
+    <ion-item>
+      <ion-note item-start>
+        公告
+      </ion-note>
+      My Item
+      <ion-note item-end>
+        更多
+      </ion-note>
+    </ion-item>
+  </ion-list>
 
   <ion-list>
     <ion-item *ngFor="let item of items">
