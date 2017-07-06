@@ -51,7 +51,7 @@ const Tab_Root_Page_Module = [OfficePageModule];
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
-    // providers used to create fake backend
+    // 模拟后台的provider
     fakeBackendProvider,
 
   ]

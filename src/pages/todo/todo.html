@@ -29,17 +29,21 @@
 
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
+      <button ion-item (click)="openNavDetailsPage(todo)">
+        <div class="micro-app-todo">
+          <ion-icon name="chailvbaoxiao" class="micro-app-corner-icon" style="background: #ffd12f"></ion-icon>
+          <div class="micro-app-detail">
+            <h3>差旅费用报销</h3>
+            <p>
+              陈武军 - 2017-07-06
+            </p>
+          </div>
+        </div>
+      </button>
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
-        <div style="display: flex;">
-          <ion-icon name="xuding" style="background: #96c7a3;
-            width: 43px;
-            margin-right: 10px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            padding-top: 12px;
-            color: #fff;"></ion-icon>
-          <div>
+        <div class="micro-app-todo">
+          <ion-icon name="xuding" class="micro-app-corner-icon"></ion-icon>
+          <div class="micro-app-detail">
             <h3>{{ todo.processName }}</h3>
             <p>
               {{todo.starterName}} &mdash;
@@ -51,23 +55,17 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'myAdd'">
-      <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
-        <div style="display: flex;">
-          <ion-icon name="xuding" style="background: #96c7a3;
-            width: 43px;
-            margin-right: 10px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            padding-top: 12px;
-            color: #fff;">
-          </ion-icon>
-          <div>
-            <h3>{{ todo.processName }}</h3>
+        <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
+          <div class="micro-app-todo">
+            <ion-icon name="xuding" class="micro-app-corner-icon"></ion-icon>
+            <div class="micro-app-detail">
+              <h3>{{ todo.processName }}</h3>
+              <p>
+                审批中 研发部门总经理-葛志彪
+              </p>
+            </div>
           </div>
-        </div>
-      </button>
-
+        </button>
     </ion-list>
   </div>
 
