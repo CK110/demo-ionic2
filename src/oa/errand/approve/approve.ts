@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'errand-approve',
@@ -7,7 +8,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ErrandApprovePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  apvHistoryList:any[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams , private http:Http) {
+    this.http.get('/api/getApvHistory').subscribe((res)=>{
+      this.apvHistoryList = JSON.parse(res.text())
+      console.log(this.apvHistoryList);
+    })
   }
 
   ionViewDidLoad() {

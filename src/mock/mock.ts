@@ -2,6 +2,7 @@ import {Http, BaseRequestOptions, XHRBackend,} from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import {MockAdapter} from './adpter';
 import contactAPI from './contacts/contacts';
+import historyAPI from './history/history';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions) {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -14,8 +15,9 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(contactAPI.getContacts(connection.request));
       }
 
-
-
+      if(Mock.onGet('/api/getApvHistory')){
+        connection.mockRespond(historyAPI.getApvHistory(connection.request));
+      }
 
     });
 

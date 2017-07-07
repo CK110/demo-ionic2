@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {ErrandApprovePage} from "../../oa/errand/approve/approve";
 
 @Component({
   selector: 'page-todo',
   templateUrl: 'todo.html',
 })
 export class TodoPage {
-  
+
   type: string = "myApprove"; // 审批类型: 待我审批/我申请的
-  
+
   todolist:any[]=[
     {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
     {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
@@ -42,11 +43,9 @@ export class TodoPage {
   * 跳转到流程审批详细页
   * @param todo
   */
- openNavDetailsPage(todo) {
-   if(todo.processName == "续订劳动合同申请"){
-
-    //  this.navCtrl.push(ApproveContractPage, { taskid:  {"taskid":todo.taskId} });
-
+ openNavDetailsPage(page) {
+   if(page ==="errand"){
+     this.navCtrl.push(ErrandApprovePage);
    }else{
     //  this.navCtrl.push(TodoDetailsPage, { todo: todo });
 
@@ -68,7 +67,7 @@ export class TodoPage {
   //  })
 
   setInterval(()=>{
-    refresher.complete();    
+    refresher.complete();
   },1000)
  }
 

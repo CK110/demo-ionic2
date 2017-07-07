@@ -18,8 +18,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OfficePageModule } from '../pages/office/office.module';
 
 import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.module';
+import {OA_PAGES} from "../oa/index";
+import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
 
-const Third_Comonent_Module =[RollnoticeComponentModule];
+const Third_Comonent_Module =[
+  RollnoticeComponentModule,
+  ApprovehistoryModule,
+];
 
 const Tab_Root_Page = [MessagePage,TodoPage,ContactPage,PersonPage];
 const Tab_Root_Page_Module = [OfficePageModule];
@@ -31,11 +36,14 @@ const Tab_Root_Page_Module = [OfficePageModule];
 
     TabsPage,
     Tab_Root_Page,
+    OA_PAGES,
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages: true,
+    }),
     Third_Comonent_Module,
     Tab_Root_Page_Module,
   ],
@@ -44,7 +52,8 @@ const Tab_Root_Page_Module = [OfficePageModule];
     MyApp,
 
     TabsPage,
-    Tab_Root_Page
+    Tab_Root_Page,
+    OA_PAGES
   ],
   providers: [
     StatusBar,

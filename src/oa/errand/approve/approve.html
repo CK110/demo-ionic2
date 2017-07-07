@@ -1,8 +1,26 @@
 <ion-header>
+  <ion-navbar>
+
+    <ion-title>
+      公假单
+    </ion-title>
+
+  </ion-navbar>
 
 </ion-header>
 
 <ion-content>
-  待完成
+
+  <ion-item>
+  </ion-item>
+
+  <ion-item style="border-bottom: 0px">
+    <approve-history [history]="apvHistoryList"></approve-history>
+  </ion-item>
 
 </ion-content>
+
+
+<ion-footer>
+  <button ion-button full>审批</button>
+</ion-footer>

@@ -29,7 +29,9 @@
 
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
-      <button ion-item (click)="openNavDetailsPage(todo)">
+      <button ion-item (click)="openNavDetailsPage('errand')">
+        <!--<button ion-item [navPush]="pushPage">-->
+
         <div class="micro-app-todo">
           <ion-icon name="gongjia" class="micro-app-corner-icon" style="background: #ffd12f"></ion-icon>
           <div class="micro-app-detail">
