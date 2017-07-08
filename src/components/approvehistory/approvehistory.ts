@@ -9,7 +9,6 @@ export class ApprovehistoryComponent {
   @Input() history: any[];
 
   constructor() {
-    console.log(this.history);
   }
 
 }

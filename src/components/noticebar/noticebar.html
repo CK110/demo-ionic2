@@ -1,0 +1,24 @@
+<div class="am-notice-bar">
+  <div class="am-notice-bar-icon">
+    <ion-icon name="ios-megaphone-outline"></ion-icon>
+  </div>
+
+  <div class="am-notice-bar-content" id="content" #content>
+    <div class="am-notice-bar-marquee-wrap">
+      <div  id="notice" #notice style="position: relative;white-space: nowrap;display: inline-block;"
+            [ngStyle]="{  'transform': 'translateX(-'+right+'px)','transition':'transform '+transition+'ms linear'}">
+        {{text}}
+      </div>
+    </div>
+  </div>
+
+  <div class="am-notice-bar-operation" (click)="navigate()">
+    <ion-icon name="ios-add-outline" style="width: 22px;height: 22px;font-size: 25px;"></ion-icon>
+  </div>
+
+</div>
+
+
+<div>
+  {{right+ 'px'}}
+</div>

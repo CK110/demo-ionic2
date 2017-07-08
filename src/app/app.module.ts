@@ -20,10 +20,12 @@ import { OfficePageModule } from '../pages/office/office.module';
 import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.module';
 import {OA_PAGES} from "../oa/index";
 import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
+import {NoticebarModule} from "../components/noticebar/noticebar.module";
 
 const Third_Comonent_Module =[
   RollnoticeComponentModule,
   ApprovehistoryModule,
+  NoticebarModule
 ];
 
 const Tab_Root_Page = [MessagePage,TodoPage,ContactPage,PersonPage];
