@@ -1,17 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Events} from "ionic-angular";
-import {NativeService} from "./native-service";
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
 import {JPush} from "../typings/modules/jpush/index";
+import {NativeService} from "./native-service";
 
-/**
- * Helper类存放和业务有关的公共方法
- * @description
- */
 @Injectable()
-export class Helper {
+export class JpushHelper {
 
-  constructor(public events: Events,
-              private jPush:JPush,
+  constructor(private jPush:JPush,
               private nativeService: NativeService) {
   }
 
