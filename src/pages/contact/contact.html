@@ -26,7 +26,7 @@
     <ion-item-divider>
       <ion-label>{{item.index}}</ion-label>
     </ion-item-divider>
-     <ion-item *ngFor="let c of item.contacts" >{{c.name}}</ion-item>
+     <ion-item *ngFor="let c of item.contacts" (click)="callByNative()">{{c.name}}</ion-item>
   </ion-item-group>
 
   <div id="indexs-bar" #IndexedMenu (touchstart)="touchstart($event)"

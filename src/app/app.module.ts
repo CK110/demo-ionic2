@@ -21,6 +21,12 @@ import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.m
 import {OA_PAGES} from "../oa/index";
 import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
 import {NoticebarModule} from "../components/noticebar/noticebar.module";
+import {CallNumber} from "@ionic-native/call-number";
+
+
+const Native_Provides=[
+  CallNumber
+];
 
 const Third_Comonent_Module =[
   RollnoticeComponentModule,
@@ -61,6 +67,7 @@ const Tab_Root_Page_Module = [OfficePageModule];
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Native_Provides,
 
     // 模拟后台的provider
     fakeBackendProvider,

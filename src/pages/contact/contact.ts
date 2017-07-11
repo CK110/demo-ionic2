@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Component,ViewChild ,ViewChildren} from '@angular/core';
 import { NavController,Content } from 'ionic-angular';
+import {CallNumber} from "@ionic-native/call-number";
 
 @Component({
   selector: 'page-contact',
@@ -15,7 +16,7 @@ export class ContactPage {
   @ViewChild(Content) content: Content;
   @ViewChildren('ContactGoup') contactGoup;
 
-  constructor(public navCtrl: NavController,private http:Http) {
+  constructor(public navCtrl: NavController,private http:Http,private callNumber: CallNumber) {
     this.getContracts('');
 
   }
@@ -73,6 +74,12 @@ export class ContactPage {
 
     })
 
+  }
+
+  callByNative(){
+    this.callNumber.callNumber("18001010101", true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
   }
 
 }
