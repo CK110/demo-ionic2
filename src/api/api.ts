@@ -1,15 +1,3 @@
-import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+export const LOGIN = '/api/login' ; //登录
 
-@Injectable()
-export class APIService {
-    constructor(private http: Http){
 
-    }
-
-    getContracts(){
-        this.http.get('').subscribe((res) => {
-            return res;
-        });
-    }
-}

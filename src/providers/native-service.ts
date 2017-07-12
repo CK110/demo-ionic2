@@ -30,4 +30,6 @@ export class NativeService{
     return this.isMobile() && (this.platform.is('ios') || this.platform.is('ipad') || this.platform.is('iphone'));
   }
 
+
+
 }

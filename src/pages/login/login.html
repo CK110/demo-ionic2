@@ -1,0 +1,25 @@
+<ion-content >
+  <div class="logo">
+    <img src="assets/icon/favicon.ico" alt="Ionic logo">
+  </div>
+
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-input type="text" formControlName="user" placeholder="用户名"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" formControlName="password" placeholder="密码"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-row responsive-sm>
+      <ion-col>
+        <button ion-button type="submit" [disabled]="!loginForm.valid" block>登录</button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+
+</ion-content>

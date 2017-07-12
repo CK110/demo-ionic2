@@ -22,11 +22,26 @@ import {OA_PAGES} from "../oa/index";
 import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
 import {NoticebarModule} from "../components/noticebar/noticebar.module";
 import {CallNumber} from "@ionic-native/call-number";
+import {LoginPageModule} from "../pages/login/login.module";
+import {HttpService} from "../providers/http-service";
+import {GlobalData} from "../providers/global-data";
+import {UserData} from "../providers/user-data";
+import {IonicStorageModule} from "@ionic/storage";
 
+
+const Custom_Provides =[
+  HttpService,
+  GlobalData,
+  UserData
+]
 
 const Native_Provides=[
-  CallNumber
+  CallNumber,
 ];
+
+const Native_Module=[
+  IonicStorageModule.forRoot()
+]
 
 const Third_Comonent_Module =[
   RollnoticeComponentModule,
@@ -54,6 +69,9 @@ const Tab_Root_Page_Module = [OfficePageModule];
     }),
     Third_Comonent_Module,
     Tab_Root_Page_Module,
+    LoginPageModule,
+    Native_Module
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,6 +86,7 @@ const Tab_Root_Page_Module = [OfficePageModule];
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Native_Provides,
+    Custom_Provides,
 
     // 模拟后台的provider
     fakeBackendProvider,

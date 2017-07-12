@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {UserData} from "../../providers/user-data";
 
 @Component({
   selector: 'page-message',
@@ -10,7 +11,12 @@ export class MessagePage {
   searchQuery: string = '';
   items: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  username:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private userData:UserData) {
+   this.userData.getUsername().then( (username)=>{
+     this.username = username;
+   });
   }
 
   initializeItems() {

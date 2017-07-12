@@ -3,6 +3,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import {MockAdapter} from './adpter';
 import contactAPI from './contacts/contacts';
 import historyAPI from './history/history';
+import loginAPI from './login/login'
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions) {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -18,6 +19,11 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
       if(Mock.onGet('/api/getApvHistory')){
         connection.mockRespond(historyAPI.getApvHistory(connection.request));
       }
+
+      if(Mock.onPost('/api/login')){
+        connection.mockRespond(loginAPI.login(connection.request));
+      }
+
 
     });
 
