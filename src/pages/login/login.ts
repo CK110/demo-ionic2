@@ -18,7 +18,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               private formBuilder: FormBuilder,
               private loadingCtrl: LoadingController,
-              private httpService:HttpService,private userData:UserData) {
+              private httpService:HttpService,
+              private userData:UserData) {
 
     this.loginForm = this.formBuilder.group({
       user: ['wjchen', Validators.required],
@@ -36,10 +37,10 @@ export class LoginPage {
       loading.present();
 
       this.httpService.post(LOGIN,this.loginForm.value).subscribe((res)=>{
-        //登录信息存储到localStage
-        this.userData.loginSuccess(this.loginForm.value.username);
-
-        this.navCtrl.push(TabsPage);
+        //登录信息存储到localStage,再跳转主页
+        this.userData.loginSuccess(this.loginForm.value.user).then(()=>{
+          this.navCtrl.push(TabsPage);
+        });
       })
 
     }

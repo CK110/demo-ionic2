@@ -27,6 +27,7 @@ import {HttpService} from "../providers/http-service";
 import {GlobalData} from "../providers/global-data";
 import {UserData} from "../providers/user-data";
 import {IonicStorageModule} from "@ionic/storage";
+import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 
 
 const Custom_Provides =[
@@ -40,7 +41,10 @@ const Native_Provides=[
 ];
 
 const Native_Module=[
-  IonicStorageModule.forRoot()
+  IonicStorageModule.forRoot({
+    name: 'myApp',
+    driverOrder: ['indexeddb', 'sqlite', 'websql']
+  })
 ]
 
 const Third_Comonent_Module =[
@@ -49,8 +53,16 @@ const Third_Comonent_Module =[
   NoticebarModule
 ];
 
-const Tab_Root_Page = [MessagePage,TodoPage,ContactPage,PersonPage];
-const Tab_Root_Page_Module = [OfficePageModule];
+const Tab_Root_Page = [
+  MessagePage,
+  TodoPage,
+  ContactPage,
+  PersonPage
+];
+const Tab_Root_Page_Module = [
+  OfficePageModule,
+  TutorialPageModule
+];
 
 
 @NgModule({
@@ -70,7 +82,7 @@ const Tab_Root_Page_Module = [OfficePageModule];
     Third_Comonent_Module,
     Tab_Root_Page_Module,
     LoginPageModule,
-    Native_Module
+    Native_Module,
 
   ],
   bootstrap: [IonicApp],

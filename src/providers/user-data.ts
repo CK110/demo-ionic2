@@ -29,13 +29,13 @@ export class UserData {
   };
 
   loginSuccess(username: string) {
-    this.storage.set(this.HAS_LOGGED_IN, true);
-    this.setUsername(username);
+    return Promise.all([this.storage.set(this.HAS_LOGGED_IN, true),
+      this.setUsername(username)]);
   };
 
   logout() {
-    this.storage.remove(this.HAS_LOGGED_IN);
-    this.storage.remove('username');
+    return Promise.all([this.storage.remove(this.HAS_LOGGED_IN),
+      this.storage.remove('username')]);
   };
 
   hasLoggedIn() {
@@ -43,6 +43,10 @@ export class UserData {
       return value === true;
     });
   };
+
+  hasSeenTutorial(){
+    return this.storage.set('hasSeenTutorial', 'true');
+  }
 
   checkHasSeenTutorial() {
     return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => {
