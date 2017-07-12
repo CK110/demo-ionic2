@@ -38,3 +38,29 @@ $ ionic generate page Login
 $ ionic generate pipe MyFilterPipe
 ```
 
+## 热更新命令
+```bash
+code-push release-cordova ZJFTOA-iOS ios
+code-push release-cordova ZJFTOA-Android android
+
+code-push release-cordova  ZJFTOA-iOS ios -d Production #发布到code-push-server ios
+
+
+code-push deployment ls ZJFTOA-iOS -k // 查看
+```
+
+### Release a mandatory update with a changelog
+code-push release-cordova MyApp-ios ios -m --description "Modified the header color"
+
+### Release a dev Android build to just 1/4 of your end users
+code-push release-cordova MyApp-Android android --rollout 25%
+
+### Release an update that targets users running any 1.1.* binary, as opposed to
+### limiting the update to exact version name in the config.xml file
+code-push release-cordova MyApp-Android android --targetBinaryVersion "~1.1.0"
+
+### Release the update now but mark it as disabled
+### so that no users can download it yet
+code-push release-cordova MyApp-ios ios -x
+
+

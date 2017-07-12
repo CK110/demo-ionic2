@@ -28,16 +28,20 @@ import {GlobalData} from "../providers/global-data";
 import {UserData} from "../providers/user-data";
 import {IonicStorageModule} from "@ionic/storage";
 import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
+import {NativeService} from "../providers/native-service";
+import {CodePush} from "@ionic-native/code-push";
 
 
 const Custom_Provides =[
   HttpService,
   GlobalData,
-  UserData
+  UserData,
+  NativeService
 ]
 
 const Native_Provides=[
   CallNumber,
+  CodePush
 ];
 
 const Native_Module=[
