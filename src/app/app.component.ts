@@ -44,7 +44,7 @@ export class MyApp {
 
       //热更新
       if (this.nativeService.isMobile()) {
-        console.log('热更新');
+        console.log('热更新--> start');
         this.platform.resume.subscribe(() =>{
           console.log('后台切换');
           if(this.nativeService.isAndroid()){
@@ -52,7 +52,7 @@ export class MyApp {
             // this.codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
           }else {
             this.codePush.sync().subscribe((syncStatus) =>{
-                console.log('热更新');
+                console.log('热更新--> ios');
                 console.log(syncStatus)
             }
             )}
