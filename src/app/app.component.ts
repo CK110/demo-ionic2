@@ -44,20 +44,18 @@ export class MyApp {
 
       //热更新
       if (this.nativeService.isMobile()) {
-        console.log('热更新--> start');
+        console.log('手机模式');
         this.platform.resume.subscribe(() =>{
-          console.log('后台切换');
-          if(this.nativeService.isAndroid()){
-            // android 更新需要弹框
-            // this.codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
-          }else {
-            this.codePush.sync().subscribe((syncStatus) =>{
-                console.log('热更新--> ios');
-                console.log(syncStatus)
-            }
-            )}
+          console.log('后台切换 - 热更新--> start');
+          const downloadProgress = (progress) => { console.log(`Downloaded progress ${progress.receivedBytes} of ${progress.totalBytes}`); }
+
+          this.codePush.sync({'updateDialog':true}, downloadProgress).subscribe((syncStatus) =>{
+            console.log(syncStatus);
+            console.log( '热更新 ios--> end');
+          });
         });
       }
+
 
     })
   }

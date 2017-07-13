@@ -117,7 +117,7 @@ export class HttpService {
   private requestFailed(url: string, options: RequestOptionsArgs, err): void {
     // this.nativeService.hideLoading();
     console.log('%c 请求失败 %c', 'color:red', '', 'url', url, 'options', options, 'err', err);
-    let msg = '请求发生异常', status = err.status;
+    // let msg = '请求发生异常', status = err.status;
     // if (!this.nativeService.isConnecting()) {
     //   msg = '请求失败，请连接网络';
     // } else {
