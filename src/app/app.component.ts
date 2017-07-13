@@ -8,6 +8,7 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
+import {JPushPlugin} from "../typings/modules/jpush/index";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar,
               public splashScreen: SplashScreen,public userData: UserData,
-              public nativeService:NativeService,public codePush:CodePush) {
+              public nativeService:NativeService,public codePush:CodePush,public jpush: JPushPlugin) {
+
     Promise.all([this.userData.checkHasSeenTutorial(), this.userData.hasLoggedIn()]).then((res)=>{
       if(res[0]){
        if(res[1]){
@@ -56,6 +58,14 @@ export class MyApp {
         });
       }
 
+      // 极光推送
+      this.jpush.init().then(()=>{
+
+        this.userData.getUsername().then((username)=>{
+          this.jpush.setAlias(''+username);
+        })
+
+      })
 
     })
   }

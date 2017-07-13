@@ -30,6 +30,8 @@ import {IonicStorageModule} from "@ionic/storage";
 import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
+import {JPushPlugin} from "../typings/modules/jpush/index";
+
 
 
 const Custom_Provides =[
@@ -41,7 +43,8 @@ const Custom_Provides =[
 
 const Native_Provides=[
   CallNumber,
-  CodePush
+  CodePush,
+  JPushPlugin
 ];
 
 const Native_Module=[
