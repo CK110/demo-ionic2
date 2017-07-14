@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {UserData} from "../../providers/user-data";
-import {TouchID} from "@ionic-native/touch-id";
 import {DatePicker} from "@ionic-native/date-picker";
 
 @Component({
@@ -12,7 +11,9 @@ export class MessagePage {
   items: string[];
 
   username:string;
-  date:any;
+  NativeDate:any;
+
+  htmlDate:any;
 
   constructor(private userData:UserData,
               private datePicker: DatePicker) {
@@ -30,7 +31,7 @@ export class MessagePage {
         androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
       }).then(date => {
         console.log('Got date: ', date);
-        this.date = date
+        this.NativeDate = date
         },
         err => console.log('Error occurred while getting date: ', err)
       );

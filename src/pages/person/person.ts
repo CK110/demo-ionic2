@@ -20,11 +20,6 @@ export class PersonPage {
 
   }
 
-  goToSettingPage(){
-    this.navCtrl.push('SettingPage');
-  }
-
-
   loginOut(){
     this.userData.logout().then(()=>{
       this.navCtrl.push(LoginPage)

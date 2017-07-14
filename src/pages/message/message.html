@@ -17,7 +17,7 @@
       </ion-note>
        welcome: {{username}}
       <br>
-       date:{{date}}
+       date:{{NativeDate}}
       <ion-note item-end>
         更多
       </ion-note>
@@ -36,5 +36,10 @@
   66666666666
 
   <button ion-button round (click)="onClick()">native datepick</button>
+
+  <ion-item>
+    <ion-label>html Date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="htmlDate"></ion-datetime>
+  </ion-item>
 
 </ion-content>

@@ -66,7 +66,7 @@ export class TodoPage {
   //    refresher.complete();
   //  })
 
-  setInterval(()=>{
+  setTimeout(()=>{
     refresher.complete();
   },1000)
  }
