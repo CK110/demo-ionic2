@@ -5,6 +5,10 @@
 $ ionic cordova resources --icon
 $ ionic cordova resources --splash
 ```
+```
+<preference name="FadeSplashScreen" value="false"/>
+<preference name="AutoHideSplashScreen" value="false"/>
+```
 
 ## 常用命令
 ```bash

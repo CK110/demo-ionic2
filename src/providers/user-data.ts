@@ -13,6 +13,7 @@ export class UserData {
 
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
+  USE_TouchID = 'useTouchID';
 
   constructor(public events: Events,public storage: Storage) {
 
@@ -53,5 +54,15 @@ export class UserData {
       return value;
     })
   };
+
+  userSetting(setting:any){
+    this.storage.set(this.USE_TouchID, setting);
+  }
+
+  getUserSetting(){
+    return this.storage.get(this.USE_TouchID).then((value) => {
+      return value;
+    });
+  }
 
 }

@@ -33,6 +33,9 @@ import {CodePush} from "@ionic-native/code-push";
 import {JPushPlugin} from "../typings/modules/jpush/index";
 import {Network} from "@ionic-native/network";
 import {Toast} from "@ionic-native/toast";
+import {TouchID} from "@ionic-native/touch-id";
+import {DatePicker} from "@ionic-native/date-picker";
+import {SplashPageModule} from "../pages/splash/splash.module";
 
 
 
@@ -48,7 +51,9 @@ const Native_Provides=[
   CodePush,
   JPushPlugin,
   Network,
-  Toast
+  Toast,
+  TouchID,
+  DatePicker
 ];
 
 const Native_Module=[
@@ -72,7 +77,8 @@ const Tab_Root_Page = [
 ];
 const Tab_Root_Page_Module = [
   OfficePageModule,
-  TutorialPageModule
+  TutorialPageModule,
+  SplashPageModule
 ];
 
 

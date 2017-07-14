@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>设置</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-item-divider>
+  </ion-item-divider>
+
+
+  <div showWhen="ios">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>指纹验证</ion-label>
+        <ion-toggle [(ngModel)]="useTouchID"></ion-toggle>
+
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+
+</ion-content>

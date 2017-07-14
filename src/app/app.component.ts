@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Platform, ToastController} from 'ionic-angular';
+import {ModalController, Platform, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
@@ -10,14 +10,11 @@ import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
 import {JPushPlugin} from "../typings/modules/jpush/index";
 
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = TabsPage;
   rootPage:any;
-
 
   constructor(public platform: Platform,
               public statusBar: StatusBar,
@@ -26,12 +23,15 @@ export class MyApp {
               public nativeService:NativeService,
               public codePush:CodePush,
               public jPush: JPushPlugin,
-              public toastCtrl:ToastController) {
+              public toastCtrl:ToastController,
+              public modalCtrl:ModalController) {
 
     Promise.all([this.userData.checkHasSeenTutorial(), this.userData.hasLoggedIn()]).then((res)=>{
       if(res[0]){
        if(res[1]){
          this.rootPage = TabsPage;
+
+         this.assertLockScreen();
        }else {
          this.rootPage = LoginPage;
        }
@@ -48,35 +48,50 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
 
-      //热更新
-      if (this.nativeService.isMobile()) {
-        console.log('手机模式');
-        this.platform.resume.subscribe(() =>{
-          console.log('后台切换 - 热更新--> start');
-          const downloadProgress = (progress) => { console.log(`Downloaded progress ${progress.receivedBytes} of ${progress.totalBytes}`); }
-
-          this.codePush.sync({'updateDialog':true}, downloadProgress).subscribe((syncStatus) =>{
-            console.log(syncStatus);
-            console.log( '热更新 ios--> end');
-          });
-        });
-      }
-
-      // 极光推送
-      this.jPush.init().then(()=>{
-
-        this.userData.getUsername().then((username)=>{
-          this.jPush.setAlias(''+username);
-        })
-
-      })
+      // 更改启动动画
+      this.splashScreen.hide();// this.modalCtrl.create(SplashPage).present();
 
 
       this.registerBackButtonAction();
-      this.assertNetwork();
+      this.assertJPush();
 
+      this.platform.resume.subscribe(()=>{
+        this.assertNetwork();
+        this.assertCodePush();
+        this.assertLockScreen();
+      })
+
+    })
+  }
+
+  /**
+   * 热更新
+   */
+  assertCodePush(){
+    //热更新
+    if (this.nativeService.isMobile()) {
+      console.log('手机模式');
+      this.platform.resume.subscribe(() =>{
+        console.log('后台切换 - 热更新--> start');
+        const downloadProgress = (progress) => { console.log(`Downloaded progress ${progress.receivedBytes} of ${progress.totalBytes}`); }
+
+        this.codePush.sync({'updateDialog':true}, downloadProgress).subscribe((syncStatus) =>{
+          console.log(syncStatus);
+          console.log( '热更新 ios--> end');
+        });
+      });
+    }
+  }
+
+  /**
+   * 极光推送
+   */
+  assertJPush(){
+    this.jPush.init();
+
+    this.userData.getUsername().then((username)=>{
+      this.jPush.setAlias(''+username);
     })
   }
 
@@ -87,8 +102,7 @@ export class MyApp {
     if (!this.nativeService.isConnecting()) {
       this.toastCtrl.create({
         message: '未检测到网络,请连接网络',
-        showCloseButton: true,
-        closeButtonText: '确定'
+        position: 'top'
       }).present();
     }
   }
@@ -99,6 +113,23 @@ export class MyApp {
    */
   registerBackButtonAction(){
 
+  }
+
+  /**
+   * 检查是否需要指纹验证
+   */
+  assertLockScreen(){
+    // 是否是iphone
+    if(this.nativeService.isIos()){
+
+      this.userData.getUserSetting().then((res)=>{
+        if(res){
+          let modal = this.modalCtrl.create('LockScreenPage');
+          modal.present();
+        }
+      })
+
+    }
   }
 
 
