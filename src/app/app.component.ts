@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import {Platform, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
@@ -19,9 +19,14 @@ export class MyApp {
   rootPage:any;
 
 
-  constructor(public platform: Platform, public statusBar: StatusBar,
-              public splashScreen: SplashScreen,public userData: UserData,
-              public nativeService:NativeService,public codePush:CodePush,public jpush: JPushPlugin) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              public userData: UserData,
+              public nativeService:NativeService,
+              public codePush:CodePush,
+              public jPush: JPushPlugin,
+              public toastCtrl:ToastController) {
 
     Promise.all([this.userData.checkHasSeenTutorial(), this.userData.hasLoggedIn()]).then((res)=>{
       if(res[0]){
@@ -39,6 +44,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -59,14 +65,41 @@ export class MyApp {
       }
 
       // 极光推送
-      this.jpush.init().then(()=>{
+      this.jPush.init().then(()=>{
 
         this.userData.getUsername().then((username)=>{
-          this.jpush.setAlias(''+username);
+          this.jPush.setAlias(''+username);
         })
 
       })
 
+
+      this.registerBackButtonAction();
+      this.assertNetwork();
+
     })
   }
+
+  /**
+   * 检查网络
+   */
+  assertNetwork() {
+    if (!this.nativeService.isConnecting()) {
+      this.toastCtrl.create({
+        message: '未检测到网络,请连接网络',
+        showCloseButton: true,
+        closeButtonText: '确定'
+      }).present();
+    }
+  }
+
+  /**
+   * TODO
+   * 注册返回按键事件
+   */
+  registerBackButtonAction(){
+
+  }
+
+
 }

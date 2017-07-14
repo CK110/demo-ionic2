@@ -31,6 +31,8 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
 import {JPushPlugin} from "../typings/modules/jpush/index";
+import {Network} from "@ionic-native/network";
+import {Toast} from "@ionic-native/toast";
 
 
 
@@ -44,7 +46,9 @@ const Custom_Provides =[
 const Native_Provides=[
   CallNumber,
   CodePush,
-  JPushPlugin
+  JPushPlugin,
+  Network,
+  Toast
 ];
 
 const Native_Module=[
@@ -84,7 +88,9 @@ const Tab_Root_Page_Module = [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp,{
-      tabsHideOnSubPages: true,
+      tabsHideOnSubPages: true, // 隐藏非rootPage的tab标签
+      mode:'ios', // 样式统一ios
+      backButtonText: '' //返回按钮只显示图标
     }),
     Third_Comonent_Module,
     Tab_Root_Page_Module,
