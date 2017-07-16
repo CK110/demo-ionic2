@@ -36,6 +36,7 @@ import {Toast} from "@ionic-native/toast";
 import {TouchID} from "@ionic-native/touch-id";
 import {DatePicker} from "@ionic-native/date-picker";
 import {SplashPageModule} from "../pages/splash/splash.module";
+import {ContactsPageModule} from "../pages/contacts/contacts.module";
 
 
 
@@ -78,7 +79,8 @@ const Tab_Root_Page = [
 const Tab_Root_Page_Module = [
   OfficePageModule,
   TutorialPageModule,
-  SplashPageModule
+  SplashPageModule,
+  ContactsPageModule
 ];
 
 

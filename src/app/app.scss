@@ -96,6 +96,24 @@
 
 .ion-ios-zengjia:before { content: "\e608"; }
 
+.ion-ios-gongsi:before { content: "\e609"; }
 
 
 
+// 图标大小控制，不包含颜色 start
+.micro-app{
+  display: flex;
+}
+
+.micro-app-icon {
+   width: 40px;
+   height: 40px;
+   font-size: 28px;
+   background: #38adff;
+   border-radius: 4px;
+   padding-top: 6px;
+   display: flex;
+   justify-content: center;
+   color: #fff;
+ }
+// 图标大小控制，不包含颜色 end
