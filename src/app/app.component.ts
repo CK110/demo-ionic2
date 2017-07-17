@@ -8,7 +8,8 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
-import {JPushPlugin} from "../typings/modules/jpush/index";
+// import {JPushPlugin} from "../typings/modules/jpush/index";
+import {JPush} from "ionic3-jpush";
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,8 @@ export class MyApp {
               public userData: UserData,
               public nativeService:NativeService,
               public codePush:CodePush,
-              public jPush: JPushPlugin,
+              // public jPush: JPushPlugin,
+              public jPush: JPush,
               public toastCtrl:ToastController,
               public modalCtrl:ModalController) {
 
@@ -88,11 +90,91 @@ export class MyApp {
    * 极光推送
    */
   assertJPush(){
-    this.jPush.init();
+    this.jPush.init().then((res)=>{
+      console.log("jPush.init() sucess"+ JSON.stringify(res));
+
+      // JPush服务器给客户端返回一个唯一的该设备的标识
+      this.jPush.getRegistrationID().then((res)=>{
+        console.log( `After Init getRegistrationID() --> ${JSON.stringify(res)}` )
+      })
+
+
+    }).catch((err)=>{
+      console.log("jPush.init() err "+ JSON.stringify(err));
+    });
 
     this.userData.getUsername().then((username)=>{
       this.jPush.setAlias(''+username);
+    });
+
+    //设置tag，可以区分ios，android
+    console.log("setTags() platforms--->"+ this.platform.platforms());
+    this.jPush.setTags(this.platform.platforms()).then((res)=>{
+      console.log("setTags() res --->" + JSON.stringify(res));
+    }).catch((error)=>{
+      console.log("setTags() error --->" + JSON.stringify(error));
     })
+
+    // JPush服务器给客户端返回一个唯一的该设备的标识
+    // this.jPush.getRegistrationID().then((res)=>{
+    //   console.log( `getRegistrationID() --> ${JSON.stringify(res)}` )
+    // })
+
+    // 判断系统设置中是否允许当前应用推送
+    this.jPush.getUserNotificationSettings().then((result)=>{
+      if(result == 0) {
+        console.log("系统设置中已关闭应用推送" + result);
+      } else if(result > 0) {
+        console.log("系统设置中打开了应用推送" + result);
+      }
+    })
+
+    // 获取点击通知内容
+    this.jPush.openNotification().subscribe((event)=>{
+      console.log(`openNotification()--> ${JSON.stringify(event)}`)
+      let content
+      if(this.nativeService.isAndroid()) {
+        content = event
+        alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+      } else {
+        content = event.aps
+        alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+      }
+    });
+
+    //获取通知内容
+    this.jPush.receiveNotification().subscribe((event)=>{
+      console.log(`receiveNotification() --> ${JSON.stringify(event)}`)
+      let content
+      if(this.nativeService.isAndroid()) {
+        content = event
+        alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+      } else {
+        content = event.aps
+        alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+      }
+    });
+
+    //收到自定义消息时触发这个事件，推荐使用事件的方式传递。
+    this.jPush.receiveMessage().subscribe((event)=>{
+      console.log(`receiveMessage()--> ${JSON.stringify(event)}`)
+      var message
+      if(this.nativeService.isAndroid()) {
+        message = event.message;
+      } else {
+        message = event.content;
+      }
+      alert("收到自定义消息时 receiveMessage:" + message)
+    });
+
+    //ios 应用程序处于后台时收到推送会触发该事件，可以在后台执行一段代码。
+    document.addEventListener("jpush.backgroundNotification", function(event) {
+      var alertContent;
+      alertContent = event['aps'].alert;
+      alert("ios backgroundNotification:" + alertContent);
+    } , false)
+
+
   }
 
   /**

@@ -30,13 +30,14 @@ import {IonicStorageModule} from "@ionic/storage";
 import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 import {NativeService} from "../providers/native-service";
 import {CodePush} from "@ionic-native/code-push";
-import {JPushPlugin} from "../typings/modules/jpush/index";
+// import {JPushPlugin} from "../typings/modules/jpush/index";
 import {Network} from "@ionic-native/network";
 import {Toast} from "@ionic-native/toast";
 import {TouchID} from "@ionic-native/touch-id";
 import {DatePicker} from "@ionic-native/date-picker";
 import {SplashPageModule} from "../pages/splash/splash.module";
 import {ContactsPageModule} from "../pages/contacts/contacts.module";
+import {JPush} from "ionic3-jpush";
 
 
 
@@ -50,11 +51,12 @@ const Custom_Provides =[
 const Native_Provides=[
   CallNumber,
   CodePush,
-  JPushPlugin,
+  // JPushPlugin,
+  JPush,
   Network,
   Toast,
   TouchID,
-  DatePicker
+  DatePicker,
 ];
 
 const Native_Module=[
