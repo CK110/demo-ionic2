@@ -39,6 +39,9 @@ import {SplashPageModule} from "../pages/splash/splash.module";
 import {ContactsPageModule} from "../pages/contacts/contacts.module";
 import {JPush} from "ionic3-jpush";
 
+import {AppAvailability} from "@ionic-native/app-availability";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
+
 
 
 const Custom_Provides =[
@@ -57,6 +60,9 @@ const Native_Provides=[
   Toast,
   TouchID,
   DatePicker,
+
+  AppAvailability, // 其他app是否可用
+  InAppBrowser,
 ];
 
 const Native_Module=[

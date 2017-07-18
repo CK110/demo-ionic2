@@ -9,4 +9,47 @@
 
 <ion-content>
 
+  <ion-card>
+    <ion-card-header>
+      <div (click)="callMap('深圳市南山区粤海街道学府路81号深圳软件产业基地1栋C座20楼')" style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="color: #9B959C;font-weight: bold;">
+          深圳总部
+        </div>
+        <ion-icon name="ios-pin-outline" style="color: #FF4081"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <div (click)="call('1001010010100')">
+        电话：
+        <p style="color: #3B57EB;display: inline-block">0755-1234567</p>
+      </div>
+      <div style="margin-top: 10px">
+        深圳市南山区粤海街道学府路81号深圳软件产业基地1栋C座20楼(公司)
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <div  (click)="callMap('江苏省南京市汉中路89号金鹰国际商城16楼B座')" style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="color: #9B959C;font-weight: bold;" >
+          紫津荣畅分公司
+        </div>
+        <ion-icon name="ios-pin-outline" style="color: #FF4081"></ion-icon>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        电话：
+        <p style="color: #3B57EB;display: inline-block">025-1234567</p>
+      </div>
+      <div style="margin-top: 10px">
+        江苏省南京市汉中路89号金鹰国际商城16楼B座
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>
