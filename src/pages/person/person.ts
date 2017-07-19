@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import {UserData} from "../../providers/user-data";
 import {LoginPage} from "../login/login";
 
@@ -9,7 +9,8 @@ import {LoginPage} from "../login/login";
 })
 export class PersonPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public userData:UserData) {
+  constructor(public navCtrl: NavController,
+              public userData:UserData) {
   }
 
   ionViewDidLoad() {

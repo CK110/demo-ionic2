@@ -11,7 +11,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MessagePage } from '../pages/message/message';
 import { TodoPage } from '../pages/todo/todo';
-import { PersonPage } from '../pages/person/person';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -44,6 +43,9 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {ToolPageModule} from "../pages/message/tool/tool.module";
 import { Camera } from '@ionic-native/camera';
+import {PhotoViewer} from "@ionic-native/photo-viewer";
+import {PersonPagePageModule} from "../pages/person/person.module";
+import {IonicImageViewerModule} from "ionic-img-viewer";
 
 
 
@@ -69,6 +71,7 @@ const Native_Provides=[
 
   BarcodeScanner, //二维码
   Camera, // 拍照
+  PhotoViewer, // 照片查看
 ];
 
 const Native_Module=[
@@ -81,21 +84,22 @@ const Native_Module=[
 const Third_Comonent_Module =[
   RollnoticeComponentModule,
   ApprovehistoryModule,
-  NoticebarModule
+  NoticebarModule,
+  IonicImageViewerModule
 ];
 
 const Tab_Root_Page = [
   MessagePage,
   TodoPage,
   ContactPage,
-  PersonPage
 ];
 const Tab_Root_Page_Module = [
   OfficePageModule,
   TutorialPageModule,
   SplashPageModule,
   ContactsPageModule,
-  ToolPageModule
+  ToolPageModule,
+  PersonPagePageModule
 ];
 
 

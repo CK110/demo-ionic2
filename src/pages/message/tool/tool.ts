@@ -44,7 +44,7 @@ export class ToolPage {
   /**
    * 拍照
    */
-  camera(){
+  useCamera(){
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL, // base64
