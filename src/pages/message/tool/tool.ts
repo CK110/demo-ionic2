@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -11,8 +12,9 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 export class ToolPage {
 
   constructor(public navCtrl: NavController,
-              private barcodeScanner: BarcodeScanner,
-              public iab:InAppBrowser) {
+              public barcodeScanner: BarcodeScanner,
+              public iab:InAppBrowser,
+              public camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -36,6 +38,31 @@ export class ToolPage {
     }, (err) => {
       console.log(err);
     });
+  }
+
+
+  /**
+   * 拍照
+   */
+  camera(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL, // base64
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+
+      console.log(base64Image);
+    }, (err) => {
+      // Handle error
+    });
+
+
   }
 
 }

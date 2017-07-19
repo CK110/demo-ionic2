@@ -43,6 +43,7 @@ import {AppAvailability} from "@ionic-native/app-availability";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {ToolPageModule} from "../pages/message/tool/tool.module";
+import { Camera } from '@ionic-native/camera';
 
 
 
@@ -66,7 +67,8 @@ const Native_Provides=[
   AppAvailability, // 其他app是否可用
   InAppBrowser, //打开其他app
 
-  BarcodeScanner
+  BarcodeScanner, //二维码
+  Camera, // 拍照
 ];
 
 const Native_Module=[

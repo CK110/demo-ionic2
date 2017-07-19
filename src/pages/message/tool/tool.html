@@ -1,8 +1,15 @@
-<ion-item (click)="qrcode()">
-  <ion-icon name="star" item-start></ion-icon>
-  扫一扫
-</ion-item>
+<ion-content>
+  <ion-list style="margin: 0px">
+    <ion-item tappable (click)="qrcode()">
+      扫一扫
+    </ion-item>
+    <ion-item tappable (click)="camera()">
+      拍照
+    </ion-item>
+    <ion-item tappable (click)="qrcode()">
+      扫一扫
+    </ion-item>
+  </ion-list>
 
-
-
+</ion-content>
 
