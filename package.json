@@ -24,6 +24,7 @@
         "@angular/platform-browser": "4.1.3",
         "@angular/platform-browser-dynamic": "4.1.3",
         "@ionic-native/app-availability": "^4.0.1",
+        "@ionic-native/barcode-scanner": "^4.0.1",
         "@ionic-native/call-number": "^3.14.0",
         "@ionic-native/code-push": "^4.0.0",
         "@ionic-native/core": "3.12.1",
@@ -67,6 +68,7 @@
         "jpush-phonegap-plugin": "^3.2.1",
         "mockjs": "^1.0.1-beta3",
         "mx.ferreyra.callnumber": "~0.0.2",
+        "phonegap-plugin-barcodescanner": "^6.0.7",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.12"
@@ -99,7 +101,10 @@
             "cordova-plugin-datepicker": {},
             "cordova-plugin-appavailability": {},
             "cordova-plugin-inappbrowser": {},
-            "cordova-custom-config": {}
+            "cordova-custom-config": {},
+            "phonegap-plugin-barcodescanner": {
+                "CAMERA_USAGE_DESCRIPTION": " "
+            }
         },
         "platforms": [
             "android",

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {UserData} from "../../providers/user-data";
 import {DatePicker} from "@ionic-native/date-picker";
+import {PopoverController} from "ionic-angular";
+import {ToolPage} from "./tool/tool";
 
 @Component({
   selector: 'page-message',
@@ -16,7 +18,9 @@ export class MessagePage {
   htmlDate:any;
 
   constructor(private userData:UserData,
-              private datePicker: DatePicker) {
+              private datePicker: DatePicker,
+              public popoverCtrl: PopoverController) {
+
    this.userData.getUsername().then( (username)=>{
      this.username = username;
    });
@@ -38,5 +42,11 @@ export class MessagePage {
 
   }
 
+  popPage(myEvent){
+    let popover = this.popoverCtrl.create(ToolPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
 
 }
