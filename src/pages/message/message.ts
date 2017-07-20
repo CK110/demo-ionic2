@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {UserData} from "../../providers/user-data";
 import {DatePicker} from "@ionic-native/date-picker";
-import {PopoverController} from "ionic-angular";
+import {Events, PopoverController} from "ionic-angular";
 import {ToolPage} from "./tool/tool";
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'page-message',
@@ -17,13 +18,17 @@ export class MessagePage {
 
   htmlDate:any;
 
+  badgeNumber:number=0;
+
   constructor(private userData:UserData,
               private datePicker: DatePicker,
-              public popoverCtrl: PopoverController) {
+              public popoverCtrl: PopoverController,
+              public http:Http,
+              public events:Events) {
 
-   this.userData.getUsername().then( (username)=>{
-     this.username = username;
-   });
+    this.userData.getUsername().then((username)=>{
+      this.username = username;
+    });
 
   }
 
@@ -43,10 +48,27 @@ export class MessagePage {
   }
 
   popPage(myEvent){
-    let popover = this.popoverCtrl.create(ToolPage);
-    popover.present({
-      ev: myEvent
-    });
+    this.popoverCtrl.create(ToolPage).present({ev: myEvent});
   }
 
+  /**
+   * 增加消息badge
+   */
+  incrementBadge(){
+    this.badgeNumber = this.badgeNumber+1;
+    console.log(this.badgeNumber);
+    this.events.publish('tabs-tab1-page:badge-update',this.badgeNumber);
+
+  }
+
+  /**
+   * 减少消息badge
+   */
+  decrementBadge(){
+    console.log(this.badgeNumber);
+    if(this.badgeNumber >0){
+      this.badgeNumber = this.badgeNumber-1;
+      this.events.publish('tabs-tab1-page:badge-update',this.badgeNumber);
+    }
+  }
 }

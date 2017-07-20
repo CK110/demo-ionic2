@@ -37,16 +37,16 @@
     </ion-item>
   </ion-list>
 
-  33333333333
-  44444444444
-  55555555555
-  66666666666
-
-  <button ion-button round (click)="onClick()">native datepick</button>
-
   <ion-item>
     <ion-label>html Date</ion-label>
     <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="htmlDate"></ion-datetime>
   </ion-item>
+
+  <button ion-button full (click)="onClick()">native datepick</button>
+
+  <button ion-button full (click)="incrementBadge()">增加badge</button>
+  <button ion-button full (click)="decrementBadge()">减小badge</button>
+
+
 
 </ion-content>
