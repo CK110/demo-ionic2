@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {ModalController, NavController} from 'ionic-angular';
 import {ErrandApprovePage} from "../../oa/errand/approve/approve";
+import {FilterPage} from "./filter/filter";
 
 @Component({
   selector: 'page-todo',
@@ -25,7 +26,7 @@ export class TodoPage {
     {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'}
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,  public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -70,5 +71,16 @@ export class TodoPage {
     refresher.complete();
   },1000)
  }
+
+
+  /**
+   * 类似京东过滤页面效果
+   */
+  openFilter(){
+    this.modalCtrl.create(FilterPage, {}, {
+      enterAnimation: 'modal-from-right-enter',
+      leaveAnimation: 'modal-from-right-leave'
+    }).present();
+  }
 
 }

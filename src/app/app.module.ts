@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler, Config} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 //模拟后台
@@ -10,7 +10,6 @@ import { HttpModule } from '@angular/http';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MessagePage } from '../pages/message/message';
-import { TodoPage } from '../pages/todo/todo';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,6 +45,12 @@ import { Camera } from '@ionic-native/camera';
 import {PhotoViewer} from "@ionic-native/photo-viewer";
 import {PersonPagePageModule} from "../pages/person/person.module";
 import {IonicImageViewerModule} from "ionic-img-viewer";
+import {AppVersion} from "@ionic-native/app-version";
+import { File } from '@ionic-native/file';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import {AppUpdate} from "@ionic-native/app-update";
+import {TodoPageModule} from "../pages/todo/todo.module";
+import {ModalFromRightEnter, ModalFromRightLeave, ModalScaleEnter, ModalScaleLeave} from "../components/animations/modal-transitions";
 
 
 
@@ -72,6 +77,13 @@ const Native_Provides=[
   BarcodeScanner, //二维码
   Camera, // 拍照
   PhotoViewer, // 照片查看
+  AppVersion, //查看当前应用版本
+
+  File,// 允许文件读写
+  FileTransfer, //上传下载文件
+
+  AppUpdate, // 应用更新 for android
+
 ];
 
 const Native_Module=[
@@ -90,7 +102,6 @@ const Third_Comonent_Module =[
 
 const Tab_Root_Page = [
   MessagePage,
-  TodoPage,
   ContactPage,
 ];
 const Tab_Root_Page_Module = [
@@ -99,7 +110,8 @@ const Tab_Root_Page_Module = [
   SplashPageModule,
   ContactsPageModule,
   ToolPageModule,
-  PersonPagePageModule
+  PersonPagePageModule,
+  TodoPageModule
 ];
 
 
@@ -145,4 +157,17 @@ const Tab_Root_Page_Module = [
 
   ]
 })
-export class AppModule {}
+export class AppModule {
+  //增加自定义过度效果
+  constructor(public config: Config) {
+    this.setCustomTransitions();
+  }
+
+  private setCustomTransitions() {
+    this.config.setTransition('modal-from-right-enter', ModalFromRightEnter);
+    this.config.setTransition('modal-from-right-leave', ModalFromRightLeave);
+    this.config.setTransition('modal-scale-enter', ModalScaleEnter);
+    this.config.setTransition('modal-scale-leave', ModalScaleLeave);
+  }
+
+}

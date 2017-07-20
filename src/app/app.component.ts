@@ -56,12 +56,16 @@ export class MyApp {
 
 
       this.registerBackButtonAction();
-      this.assertJPush();
+      this.assertJPush(); //极光配置
+      // this.nativeService.detectionUpgrade();//检测app是否升级
+
 
       this.platform.resume.subscribe(()=>{
         this.assertNetwork();
         this.assertCodePush();
         this.assertLockScreen();
+        // this.nativeService.detectionUpgrade();//检测app是否升级
+
       })
 
     })
