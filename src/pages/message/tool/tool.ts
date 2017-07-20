@@ -3,6 +3,8 @@ import {ActionSheetController, IonicPage, NavController, ViewController} from 'i
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {NativeService} from "../../../providers/native-service";
+import {AppAvailability} from "@ionic-native/app-availability";
 
 @IonicPage()
 @Component({
@@ -16,7 +18,8 @@ export class ToolPage {
               public iab:InAppBrowser,
               public camera: Camera,
               public actionSheetCtrl:ActionSheetController,
-              public viewCtrl: ViewController) {
+              public viewCtrl: ViewController,
+              public nativeService:NativeService,public appAvailability:AppAvailability) {
   }
 
   ionViewDidLoad() {
@@ -127,5 +130,24 @@ export class ToolPage {
     }, (err) => {
       console.log('Camera 错误');
     });
+  }
+
+  /**
+   * ios
+   * 打开本地邮件app
+   */
+  openMail(){
+    if(this.nativeService.isIos()){
+      this.appAvailability.check('mailto:').then(
+        (yes:boolean)=>{
+          let appBrowser =this.iab.create('mailto:someone@example.com?Subject=Hello%20again','_system');
+          console.log("打开本地邮件"+ JSON.stringify(appBrowser));
+        },
+        (no:string)=>{
+          console.log('ios本地邮件no'+no);
+        }
+      )
+
+    }
   }
 }

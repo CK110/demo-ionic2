@@ -51,6 +51,8 @@ import { FileTransfer} from '@ionic-native/file-transfer';
 import {AppUpdate} from "@ionic-native/app-update";
 import {TodoPageModule} from "../pages/todo/todo.module";
 import {ModalFromRightEnter, ModalFromRightLeave, ModalScaleEnter, ModalScaleLeave} from "../components/animations/modal-transitions";
+import {Device} from "@ionic-native/device";
+import {EmailComposer} from "@ionic-native/email-composer";
 
 
 
@@ -83,6 +85,9 @@ const Native_Provides=[
   FileTransfer, //上传下载文件
 
   AppUpdate, // 应用更新 for android
+  Device, // 获取设备信息
+
+  EmailComposer,//邮件相关
 
 ];
 
