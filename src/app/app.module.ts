@@ -53,7 +53,7 @@ import {TodoPageModule} from "../pages/todo/todo.module";
 import {ModalFromRightEnter, ModalFromRightLeave, ModalScaleEnter, ModalScaleLeave} from "../components/animations/modal-transitions";
 import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 const Custom_Provides =[
@@ -88,6 +88,8 @@ const Native_Provides=[
   Device, // 获取设备信息
 
   EmailComposer,//邮件相关
+
+  Geolocation, //获取手机当前地理信息
 
 ];
 

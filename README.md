@@ -7,7 +7,13 @@ $ ionic cordova resources --splash
 ```
 ```
 <preference name="FadeSplashScreen" value="false"/>
+
 <preference name="AutoHideSplashScreen" value="false"/>
+```
+
+```
+cordova plugin add cordova-plugin-baidumaplocation --variable ANDROID_KEY="SFG1rDM4Bdz0uXb5GtHKky809U4nVk2w" --variable IOS_KEY="0hTjBKQnfxQwq3HAHivgvl0bs6LLrqtI"
+
 ```
 
 ## 常用命令
