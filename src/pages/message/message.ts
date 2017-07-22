@@ -7,6 +7,7 @@ import {Http} from "@angular/http";
 import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
 import { Geolocation } from '@ionic-native/geolocation';
+declare var navigator;
 
 @Component({
   selector: 'page-message',
@@ -140,8 +141,9 @@ export class MessagePage {
   getGeoLocation(){
     this.geolocation.getCurrentPosition().then((res) => {
       this.alertCtrl.create({
-        title: '位置信息',
+        title: '位置信息native',
         subTitle: JSON.stringify(res),
+        message:JSON.stringify(this.geolocation),
         buttons: ['OK']
       }).present();
     }).catch((error) => {
@@ -160,6 +162,23 @@ export class MessagePage {
     //   }).present();
     // },(error) => {
     // });
+
+    navigator.geolocation.getCurrentPosition((res) => {
+
+        this.alertCtrl.create({
+          title: '位置信息baidu',
+          subTitle: JSON.stringify(res),
+          message:JSON.stringify(navigator),
+          buttons: ['OK']
+        }).present();
+      },(error) => {
+        this.alertCtrl.create({
+          title: '错误',
+          subTitle: JSON.stringify(error),
+          buttons: ['OK']
+        }).present();
+      });
+
   }
 
 }

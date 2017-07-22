@@ -23,7 +23,7 @@ export class PersonPage {
 
   loginOut(){
     this.userData.logout().then(()=>{
-      this.navCtrl.push(LoginPage)
+      this.navCtrl.setRoot(LoginPage)
     })
   }
 

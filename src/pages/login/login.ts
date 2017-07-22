@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, NavController} from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, ViewController} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TabsPage} from "../tabs/tabs";
 import { LOGIN }  from '../../api/api';
@@ -19,7 +19,7 @@ export class LoginPage {
               private formBuilder: FormBuilder,
               private loadingCtrl: LoadingController,
               private httpService:HttpService,
-              private userData:UserData) {
+              private userData:UserData,public viewController:ViewController) {
 
     this.loginForm = this.formBuilder.group({
       user: ['wjchen', Validators.required],
@@ -39,7 +39,10 @@ export class LoginPage {
       this.httpService.post(LOGIN,this.loginForm.value).subscribe((res)=>{
         //登录信息存储到localStage,再跳转主页
         this.userData.loginSuccess(this.loginForm.value.user).then(()=>{
-          this.navCtrl.push(TabsPage);
+          // this.navCtrl.ro(TabsPage);
+          // this.viewController.dismiss();
+
+          this.navCtrl.setRoot(TabsPage);
         });
       })
 
