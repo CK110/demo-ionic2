@@ -54,6 +54,7 @@ import {ModalFromRightEnter, ModalFromRightLeave, ModalScaleEnter, ModalScaleLea
 import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
 import { Geolocation } from '@ionic-native/geolocation';
+import {SMS} from "@ionic-native/sms";
 
 
 const Custom_Provides =[
@@ -72,25 +73,19 @@ const Native_Provides=[
   Toast,
   TouchID,
   DatePicker,
-
   AppAvailability, // 其他app是否可用
   InAppBrowser, //打开其他app
-
   BarcodeScanner, //二维码
   Camera, // 拍照
   PhotoViewer, // 照片查看
   AppVersion, //查看当前应用版本
-
   File,// 允许文件读写
   FileTransfer, //上传下载文件
-
   AppUpdate, // 应用更新 for android
   Device, // 获取设备信息
-
   EmailComposer,//邮件相关
-
   Geolocation, //获取手机当前地理信息
-
+  SMS,//  短信
 ];
 
 const Native_Module=[

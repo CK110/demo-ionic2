@@ -176,7 +176,7 @@ export class CompanyPage {
    * 打电话
    */
   call(number:string){
-    this.callNumber.callNumber(number, true)
+    this.callNumber.callNumber(number, false)
       .then(() => console.log('拨打电话:'+number))
       .catch(() => console.log('拨打电话catch异常:'+number+''));
   }

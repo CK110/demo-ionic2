@@ -9,13 +9,88 @@
 
 <ion-content>
 
-  <ion-list>
    <ion-item>
      <div class="profile-info" text-center>
        <img class="profile-image" src="assets/images/profile.png" tappable imageViewer>
        <h3 class="profile-name">周杰</h3>
      </div>
    </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <div class="detail-header">
+        工号
+      </div>
+      <div class="detail-content">
+        200507040339 | 在职
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div class="detail-header">
+        毕业院校 | 专业 |学历
+      </div>
+      <div class="detail-content">
+        华南理工大学 | 网络工程 | 本科
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="detail-header">
+        毕业时间
+      </div>
+      <div class="detail-content">
+        xxxx
+      </div>
+    </ion-item>
+    <button ion-item (click)="callORSms('+86-1850310203422')">
+      <div class="detail-header">
+        手机
+      </div>
+      <div class="detail-content" >
+        +86-18503102034
+      </div>
+    </button>
+    <button ion-item (click)="sendEmail('wjchen@zjft.com')">
+      <div class="detail-header">
+          紫金邮箱
+        </div>
+        <div class="detail-content">
+          wjchen@zjft.com
+        </div>
+    </button>
   </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <div class="detail-header">
+        公司 | 部门 | 职位
+      </div>
+      <div class="detail-content">
+        深圳  |  产品测试部 | 副经理
+      </div>
+    </ion-item>
+
+
+    <ion-item>
+      <div class="detail-header">
+        入职日期
+      </div>
+      <div class="detail-content">
+        2005.7.4
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div class="detail-header">
+        试用到期日期
+      </div>
+      <div class="detail-content">
+        2005.10.4
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+
 
 </ion-content>
