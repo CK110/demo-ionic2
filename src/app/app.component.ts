@@ -96,16 +96,14 @@ export class MyApp {
   assertJPush(){
     this.jPush.init().then((res)=>{
       console.log("jPush.init() sucess"+ JSON.stringify(res));
-
-      // JPush服务器给客户端返回一个唯一的该设备的标识
-      this.jPush.getRegistrationID().then((res)=>{
-        console.log( `After Init getRegistrationID() --> ${JSON.stringify(res)}` )
-      })
-
-
     }).catch((err)=>{
       console.log("jPush.init() err "+ JSON.stringify(err));
     });
+
+    //JPush服务器给客户端返回一个唯一的该设备的标识
+    this.jPush.getRegistrationID().then((res)=>{
+      console.log( `getRegistrationID() --> ${JSON.stringify(res)}` )
+    })
 
     this.userData.getUsername().then((username)=>{
       this.jPush.setAlias(''+username);
@@ -119,10 +117,6 @@ export class MyApp {
       console.log("setTags() error --->" + JSON.stringify(error));
     })
 
-    // JPush服务器给客户端返回一个唯一的该设备的标识
-    // this.jPush.getRegistrationID().then((res)=>{
-    //   console.log( `getRegistrationID() --> ${JSON.stringify(res)}` )
-    // })
 
     // 判断系统设置中是否允许当前应用推送
     this.jPush.getUserNotificationSettings().then((result)=>{
