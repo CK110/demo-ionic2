@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {ModalController, NavController} from 'ionic-angular';
+import {AlertController, ModalController, NavController} from 'ionic-angular';
 import {ErrandApprovePage} from "../../oa/errand/approve/approve";
 import {FilterPage} from "./filter/filter";
+import {NativeService} from "../../providers/native-service";
 
 @Component({
   selector: 'page-todo',
@@ -9,28 +10,60 @@ import {FilterPage} from "./filter/filter";
 })
 export class TodoPage {
 
+  brokenNetwork: boolean = false;
+
   type: string = "myApprove"; // 审批类型: 待我审批/我申请的
 
-  todolist:any[]=[
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-    {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'}
-  ];
+  todolist:any[];
 
-  constructor(public navCtrl: NavController,  public modalCtrl: ModalController) {
+
+
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController,
+              public alertController:AlertController,
+              public nativeService:NativeService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TodoPage');
+  }
+
+  ionViewWillEnter(){
+    if (!this.nativeService.isConnecting()) {
+      this.brokenNetwork = true;
+    }else {
+
+      this.alertController.create({
+        title: '每次进入TodoTab',
+        message: '请求数据',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+
+              this.todolist =[
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'}
+              ];
+            }
+          }
+        ]
+      }).present();
+    }
+
+
   }
 
   /**

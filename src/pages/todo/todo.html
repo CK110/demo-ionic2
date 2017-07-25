@@ -27,6 +27,15 @@
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
+  <ion-item *ngIf="brokenNetwork" style="background-color: #efcdcd;">
+    <div style="display: flex;align-items: center;color:#ef4659;">
+      <ion-icon name="alert" style="margin-left: 10px; "></ion-icon>
+      <p style="margin-left: 20px;">
+        当前网络不可用，请检查你的网络！
+      </p>
+    </div>
+  </ion-item>
+
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
       <button ion-item (click)="openNavDetailsPage('errand')">
