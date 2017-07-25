@@ -5,6 +5,7 @@ import {TabsPage} from "../tabs/tabs";
 import { LOGIN }  from '../../api/api';
 import {HttpService} from "../../providers/http-service";
 import {UserData} from "../../providers/user-data";
+import {JMessageHelper} from "../../providers/jmessage-helper";
 
 @IonicPage()
 @Component({
@@ -19,7 +20,8 @@ export class LoginPage {
               private formBuilder: FormBuilder,
               private loadingCtrl: LoadingController,
               private httpService:HttpService,
-              private userData:UserData,public viewController:ViewController) {
+              private userData:UserData,
+              public viewController:ViewController,public jMessageHelper:JMessageHelper) {
 
     this.loginForm = this.formBuilder.group({
       user: ['wjchen', Validators.required],
@@ -37,6 +39,9 @@ export class LoginPage {
       loading.present();
 
       this.httpService.post(LOGIN,this.loginForm.value).subscribe((res)=>{
+
+        this.jMessageHelper.login(this.loginForm.value.user,this.loginForm.value.password);
+
         //登录信息存储到localStage,再跳转主页
         this.userData.loginSuccess(this.loginForm.value.user).then(()=>{
           // this.navCtrl.ro(TabsPage);

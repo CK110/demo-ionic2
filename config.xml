@@ -126,6 +126,9 @@
     <plugin name="cordova-sms-plugin" spec="^0.1.11" />
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="jmessage-phonegap-plugin" spec="^2.4.9">
+        <variable name="APP_KEY" value="374861c386f94e9e11d55eec" />
+    </plugin>
     <plugin name="jpush-phonegap-plugin" spec="^3.2.1">
         <variable name="APP_KEY" value="374861c386f94e9e11d55eec" />
     </plugin>

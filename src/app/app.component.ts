@@ -56,7 +56,7 @@ export class MyApp {
 
 
       this.registerBackButtonAction();
-      this.assertJPush(); //极光配置
+      // this.assertJPush(); //极光配置
       // this.nativeService.detectionUpgrade();//检测app是否升级
 
 

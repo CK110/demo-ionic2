@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 
 import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
-import { MessagePage } from '../pages/message/message';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,13 +54,16 @@ import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
 import { Geolocation } from '@ionic-native/geolocation';
 import {SMS} from "@ionic-native/sms";
+import {MessagePageModule} from "../pages/message/message.module";
+import {JMessageHelper} from "../providers/jmessage-helper";
 
 
 const Custom_Provides =[
   HttpService,
   GlobalData,
   UserData,
-  NativeService
+  NativeService,
+  JMessageHelper
 ]
 
 const Native_Provides=[
@@ -103,7 +105,6 @@ const Third_Comonent_Module =[
 ];
 
 const Tab_Root_Page = [
-  MessagePage,
   ContactPage,
 ];
 const Tab_Root_Page_Module = [
@@ -113,7 +114,8 @@ const Tab_Root_Page_Module = [
   ContactsPageModule,
   ToolPageModule,
   PersonPagePageModule,
-  TodoPageModule
+  TodoPageModule,
+  MessagePageModule
 ];
 
 

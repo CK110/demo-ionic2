@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {UserData} from "../../providers/user-data";
 import {LoginPage} from "../login/login";
+import {JMessageHelper} from "../../providers/jmessage-helper";
 
 @Component({
   selector: 'page-person',
@@ -10,7 +11,7 @@ import {LoginPage} from "../login/login";
 export class PersonPage {
 
   constructor(public navCtrl: NavController,
-              public userData:UserData) {
+              public userData:UserData, public jMessageHelper:JMessageHelper) {
   }
 
   ionViewDidLoad() {
@@ -22,6 +23,8 @@ export class PersonPage {
   }
 
   loginOut(){
+    this.jMessageHelper.loginOut();
+
     this.userData.logout().then(()=>{
       this.navCtrl.setRoot(LoginPage)
     })

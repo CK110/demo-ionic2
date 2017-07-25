@@ -1,0 +1,54 @@
+<!--
+  Generated template for the DemoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>demo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-list>
+    <ion-item>
+      <ion-note item-start>
+        公告
+      </ion-note>
+      welcome: {{username}}
+      <br>
+      date:{{NativeDate}}
+      <ion-note item-end>
+        更多
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>html Date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="htmlDate"></ion-datetime>
+  </ion-item>
+
+  <button ion-button full (click)="onClick()">native datepick</button>
+
+
+  <button ion-button full (click)="getDeviceInfo()">查看设备信息</button>
+
+  <button ion-button full (click)="sendMail()">发邮件</button>
+
+  <button ion-button full (click)="getGeoLocation()">获取位置信息</button>
+  <button ion-button full (click)="getGeoLationByBaidu()" >百度定位</button>
+
+  <button ion-button full (click)="jMessage()" >登录jMessage</button>
+  <div>
+    接收的消息:{{message | json }}
+  </div>
+
+
+
+</ion-content>
