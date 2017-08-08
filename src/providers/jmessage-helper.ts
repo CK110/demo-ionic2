@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import {AlertController} from "ionic-angular";
 declare var window:any;
 
 @Injectable()
 export class JMessageHelper {
-  constructor() { }
+  constructor(public alertCtrl:AlertController) { }
 
   /**
    * 注册
@@ -45,12 +46,27 @@ export class JMessageHelper {
 
   }
 
-  getAllMessages(){
-    window.JMessage.getAllMessages('single', 'kaichen', '', (event)=>{
-      console.log(event);
-    }, ()=>{
+  /**
+   * 监听消息
+   */
+  onReceiveMessage(){
 
-    })
+    /**
+     * 增加消息监听
+     */
+    document.addEventListener('jmessage.onReceiveMessage', (event:any)=>{
+      var conversation = event.conversation	// 会话对象
+      var messageArr = event.messageList		// 离线消息数组
+
+      console.log(JSON.stringify(conversation));
+      console.log(JSON.stringify(messageArr));
+
+      this.alertCtrl.create({
+        title: 'jmessage onReceiveMessage',
+        subTitle: JSON.stringify(event),
+        buttons: ['OK']
+      }).present();
+    }, false)
 
   }
 

@@ -40,7 +40,7 @@ export class LoginPage {
 
       this.httpService.post(LOGIN,this.loginForm.value).subscribe((res)=>{
 
-        this.jMessageHelper.login(this.loginForm.value.user,this.loginForm.value.password);
+        // this.jMessageHelper.login(this.loginForm.value.user,this.loginForm.value.password);
 
         //登录信息存储到localStage,再跳转主页
         this.userData.loginSuccess(this.loginForm.value.user).then(()=>{

@@ -56,12 +56,11 @@ export class MyApp {
 
 
       this.registerBackButtonAction();
-      // this.assertJPush(); //极光配置
+      this.assertJPush(); //极光配置
       // this.nativeService.detectionUpgrade();//检测app是否升级
 
 
       this.platform.resume.subscribe(()=>{
-        this.assertNetwork();
         this.assertCodePush();
         this.assertLockScreen();
         // this.nativeService.detectionUpgrade();//检测app是否升级
@@ -94,64 +93,65 @@ export class MyApp {
    * 极光推送
    */
   assertJPush(){
-    this.jPush.init().then((res)=>{
-      console.log("jPush.init() sucess"+ JSON.stringify(res));
-    }).catch((err)=>{
-      console.log("jPush.init() err "+ JSON.stringify(err));
-    });
-
-    //JPush服务器给客户端返回一个唯一的该设备的标识
-    this.jPush.getRegistrationID().then((res)=>{
-      console.log( `getRegistrationID() --> ${JSON.stringify(res)}` )
-    })
+    // this.jPush.init().then((res)=>{
+    //   console.log("jPush.init() sucess"+ JSON.stringify(res));
+    // }).catch((err)=>{
+    //   console.log("jPush.init() err "+ JSON.stringify(err));
+    // });
+    //
+    // //JPush服务器给客户端返回一个唯一的该设备的标识
+    // this.jPush.getRegistrationID().then((res)=>{
+    //   console.log( `getRegistrationID() --> ${JSON.stringify(res)}` )
+    // })
 
     this.userData.getUsername().then((username)=>{
       this.jPush.setAlias(''+username);
+      console.log('jpush setAlias:' + username);
     });
 
     //设置tag，可以区分ios，android
-    console.log("setTags() platforms--->"+ this.platform.platforms());
-    this.jPush.setTags(this.platform.platforms()).then((res)=>{
-      console.log("setTags() res --->" + JSON.stringify(res));
-    }).catch((error)=>{
-      console.log("setTags() error --->" + JSON.stringify(error));
-    })
-
-
-    // 判断系统设置中是否允许当前应用推送
-    this.jPush.getUserNotificationSettings().then((result)=>{
-      if(result == 0) {
-        console.log("系统设置中已关闭应用推送" + result);
-      } else if(result > 0) {
-        console.log("系统设置中打开了应用推送" + result);
-      }
-    })
+    // console.log("setTags() platforms--->"+ this.platform.platforms());
+    // this.jPush.setTags(this.platform.platforms()).then((res)=>{
+    //   console.log("setTags() res --->" + JSON.stringify(res));
+    // }).catch((error)=>{
+    //   console.log("setTags() error --->" + JSON.stringify(error));
+    // })
+    //
+    //
+    // // 判断系统设置中是否允许当前应用推送
+    // this.jPush.getUserNotificationSettings().then((result)=>{
+    //   if(result == 0) {
+    //     console.log("系统设置中已关闭应用推送" + result);
+    //   } else if(result > 0) {
+    //     console.log("系统设置中打开了应用推送" + result);
+    //   }
+    // })
 
     // 获取点击通知内容
-    this.jPush.openNotification().subscribe((event)=>{
-      console.log(`openNotification()--> ${JSON.stringify(event)}`)
-      let content
-      if(this.nativeService.isAndroid()) {
-        content = event
-        alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
-      } else {
-        content = event.aps
-        alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
-      }
-    });
+    // this.jPush.openNotification().subscribe((event)=>{
+    //   console.log(`openNotification()--> ${JSON.stringify(event)}`)
+    //   let content
+    //   if(this.nativeService.isAndroid()) {
+    //     content = event
+    //     alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+    //   } else {
+    //     content = event.aps
+    //     alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+    //   }
+    // });
 
     //获取通知内容
-    this.jPush.receiveNotification().subscribe((event)=>{
-      console.log(`receiveNotification() --> ${JSON.stringify(event)}`)
-      let content
-      if(this.nativeService.isAndroid()) {
-        content = event
-        alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
-      } else {
-        content = event.aps
-        alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
-      }
-    });
+    // this.jPush.receiveNotification().subscribe((event)=>{
+    //   console.log(`receiveNotification() --> ${JSON.stringify(event)}`)
+    //   let content
+    //   if(this.nativeService.isAndroid()) {
+    //     content = event
+    //     alert(`Android 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+    //   } else {
+    //     content = event.aps
+    //     alert(`ios 获取点击通知内容 openNotification--> ${JSON.stringify(content)}`)
+    //   }
+    // });
 
     //收到自定义消息时触发这个事件，推荐使用事件的方式传递。
     this.jPush.receiveMessage().subscribe((event)=>{
@@ -162,29 +162,30 @@ export class MyApp {
       } else {
         message = event.content;
       }
-      alert("收到自定义消息时 receiveMessage:" + message)
+      alert("收到自定义消息receiveMessage:" + message)
     });
 
+    // this.jPush.getApplicationIconBadgeNumber().then((data)=>{
+    //   console.log("应用图标badge数量"+ data)
+    //   alert("应用图标badge数量"+ data)
+    // });
+    //
+    // this.jPush.setApplicationIconBadgeNumber(2).then((data)=>{
+    //   console.log("设置应用图标badge数量"+ data)
+    //   alert("设置图标badge数量"+ data)
+    // }).catch((error)=>{
+    //   console.log("设置应用图标badge数量error"+ error)
+    // });
+
+
     //ios 应用程序处于后台时收到推送会触发该事件，可以在后台执行一段代码。
-    document.addEventListener("jpush.backgroundNotification", function(event) {
-      var alertContent;
-      alertContent = event['aps'].alert;
-      alert("ios backgroundNotification:" + alertContent);
-    } , false)
+    // document.addEventListener("jpush.backgroundNotification", function(event) {
+    //   var alertContent;
+    //   alertContent = event['aps'].alert;
+    //   alert("ios backgroundNotification:" + alertContent);
+    // } , false)
 
 
-  }
-
-  /**
-   * 检查网络
-   */
-  assertNetwork() {
-    if (!this.nativeService.isConnecting()) {
-      this.toastCtrl.create({
-        message: '未检测到网络,请连接网络',
-        position: 'top'
-      }).present();
-    }
   }
 
   /**

@@ -78,10 +78,12 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
     <platform name="android">
-        <preference name="CodePushDeploymentKey" value="nAjS8A0ecn3h0OeZNovNj97a0XRY42f93449-3e76-4657-a3af-24284232a54e" />
+        <preference name="CodePushDeploymentKey" value="EeR8pVGOKNFk9CpdiVBNcOLLEme24ksvOXqog" />
+        <preference name="CodePushServerUrl" value="http://10.2.21.97:3000" />
     </platform>
     <platform name="ios">
-        <preference name="CodePushDeploymentKey" value="aH-h4xcA_QDM5bwhZEWwX49b1jkJ42f93449-3e76-4657-a3af-24284232a54e" />
+        <preference name="CodePushDeploymentKey" value="bykcBbEoauemzhT4ZsqF45Iub5Xi4ksvOXqog" />
+        <preference name="CodePushServerUrl" value="http://10.2.21.97:3000" />
         <config-file parent="LSApplicationQueriesSchemes" platform="ios" target="*-Info.plist">
             <array>
                 <string>baidumap</string>

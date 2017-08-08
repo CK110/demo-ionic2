@@ -1,25 +1,28 @@
-<ion-content >
-  <div class="logo">
-    <img src="assets/icon/favicon.ico" alt="Ionic logo">
+<ion-content [ngStyle]="{'background-image': 'url(assets/svg/login.svg)',
+    'background-position':'center', 'background-repeat':'no-repeat', 'background-size':'cover'} ">
+
+  <div>
+    <div class="head">
+      <img src="assets/svg/zjft.svg" alt="zjft logo">
+
+      <h1>紫金移动办公</h1>
+    </div>
+
+    <div style="padding: 0 10%;">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <ion-list no-lines>
+          <ion-item>
+            <ion-input type="text" formControlName="user" placeholder="用户名"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" formControlName="password" placeholder="密码"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <button ion-button full type="submit" style="margin-top: 12px;" [disabled]="!loginForm.valid" block>登录</button>
+
+      </form>
+    </div>
   </div>
-
-
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <ion-list no-lines>
-      <ion-item>
-        <ion-input type="text" formControlName="user" placeholder="用户名"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" formControlName="password" placeholder="密码"></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <ion-row responsive-sm>
-      <ion-col>
-        <button ion-button type="submit" [disabled]="!loginForm.valid" block>登录</button>
-      </ion-col>
-    </ion-row>
-  </form>
-
 
 </ion-content>

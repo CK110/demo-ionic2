@@ -17,6 +17,62 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
+  3333333333333
+  4444444444444
+  5555555555555
+  7777777777777
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/icon/favicon.ico">
+        </ion-avatar>
+        <h2 style="font-weight: 500;color: #524f4f" >代办提醒</h2>
+        <h3 style="color: #666666">钟云黉的差旅申请</h3>
+        <h4 style="color: red">[待审批]</h4>
+        <ion-badge item-end color="danger">10</ion-badge>
+      </ion-item>
+
+      <ion-item-options side="right" (ionSwipe)="saveItem(item)">
+        <button ion-button expandable (click)="saveItem(item)" style="background-color: red">
+          删除
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/icon/favicon.ico">
+        </ion-avatar>
+        <h2>工作通知</h2>
+        <ion-badge item-end color="danger">1</ion-badge>
+      </ion-item>
+      <ion-item-options side="right" (ionSwipe)="saveItem(item)">
+        <button ion-button expandable (click)="saveItem(item)" style="background-color: red">
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/icon/favicon.ico">
+        </ion-avatar>
+        <h2>新消息</h2>
+        <ion-badge item-end color="danger">1</ion-badge>
+      </ion-item>
+      <ion-item-options side="right" (ionSwipe)="saveItem(item)">
+        <button ion-button expandable (click)="saveItem(item)" style="background-color: red">
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item }}
@@ -26,5 +82,6 @@
   <button ion-button full (click)="incrementBadge()">增加badge</button>
   <button ion-button full (click)="decrementBadge()">减小badge</button>
   <button ion-button full (click)="openDemo()">打开demo</button>
+
 
 </ion-content>

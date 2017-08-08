@@ -38,20 +38,7 @@
 
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'myApprove'">
-      <button ion-item (click)="openNavDetailsPage('errand')">
-        <!--<button ion-item [navPush]="pushPage">-->
-
-        <div class="micro-app-todo">
-          <ion-icon name="gongjia" class="micro-app-corner-icon" style="background: #ffd12f"></ion-icon>
-          <div class="micro-app-detail">
-            <h3>公假单</h3>
-            <p>
-              钟云黉 - 2017-07-06
-            </p>
-          </div>
-        </div>
-      </button>
-      <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
+      <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage('errand')">
         <div class="micro-app-todo">
           <ion-icon name="xuding" class="micro-app-corner-icon"></ion-icon>
           <div class="micro-app-detail">

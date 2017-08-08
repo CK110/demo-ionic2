@@ -32,6 +32,7 @@ export class TodoPage {
     if (!this.nativeService.isConnecting()) {
       this.brokenNetwork = true;
     }else {
+      this.brokenNetwork = false;
 
       this.alertController.create({
         title: '每次进入TodoTab',

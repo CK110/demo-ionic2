@@ -13,9 +13,9 @@ import {Events} from "ionic-angular";
 export class TabsPage {
 
   tab1Root = MessagePage;
-  tab1BadgeCount : number = 0;
+  tab1BadgeCount : number = 12;
   tab2Root = TodoPage;
-  tab2BadgeCount : number = 0;
+  tab2BadgeCount : number = 10;
 
   tab3Root = OfficePage;
   tab4Root = ContactsPage;

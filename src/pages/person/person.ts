@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {App, NavController} from 'ionic-angular';
 import {UserData} from "../../providers/user-data";
 import {LoginPage} from "../login/login";
 import {JMessageHelper} from "../../providers/jmessage-helper";
@@ -11,7 +11,7 @@ import {JMessageHelper} from "../../providers/jmessage-helper";
 export class PersonPage {
 
   constructor(public navCtrl: NavController,
-              public userData:UserData, public jMessageHelper:JMessageHelper) {
+              public userData:UserData, public jMessageHelper:JMessageHelper,public app:App) {
   }
 
   ionViewDidLoad() {
@@ -23,10 +23,10 @@ export class PersonPage {
   }
 
   loginOut(){
-    this.jMessageHelper.loginOut();
+    // this.jMessageHelper.loginOut();
 
     this.userData.logout().then(()=>{
-      this.navCtrl.setRoot(LoginPage)
+      this.app.getRootNav().setRoot(LoginPage);
     })
   }
 

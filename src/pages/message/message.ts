@@ -57,5 +57,9 @@ export class MessagePage {
     this.navCtrl.push(DemoPage);
   }
 
+  saveItem(){
+
+  }
+
 
 }
