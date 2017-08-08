@@ -2,23 +2,36 @@ import {Injectable} from "@angular/core";
 import {Http, RequestMethod, RequestOptions, RequestOptionsArgs,Headers} from "@angular/http";
 import {Observable} from "rxjs";
 import {GlobalData} from "./global-data";
+import {AlertController, Loading, LoadingController} from "ionic-angular";
+import {REQUEST_TIMEOUT} from "./config";
+import {NativeService} from "./native-service";
 
 @Injectable()
 export class HttpService {
 
-  constructor(private http:Http,private globalData: GlobalData,){
+  private loading: Loading;
+  private loadingIsOpen: boolean = false;
+
+  constructor(private http:Http,private globalData: GlobalData,
+              private loadingCtrl:LoadingController,private nativeService:NativeService,
+              private alertCtrl:AlertController){
 
   }
 
   public request(url: string, options: RequestOptionsArgs): Observable<Response> {
     this.optionsAddToken(options);
+
     return Observable.create(observer => {
-      // this.nativeService.showLoading();
+      this.showLoading();
       console.log('%c 请求前 %c', 'color:blue', '', 'url', url, 'options', options);
+
       this.http.request(url, options).subscribe(res => {
-        // this.nativeService.hideLoading();
+        this.hideLoading();
+
         console.log('%c 请求成功 %c', 'color:green', '', 'url', url, 'options', options, 'res', res);
+
         observer.next(res);
+
       }, err => {
         this.requestFailed(url, options, err);//处理请求失败
         observer.error(err);
@@ -115,25 +128,25 @@ export class HttpService {
    * @param err
    */
   private requestFailed(url: string, options: RequestOptionsArgs, err): void {
-    // this.nativeService.hideLoading();
+    this.hideLoading();
     console.log('%c 请求失败 %c', 'color:red', '', 'url', url, 'options', options, 'err', err);
-    // let msg = '请求发生异常', status = err.status;
-    // if (!this.nativeService.isConnecting()) {
-    //   msg = '请求失败，请连接网络';
-    // } else {
-    //   if (status === 0) {
-    //     msg = '请求失败，请求响应出错';
-    //   } else if (status === 404) {
-    //     msg = '请求失败，未找到请求地址';
-    //   } else if (status === 500) {
-    //     msg = '请求失败，服务器出错，请稍后再试';
-    //   }
-    // }
-    // this.alertCtrl.create({
-    //   title: msg,
-    //   subTitle: '状态码:' + status,
-    //   buttons: [{text: '确定'}]
-    // }).present();
+    let msg = '请求发生异常', status = err.status;
+    if (!this.nativeService.isConnecting()) {
+      msg = '请求失败，请连接网络';
+    } else {
+      if (status === 0) {
+        msg = '请求失败，请求响应出错';
+      } else if (status === 404) {
+        msg = '请求失败，未找到请求地址';
+      } else if (status === 500) {
+        msg = '请求失败，服务器出错，请稍后再试';
+      }
+    }
+    this.alertCtrl.create({
+      title: msg,
+      subTitle: '状态码:' + status,
+      buttons: [{text: '确定'}]
+    }).present();
   }
 
   /**
@@ -150,5 +163,38 @@ export class HttpService {
       });
     }
   }
+
+
+  /**
+   * 显示loading
+   * @param content 显示的内容
+   */
+  showLoading(content: string = ''): void {
+    if (!this.globalData.showLoading) {
+      return;
+    }
+    if (!this.loadingIsOpen) {
+      this.loadingIsOpen = true;
+      this.loading = this.loadingCtrl.create({
+        content: content
+      });
+      this.loading.present();
+      setTimeout(() => {
+        this.loadingIsOpen && this.loading.dismiss();
+        this.loadingIsOpen = false;
+      }, REQUEST_TIMEOUT);
+    }
+  };
+
+  /**
+   * 关闭loading
+   */
+  hideLoading(): void {
+    if (!this.globalData.showLoading) {
+      this.globalData.showLoading = true;
+    }
+    this.loadingIsOpen && this.loading.dismiss();
+    this.loadingIsOpen = false;
+  };
 
 }

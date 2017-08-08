@@ -5,7 +5,7 @@ import {Network} from "@ionic-native/network";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Observable} from "rxjs";
 import {AppVersion} from "@ionic-native/app-version";
-import {APK_DOWNLOAD, APK_VERSION_UPDATE, APP_DOWNLOAD} from "./constants";
+import {APK_DOWNLOAD, APK_VERSION_UPDATE, APP_DOWNLOAD} from "./config";
 import { FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { AppUpdate } from '@ionic-native/app-update';

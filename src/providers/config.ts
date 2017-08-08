@@ -12,6 +12,10 @@ export const APK_DOWNLOAD = 'http://omzo595hi.bkt.clouddn.com/ionic2_tabs.apk';/
  * </update>
  * @type {string}
  */
-export const APK_VERSION_UPDATE ='http://your-remote-api.com/update.xml'
+export const APK_VERSION_UPDATE ='http://your-remote-api.com/update.xml';
+
+
+export const REQUEST_TIMEOUT = 12000;//请求超时时间,单位为毫秒
+
 
 
