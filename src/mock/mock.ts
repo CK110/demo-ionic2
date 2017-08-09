@@ -20,7 +20,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(historyAPI.getApvHistory(connection.request));
       }
 
-      if(Mock.onPost('/api/login')){
+      if(Mock.onPost('/mock/api/login')){
         connection.mockRespond(loginAPI.login(connection.request));
       }
 

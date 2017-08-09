@@ -56,6 +56,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import {SMS} from "@ionic-native/sms";
 import {MessagePageModule} from "../pages/message/message.module";
 import {JMessageHelper} from "../providers/jmessage-helper";
+import {StorageService} from "../providers/storage-service";
+import {HttpClient} from "../providers/http-client";
 
 
 const Custom_Provides =[
@@ -63,7 +65,9 @@ const Custom_Provides =[
   GlobalData,
   UserData,
   NativeService,
-  JMessageHelper
+  JMessageHelper,
+  StorageService,
+  HttpClient
 ]
 
 const Native_Provides=[

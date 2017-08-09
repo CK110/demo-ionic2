@@ -9,6 +9,7 @@ import {APK_DOWNLOAD, APK_VERSION_UPDATE, APP_DOWNLOAD} from "./config";
 import { FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { AppUpdate } from '@ionic-native/app-update';
+import { Device } from '@ionic-native/device';
 
 
 @Injectable()
@@ -21,7 +22,8 @@ export class NativeService{
               public appVersion:AppVersion,
               public file: File,
               private transfer: FileTransfer,
-              public appUpdate: AppUpdate) {
+              public appUpdate: AppUpdate,
+              private device: Device) {
 
   }
 
@@ -146,7 +148,16 @@ export class NativeService{
     });
   }
 
-
-
+  /**
+   * 获取设备uuid
+   * @returns {string}
+   */
+  getDeviceUUID():string{
+    if(this.isMobile()){
+      return this.device.uuid;
+    }else {
+      return "00000000000001"
+    }
+  }
 
 }
