@@ -8,53 +8,58 @@
 
 
 <ion-content >
-  <ion-list>
-    <ion-item>
-      <ion-label fixed><h3>派遣人</h3></ion-label>
-      <ion-input type="text" placeholder="请选择(必填)" text-right></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed><h3>项目编号</h3></ion-label>
-      <ion-input type="text" placeholder="请选择(必填)" text-right></ion-input>
-    </ion-item>
-  </ion-list>
 
-  <ion-list>
-    <ion-item>
-      <ion-label fixed><h3>出发地</h3></ion-label>
-      <ion-input type="text" placeholder="例如深圳(必填)" text-right></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed><h3>目的地</h3></ion-label>
-      <ion-input type="text" placeholder="例如深圳(必填)" text-right></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed><h3>预计出发日期</h3></ion-label>
-        <ion-input type="text" placeholder="请选择(必填)" text-right></ion-input>
+  <form [formGroup]="addForm">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>{{model.addUser}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)"  formControlName="addUser"></ion-input>
+      </ion-item>
 
-    </ion-item>
-    <ion-item>
-      <ion-label fixed><h3>预计出差天数</h3></ion-label>
-      <ion-input type="text" placeholder="请输入天数(必填)" text-right></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label fixed>项目编号</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)"  formControlName="number"></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-list>
-    <ion-item>
-      <ion-label fixed><h3>出差事由</h3></ion-label>
-      <ion-textarea placeholder="请输入出差事由" text-right></ion-textarea>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>出发地</ion-label>
+        <ion-input type="text" placeholder="例如深圳(必填)" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>目的地</ion-label>
+        <ion-input type="text" placeholder="例如深圳(必填)" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>预计出发日期</ion-label>
+          <ion-input type="text" placeholder="请选择(必填)" ></ion-input>
+
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>预计出差天数</ion-label>
+        <ion-input type="text" placeholder="请输入天数(必填)" ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>出差事由</ion-label>
+        <ion-textarea placeholder="请输入出差事由" ></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+  </form>
 
 </ion-content>
 
 <ion-footer>
   <div style="display: flex;align-items: center;background: #488aff;">
     <div style=" width: 50%; border-right: 1px solid #fff;" >
-      <button ion-button full>提交</button>
+      <button ion-button full (click)="addSubmit()">提交</button>
     </div>
     <div style="width: 50%;">
-      <button ion-button full>保存</button>
+      <button ion-button full (click)="addSave()">保存</button>
     </div>
   </div>
 </ion-footer>

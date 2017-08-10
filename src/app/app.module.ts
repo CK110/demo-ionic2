@@ -58,6 +58,7 @@ import {MessagePageModule} from "../pages/message/message.module";
 import {JMessageHelper} from "../providers/jmessage-helper";
 import {StorageService} from "../providers/storage-service";
 import {HttpClient} from "../providers/http-client";
+import {ValidateService} from "../providers/validate-service";
 
 
 const Custom_Provides =[
@@ -67,7 +68,8 @@ const Custom_Provides =[
   NativeService,
   JMessageHelper,
   StorageService,
-  HttpClient
+  HttpClient,
+  ValidateService
 ]
 
 const Native_Provides=[
