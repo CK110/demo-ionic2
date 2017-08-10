@@ -45,9 +45,10 @@ code-push deployment ls ZJFTOA-iOS -k // 查看
 ```
 
 ```
-git remote add all https://git.oschina.NET/free/Mapper.git
-git remote set-url --add all https://github.com/abel533/Mapper.git
+git remote add all https://git.oschina.NET/xxx/xxx.git
+git remote set-url --add all https://github.com/xxx/xxx.git
 git push all --all
+
 ```
 
 
