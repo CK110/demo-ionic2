@@ -1,13 +1,16 @@
 ## 图标大小
+
 - icon: 1024*1024
 - splash启动画面文件:2732*2732
+
 ```
 $ ionic cordova resources --icon
 $ ionic cordova resources --splash
+
 ```
+
 ```
 <preference name="FadeSplashScreen" value="false"/>
-
 <preference name="AutoHideSplashScreen" value="false"/>
 ```
 
@@ -39,6 +42,12 @@ code-push release-cordova  ZJFTOA-iOS ios -d Production #发布到code-push-serv
 
 
 code-push deployment ls ZJFTOA-iOS -k // 查看
+```
+
+```
+git remote add all https://git.oschina.NET/free/Mapper.git
+git remote set-url --add all https://github.com/abel533/Mapper.git
+git push all --all
 ```
 
 
