@@ -6,3 +6,7 @@ export const TEST = `${Server_Url}/test` ; //登录
 
 //公假单
 export const ERRAND_APP_ADD =`${Server_Url}/oa/attend/errand/submitApp`;
+
+
+//订票
+export const AIR_APP_ADD = `${Server_Url}/oa/routine/air/addBookApp`;

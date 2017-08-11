@@ -29,6 +29,10 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(errandAPI.addSubmit(connection.request));
       }
 
+      if(Mock.onPost('/mock/oa/routine/air/addBookApp')){
+        connection.mockRespond(errandAPI.addSubmit(connection.request));
+      }
+
       // pass through any requests not handled above
       let realHttp = new Http(realBackend, options);
       let requestOptions = new RequestOptions({

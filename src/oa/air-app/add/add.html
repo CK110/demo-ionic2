@@ -13,6 +13,107 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <form [formGroup]="addForm">
+    <ion-list>
+      <button ion-item>
+        <ion-label>{{label.errander}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="errander" text-end></ion-input>
+      </button>
+      <button ion-item>
+        <ion-label>{{label.projectId}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="projectId" text-end></ion-input>
+      </button>
+      <button ion-item>
+        <ion-label>{{label.dispatcher}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="dispatcher" text-end></ion-input>
+      </button>
+      <ion-item>
+        <ion-label>{{label.departDate}}</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" formControlName="departDate" ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{label.reason}}</ion-label>
+        <ion-textarea placeholder="请输入订票事由(必填)" formControlName="reason" text-end></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{label.note}}</ion-label>
+        <ion-textarea placeholder="请输入备注" formControlName="note" text-end></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <!-- 行程明细 -->
+  <ion-list *ngFor="let travel of travelList; let i=index">
+    <ion-item-divider>
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <h4>行程安排({{i+1}})</h4>
+        <a (click)="deleteTravel()">删除</a>
+      </div>
+    </ion-item-divider>
+    <div tappable navPush="AirAppAddTravelPage">
+      <ion-item>
+        <ion-label>{{travelLabel.departPlace}}</ion-label>
+        <ion-input type="text" text-end ngModel="{{travel.departPlace}}" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{travelLabel.arrivePlace}}</ion-label>
+        <ion-input type="text" text-end ngModel="{{travel.arrivePlace}}" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{travelLabel.departTime}}</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" ngModel="{{travel.departTime}}" readonly></ion-datetime>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div style="display: flex;justify-content: center;">
+    <button ion-button style="width: 80%" navPush="AirAppAddTravelPage">
+      <ion-icon name="add" style="margin-right: 30px"></ion-icon>
+      添加行程安排
+    </button>
+  </div>
+
+  <!--<ion-list *ngFor="let travel of travelList; let i=index">-->
+  <!--<ion-item-divider>-->
+  <!--<div style="display: flex;align-items: center;justify-content: space-between;">-->
+  <!--<h4>行程安排({{i+1}})</h4>-->
+  <!--<a (click)="deleteTravel()">删除</a>-->
+  <!--</div>-->
+  <!--</ion-item-divider>-->
+  <!--<div tappable>-->
+  <!--<ion-item>-->
+  <!--<ion-label>{{travelLabel.departPlace}}</ion-label>-->
+  <!--<ion-input type="text" text-end [(ngModel)]="travel.departPlace" ></ion-input>-->
+  <!--</ion-item>-->
+  <!--<ion-item>-->
+  <!--<ion-label>{{travelLabel.arrivePlace}}</ion-label>-->
+  <!--<ion-input type="text" text-end [(ngModel)]="travel.arrivePlace" ></ion-input>-->
+  <!--</ion-item>-->
+  <!--<ion-item>-->
+  <!--<ion-label>{{travelLabel.departTime}}</ion-label>-->
+  <!--<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="travel.departTime" ></ion-datetime>-->
+  <!--</ion-item>-->
+  <!--</div>-->
+  <!--</ion-list>-->
+
+  <!--<div style="display: flex;justify-content: center;">-->
+    <!--<button ion-button style="width: 80%" (click)="add()">-->
+      <!--<ion-icon name="add" style="margin-right: 30px"></ion-icon>-->
+      <!--添加行程安排-->
+    <!--</button>-->
+  <!--</div>-->
 
 </ion-content>
+
+<ion-footer>
+  <div style="display: flex;align-items: center;background: #488aff;">
+    <div style=" width: 50%; border-right: 1px solid #fff;" >
+      <button ion-button full (click)="addSubmit()">提交</button>
+    </div>
+    <div style="width: 50%;">
+      <button ion-button full (click)="addSave()">保存</button>
+    </div>
+  </div>
+</ion-footer>
+
