@@ -10,32 +10,44 @@ export class ValidateService{
   }
 
   /**
-   * 校验表单
+   * 校验表单,按顺序指出第一个验证不通过
    * @param formGroup
    * @param model
    */
-  checkFormBeforeSubmit(formGroup:FormGroup, model:Object):Boolean{
-
-    Object.keys(formGroup.controls).forEach(key => {
+  checkFormBeforeSubmit(formGroup:FormGroup, model:Object):boolean{
+    let result:boolean= true;
+    for (var key in formGroup.controls) {
       const controlErrors: ValidationErrors = formGroup.get(key).errors;
       if (controlErrors != null) {
-        const name = model[key];
-        console.log(name+"为必填");
-        const vm = "为必填"
-        const errorMes= name +vm;
-        this.showErrorMessage(errorMes);
-        return;
+        this.showErrorMessage( model[key] + this.getErrorInfo(controlErrors));
+        result= false;
+        break;
       }
-    });
-
-    return true;
+    }
+    return result;
   }
 
   /**
    * 获取错误的中文信息
    * @param controlErrors
    */
-  getErrorName(controlErrors: ValidationErrors){
+  getErrorInfo(controlErrors: ValidationErrors):string{
+    console.dir(controlErrors);
+
+    let errorInfo:string='';
+    Object.keys(controlErrors).forEach((key)=>{
+      if( key ==="required" ){
+        errorInfo = errorInfo+"必填"
+      }
+      if( key ==="maxlength"){
+        errorInfo = `${errorInfo}最大长度为${controlErrors[key].requiredLength}`
+      }
+      if(true){
+
+      }
+    })
+
+    return errorInfo;
 
   }
 
@@ -43,7 +55,7 @@ export class ValidateService{
     let toast = this.toastCtrl.create({
       message: errorMes,
       position: 'middle',
-      duration: 3000,
+      duration: 1000,
       cssClass:'toast-text-center'
     });
     toast.present();

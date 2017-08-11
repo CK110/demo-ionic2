@@ -49,11 +49,11 @@ export class LoginPage {
       let param = this.loginForm.value;
       param['uuid'] = this.nativeService.getDeviceUUID();
 
-      this.httpService.post(LOGIN,param).map(res => res.json()).subscribe( async (data)=>{
+      this.httpService.post(LOGIN,param).map(res => res.json()).subscribe( async (res)=>{
         // this.jMessageHelper.login(this.loginForm.value.user,this.loginForm.value.password);
-        if(data['code'] === 0){
+        if(res['rc'] === 1){
           //登录信息存储到localStage,再跳转主页
-          await this.storageService.setCurrentUser(data['data'].username,data['data'].token);
+          await this.storageService.setCurrentUser(res['data'].username,res['data'].token);
 
           this.navCtrl.setRoot(TabsPage);
 
@@ -62,7 +62,7 @@ export class LoginPage {
           })
         }else{
           this.toastCtrl.create({
-            message: data['data'].message,
+            message: '用户名密码不匹配',
             duration: 1000,
             position: 'top'
           }).present();

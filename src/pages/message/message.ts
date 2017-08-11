@@ -30,11 +30,11 @@ export class MessagePage {
   }
 
   ionViewWillEnter() {
-    this.httpClient.post(TEST,JSON.stringify({"name":"222","sex":"男"}))
-      .map(res=> res.json())
-      .subscribe((data)=>{
-          console.dir(data);
-      })
+    // this.httpClient.post(TEST,JSON.stringify({"name":"222","sex":"男"}))
+    //   .map(res=> res.json())
+    //   .subscribe((data)=>{
+    //       console.dir(data);
+    //   })
   }
 
   popPage(myEvent){
