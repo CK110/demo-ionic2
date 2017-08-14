@@ -40,7 +40,7 @@
     <ion-list *ngSwitchCase="'myApprove'">
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage('errand')">
         <div class="micro-app-todo">
-          <ion-icon name="xuding" class="micro-app-corner-icon"></ion-icon>
+          <i class="iconfont icon-xudinglaodonghetong1"></i>
           <div class="micro-app-detail">
             <h3>{{ todo.processName }}</h3>
             <p>
@@ -55,7 +55,7 @@
     <ion-list *ngSwitchCase="'myAdd'">
         <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage(todo)">
           <div class="micro-app-todo">
-            <ion-icon name="xuding" class="micro-app-corner-icon"></ion-icon>
+            <i class="iconfont icon-xudinglaodonghetong1"></i>
             <div class="micro-app-detail">
               <h3>{{ todo.processName }}</h3>
               <p>

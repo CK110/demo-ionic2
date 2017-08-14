@@ -15,89 +15,153 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-@font-face {font-family: "Ionicons";
-  src: url('../assets/iconfont/iconfont.eot?t=1499305577337'); /* IE9*/
-  src: url('../assets/iconfont/iconfont.eot?t=1499305577337#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../assets/iconfont/iconfont.woff?t=1499305577337') format('woff'), /* chrome, firefox */
-  url('../assets/iconfont/iconfont.ttf?t=1499305577337') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../assets/iconfont/iconfont.svg?t=1499305577337#iconfont') format('svg'); /* iOS 4.1- */
+@font-face {font-family: "iconfont";
+  src: url('../assets/iconfont/iconfont.eot?t=1502700208946'); /* IE9*/
+  src: url('../assets/iconfont/iconfont.eot?t=1502700208946#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/iconfont/iconfont.woff?t=1502700208946') format('woff'), /* chrome, firefox */
+  url('../assets/iconfont/iconfont.ttf?t=1502700208946') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../assets/iconfont/iconfont.svg?t=1502700208946#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.icon {
-  font-family:"Ionicons" ;
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:40px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ion-ios-zhuanzhengshenqing:before { content: "\e672"; }
+.icon-gongjiashenqing:before { content: "\e600"; color: red }
 
-.ion-ios-holidays:before { content: "\e634"; }
+.icon-liuchengshenpi:before { content: "\e601"; color: red}
 
-.ion-ios-atm:before { content: "\e6ba"; }
+.icon-xiujiashenqing:before { content: "\e602"; color: red}
 
-.ion-ios-notebook:before { content: "\e687"; }
+.icon-wodeshenqing:before { content: "\e603"; color: red}
 
-.ion-ios-fukuan:before { content: "\e683"; }
+.icon-dingpiaoshenqing:before { content: "\e604"; color: red}
 
-.ion-ios-icon:before { content: "\e678"; }
+.icon-gonggao:before { content: "\e605"; color: red}
 
-.ion-ios-jiekuan:before { content: "\e60e"; }
+.icon-feiyongbaoxiao:before { content: "\e606"; color: red}
 
-.ion-ios-cizhicitui:before { content: "\e64d"; }
+.icon-chalvbaoxiao:before { content: "\e607"; color: red}
 
-.ion-ios-dingpiao:before { content: "\e619"; }
+.icon-yuangongdangan:before { content: "\e608"; color: red}
 
-.ion-ios-apply:before { content: "\e60f"; }
+.icon-yuangongshengyin:before { content: "\e609"; color: red}
 
-.ion-ios-weihu:before { content: "\e617"; }
+.icon-jiekuandan:before { content: "\e60a"; color: red}
 
-.ion-ios-yingpinjilu:before { content: "\e63a"; }
+.icon-renyuanbuchong:before { content: "\e60b"; color: red}
 
-.ion-ios-abgangzhuanban:before { content: "\e76c"; }
+.icon-yingpinkaohe:before { content: "\e60c"; color: red}
 
-.ion-ios-hukou:before { content: "\e600"; }
+.icon-yingjieshengyingpinkaohe:before { content: "\e60d"; color: red}
 
-.ion-ios-wodejiaqi:before { content: "\e697"; }
+.icon-jipiaofukuan:before { content: "\e60e"; color: red}
 
-.ion-ios-xunlianpeiyang:before { content: "\e68e"; }
+.icon-peixunshenqing:before { content: "\e60f"; color: red}
 
-.ion-ios-weihu1:before { content: "\e69f"; }
+.icon-ATMweihuyingjiekaohe:before { content: "\e610"; color: red}
 
-.ion-ios-feiyongbaoxiao:before { content: "\e648"; }
+.icon-gangweitiaodong:before { content: "\e611"; color: red}
 
-.ion-ios-gonggaoguanli:before { content: "\e612"; }
+.icon-shixishengchongdi:before { content: "\e612"; color: red}
 
-.ion-ios-yingjiebiyesheng:before { content: "\e601"; }
+.icon-zhuanzhengkaohe:before { content: "\e613"; color: red}
 
-.ion-ios-xuding:before { content: "\e6f6"; }
+.icon-ATMneibugangweitiaodong:before { content: "\e614"; color: red}
 
-.ion-ios-renyuanzengjia:before { content: "\e689"; }
+.icon-cituishenqing:before { content: "\e615"; color: red}
 
-.ion-ios-gonggaoguanli1:before { content: "\e60d"; }
+.icon-hukoutiaodong:before { content: "\e616"; color: red}
 
-.ion-ios-chailvbaoxiao:before { content: "\e63b"; }
+.icon-bijibengoumaishenqing:before { content: "\e617"; color: red}
 
-.ion-ios-bijibendiannao:before { content: "\e603"; }
+.icon-lizhishenqing:before { content: "\e618"; color: red}
 
-.ion-ios-atm-away:before { content: "\e61f"; }
+.icon-ATMshebaogongjijinzhuanyi:before { content: "\e619"; color: red}
 
-.ion-ios-lizhi:before { content: "\e626"; }
+.icon-xudinglaodonghetong:before { content: "\e61a"; color: red}
 
-.ion-ios-shebao:before { content: "\e64e"; }
+.icon-fengongsi:before { content: "\e61b"; color: red}
 
-.ion-ios-atm1:before { content: "\e605"; }
+.icon-fuwuzhan:before { content: "\e61c"; color: red}
 
-.ion-ios-xiujiashenqing:before { content: "\e60c"; }
+.icon-benbumen:before { content: "\e61d"; color: red}
 
-.ion-ios-gongjia:before { content: "\e639"; }
+.icon-tongshi:before { content: "\e61e"; color: red}
 
-.ion-ios-zhuangang:before { content: "\e635"; }
+.icon-sushe:before { content: "\e61f"; color: red}
 
-.ion-ios-zengjia:before { content: "\e608"; }
+.icon-banbenshuoming:before { content: "\e620"; color: red}
 
-.ion-ios-gongsi:before { content: "\e609"; }
+.icon-changjianwenti:before { content: "\e621"; color: red}
 
+.icon-daibantixing:before { content: "\e622"; color: red}
+
+.icon-gongzuotongzhi:before { content: "\e623"; color: red}
+
+.icon-xinxiaoxi:before { content: "\e624"; color: red}
+
+.icon-gonggao1:before { content: "\e625"; color: red}
+
+.icon-shezhi:before { content: "\e626"; color: red}
+
+.icon-liuchengshenpi1:before { content: "\e627"; color: red}
+
+.icon-wodeshenqing1:before { content: "\e628"; color: red}
+
+.icon-gongjiashenqing1:before { content: "\e629"; color: red}
+
+.icon-xiujiashenqing1:before { content: "\e62a"; color: red}
+
+.icon-feiyongbaoxiao1:before { content: "\e62b"; color: red}
+
+.icon-dingpiaoshenqing1:before { content: "\e62c"; color: red}
+
+.icon-yuangongshengyin1:before { content: "\e62d"; color: red}
+
+.icon-gonggao2:before { content: "\e62e"; color: red}
+
+.icon-yuangongdangan1:before { content: "\e62f"; color: red}
+
+.icon-chalvbaoxiao1:before { content: "\e630"; color: red}
+
+.icon-jipiaofukuan1:before { content: "\e631"; color: red}
+
+.icon-yingpinkaohe1:before { content: "\e632"; color: red}
+
+.icon-jiekuandan1:before { content: "\e633"; color: red}
+
+.icon-peixunshenqing1:before { content: "\e634"; color: red}
+
+.icon-renyuanbuchong1:before { content: "\e635"; color: red}
+
+.icon-ATMweihuyingpinkaohe:before { content: "\e636"; color: red}
+
+.icon-yingjieshengyingpinkaohe1:before { content: "\e637"; color: red}
+
+.icon-shixishengchongdi1:before { content: "\e638"; color: red}
+
+.icon-Atmneibugangweitiaodong:before { content: "\e639"; color: red}
+
+.icon-lizhishenqing1:before { content: "\e63a"; color: red}
+
+.icon-gangweitiaodong1:before { content: "\e63b"; color: red}
+
+.icon-zhuanzhengkaohe1:before { content: "\e63c"; color: red}
+
+.icon-cituishenqing1:before { content: "\e63d"; color: red}
+
+.icon-bijibendiannaoshenqing:before { content: "\e63e"; color: red}
+
+.icon-hukoutiaodong1:before { content: "\e63f"; color: red}
+
+.icon-ATMshebaogongjijinzhuanyi1:before { content: "\e640"; color: red}
+
+.icon-xudinglaodonghetong1:before { content: "\e641"; color: red}
 
 
 // 图标大小控制，不包含颜色 start

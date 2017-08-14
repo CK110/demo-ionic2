@@ -18,7 +18,7 @@ export class HttpClient{
     headers.append('Authorization', 'Basic ' + token );
   }
 
-  post(url: string, body: any):Observable<Response> {
+  post(url: string, body?: any):Observable<Response> {
     let headers = new Headers();
     this.createAuthorizationHeader(headers);
 

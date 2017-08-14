@@ -59,6 +59,7 @@ import {JMessageHelper} from "../providers/jmessage-helper";
 import {StorageService} from "../providers/storage-service";
 import {HttpClient} from "../providers/http-client";
 import {ValidateService} from "../providers/validate-service";
+import {SelectPersonPageModule} from "../pages/common/select-person/select-person.module";
 
 
 const Custom_Provides =[
@@ -146,6 +147,8 @@ const Tab_Root_Page_Module = [
     Tab_Root_Page_Module,
     LoginPageModule,
     Native_Module,
+
+    SelectPersonPageModule
 
   ],
   bootstrap: [IonicApp],
