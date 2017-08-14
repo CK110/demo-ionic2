@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>筛选</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div style="padding-top: 15px">
+    <ion-card>
+      <button ion-item (click)="selectClick('selectPerson')">
+        <ion-label>申请人</ion-label>
+        <ion-input placeholder="请选择" [(ngModel)]="filter.addWho" text-end></ion-input>
+      </button>
+      <button ion-item (click)="selectClick('selectPerson')">
+        <ion-label>内部乘机人</ion-label>
+        <ion-input placeholder="请选择" [(ngModel)]="filter.errander" text-end></ion-input>
+      </button>
+      <button ion-item (click)="selectClick('selectPerson')">
+        <ion-label>外部乘机人</ion-label>
+        <ion-input placeholder="请选择" [(ngModel)]="filter.outComer" text-end></ion-input>
+      </button>
+      <button ion-item (click)="selectClick('selectBookCorp')">
+        <ion-label>订票公司</ion-label>
+        <ion-input placeholder="请选择" [(ngModel)]="filter.bookCorp" text-end></ion-input>
+      </button>
+      <ion-item>
+        <ion-label>申请类型</ion-label>
+        <ion-select [(ngModel)]="filter.appType">
+          <ion-option value="1">订票</ion-option>
+          <ion-option value="2">改签</ion-option>
+          <ion-option value="3">退票</ion-option>
+          <ion-option value="4">作废</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>流程类型</ion-label>
+        <div radio-group [(ngModel)]="filter.formStatus">
+          <ion-radio value="friends" checked></ion-radio>
+          <ion-radio value="friends" checked></ion-radio>
+          <ion-radio value="friends" checked></ion-radio>
+          <ion-radio value="friends" checked></ion-radio>
+        </div>
+
+      </ion-item>
+
+      <ion-toolbar>
+        <button ion-button full (click)="filterSubmit()">确定</button>
+      </ion-toolbar>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -13,6 +13,17 @@ export class Travel{
   departTime:String;
 }
 
+export class Filter{
+  addWho:string;
+  errander:string;
+  outComer:string;
+  bookCorp:string;
+  appType:string;
+  formStatus:string;
+}
+
+
+
 export const AirApp_Label={
   errander:"乘机人",
   projectId:"项目编号",
@@ -27,3 +38,13 @@ export const Travel_Label={
   arrivePlace:"到达地",
   departTime:"预计出发时间",
 }
+
+export const Filter_Label = {
+  addWho:"申请人",
+  errander:"内部乘机人",
+  outComer:"外部乘机人",
+  bookCorp:"订票公司",
+  appType:"申请类型",
+  formStatus:"流程类型"
+}
+
