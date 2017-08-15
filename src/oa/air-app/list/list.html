@@ -18,5 +18,24 @@
 
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let airApp of airAppList">
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <div>
+          <div style="margin-bottom: 6px;display: flex;align-items: center;">
+            <h2 style="margin-right: 20px">{{airApp.errandername }}的订票申请单</h2>
+            <ion-badge color="secondary" *ngIf="true">待办</ion-badge>
+            <ion-badge color="danger" *ngIf="false">已结束</ion-badge>
+            <ion-badge color="dark" *ngIf="false">已撤销</ion-badge>
+          </div>
+          <p  style="margin-bottom: 4px">{{"乘机人:"+ airApp.errandername + &nbsp;&nbsp; + airApp.travellist[0].departplace +"→"+ airApp.travellist[0].arriveplace}}</p>
+          <p style="color: #FF6600;">{{ airApp.currentTaskList | currentTask}}</p>
+        </div>
+        <p>
+          {{airApp.addtime | date:"MM-dd" }}
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

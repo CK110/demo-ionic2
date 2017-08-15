@@ -5,6 +5,13 @@ export class AirApp{
   departDate:string;
   reason:string;
   note:string;
+  addtime?:string;
+  currentTaskList?:object;
+  errandername?:string;
+  departplace?:string; //出发地
+  arriveplace?:string  //到达地
+  airbook?:any[]; //订票信息记录
+  travellist?:any[] //行程列表
 }
 
 export class Travel{
@@ -30,7 +37,7 @@ export const AirApp_Label={
   dispatcher:"派遣人",
   departDate:"派遣日期",
   reason:"订票事由",
-  note:"备注"
+  note:"备注",
 }
 
 export const Travel_Label={

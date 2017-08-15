@@ -32,6 +32,7 @@ export class FilterPage {
   }
 
   filterSubmit(){
+
     this.viewController.dismiss();
   }
 

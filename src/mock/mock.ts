@@ -6,6 +6,7 @@ import historyAPI from './history/history';
 import loginAPI from './login/login';
 import errandAPI from './errand/errand'
 import selectPersonAPI from './common/select-person/select-person';
+import {AirAppAPI} from "./air-app/air-app";
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -37,6 +38,13 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
 
       if(Mock.onPost('/mock/common/selectPerson')){
         connection.mockRespond(selectPersonAPI.getUserList(connection.request));
+      }
+
+      if(Mock.onPost('/mock/oa/routine/air/queryAirApp')){
+        connection.mockRespond(AirAppAPI.getUserList(connection.request));
+      }
+      if(Mock.onPost('/mock/oa/routine/air/addBookApp')){
+        connection.mockRespond(AirAppAPI.addSubmit(connection.request));
       }
 
       // pass through any requests not handled above

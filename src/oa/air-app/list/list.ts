@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {FilterPage} from "./filter/filter";
+import {AirApp, Filter} from "../model";
+import {HttpClient} from "../../../providers/http-client";
+import {AIR_APP_LIST} from "../../../api/api";
 
 /**
  * Generated class for the ListPage page.
@@ -15,8 +18,20 @@ import {FilterPage} from "./filter/filter";
 })
 export class AirAppListPage {
 
+  private airAppList:AirApp[];
+  private filter:Filter={
+    addWho:'',
+    errander:'',
+    outComer:'',
+    bookCorp:'',
+    appType:'',
+    formStatus:'',
+  };
+
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,public modalCtrl:ModalController) {
+              public navParams: NavParams,
+              public modalCtrl:ModalController,public httpClient:HttpClient) {
+    this.getAirAppList();
   }
 
   ionViewDidLoad() {
@@ -24,12 +39,14 @@ export class AirAppListPage {
   }
 
   openFilter(){
-    // this.modalCtrl.create(FilterPage, {}, {
-    //   enterAnimation: 'modal-from-right-enter',
-    //   leaveAnimation: 'modal-from-right-leave'
-    // }).present();
-
     this.navCtrl.push(FilterPage);
+  }
+
+  getAirAppList(){
+    this.httpClient.post(AIR_APP_LIST,this.filter).map(res=>res.json()).subscribe((res)=>{
+      console.log(res);
+      this.airAppList = res['list'];
+    })
   }
 
 }

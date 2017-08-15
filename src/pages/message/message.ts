@@ -18,6 +18,8 @@ export class MessagePage {
   username:string;
   badgeNumber:number=0;
 
+  filter:any;
+
   constructor(private userData:UserData,
               public events:Events,
               public popoverCtrl: PopoverController,

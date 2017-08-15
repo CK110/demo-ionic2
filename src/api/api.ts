@@ -10,6 +10,10 @@ export const ERRAND_APP_ADD =`${Server_Url}/oa/attend/errand/submitApp`;
 
 //订票
 export const AIR_APP_ADD = `${Server_Url}/oa/routine/air/addBookApp`;
+export const AIR_APP_LIST = `${Server_Url}/oa/routine/air/queryAirApp`;
+export const AIR_APP_APPROVE = `${Server_Url}/oa/routine/air/addBookApp`;
+export const AIR_APP_SAVE= `${Server_Url}/oa/routine/air/addBookApp`;
+
 
 
 //获取用户select
