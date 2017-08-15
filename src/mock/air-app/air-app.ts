@@ -66,11 +66,11 @@ for (let i = 0; i < 70; i++) {
     ],
     "travellist": [
       {
-        "arriveplace": "12",
+        "arriveplace": "深圳",
         "travelid": "86550113692313",
         "bookappid": "234448534572851",
         "departtime": "12",
-        "departplace": "12"
+        "departplace": "南京"
       }
     ],
     "addwho": "caiqun",

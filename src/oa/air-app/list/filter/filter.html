@@ -4,7 +4,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card>
+  <!--<ion-card>-->
+
     <button ion-item (click)="selectClick('selectPerson')">
       <ion-label>申请人</ion-label>
       <ion-input placeholder="请选择" [(ngModel)]="filter.addWho" text-end></ion-input>
@@ -32,33 +33,19 @@
     </ion-item>
     <ion-item>
       <ion-label>流程类型</ion-label>
-      <!--<div radio-group [(ngModel)]="filter.formStatus">-->
-        <!--<ion-radio value="friends" checked></ion-radio>-->
-        <!--<ion-radio value="friends" checked></ion-radio>-->
-        <!--<ion-radio value="friends" checked></ion-radio>-->
-        <!--<ion-radio value="friends" checked></ion-radio>-->
-      <!--</div>-->
-
-      <ion-list radio-group [(ngModel)]="filter.formStatus">
-        <ion-item>
-          <ion-label>Friends</ion-label>
-          <ion-radio value="friends" checked></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Family</ion-label>
-          <ion-radio value="family"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Enemies</ion-label>
-          <ion-radio value="enemies" [disabled]="isDisabled"></ion-radio>
-        </ion-item>
-      </ion-list>
-
+      <div style="padding-left: 10%;padding-right: 5%">
+        <ion-segment [(ngModel)]="filter.formStatus" >
+          <ion-segment-button value="kittens">Kittens</ion-segment-button>
+          <ion-segment-button value="puppies">Puppies</ion-segment-button>
+          <ion-segment-button value="kittens">Kittens</ion-segment-button>
+          <ion-segment-button value="puppies">Puppies</ion-segment-button>
+        </ion-segment>
+      </div>
     </ion-item>
 
     <ion-toolbar>
       <button ion-button full (click)="filterSubmit()">确定</button>
     </ion-toolbar>
-  </ion-card>
+  <!--</ion-card>-->
 
 </ion-content>
