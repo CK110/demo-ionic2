@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidateService} from "../../../providers/validate-service";
 import {HttpClient} from "../../../providers/http-client";
 import {AIR_APP_ADD} from "../../../api/api";
+import {AirAppAddTravelPage} from "./add-travel/add";
 
 /**
  * Generated class for the AddPage page.
@@ -19,7 +20,7 @@ import {AIR_APP_ADD} from "../../../api/api";
 })
 export class AirAppAddPage {
 
-  private label:AirApp = AirApp_Label;
+  private label:any = AirApp_Label;
   private travelLabel:Travel =Travel_Label;
 
   private addForm:FormGroup;
@@ -45,10 +46,13 @@ export class AirAppAddPage {
     });
 
 
-    this.events.subscribe('airApp:addTravel', (travel:Travel) => {
-      console.log(travel);
+    this.events.subscribe('air-app-add-deatil:addDetail', (travel:Travel) => {
       this.travelList.push(travel);
-      console.log(this.travelList);
+    });
+
+    this.events.subscribe('air-app-add-deatil:modDetail', (res:any) => {
+      const index = res['index'];
+      this.travelList[index]=res['detail'];
     });
 
   }
@@ -91,8 +95,19 @@ export class AirAppAddPage {
 
   }
 
-  deleteTravel(){
-    alert('删除行程');
+  deleteDetail(index:number){
+    //数组移除元素（可作为公共方法）
+    const b = this.travelList.slice(0,index) ;
+    const e = this.travelList.slice(index+1,this.travelList.length+1);
+    this.travelList = b.concat(e);
+  }
+
+  modDetail(index:number,detail:any){
+    debugger;
+    this.navCtrl.push(AirAppAddTravelPage, {
+      index: index,
+      detail: detail
+    })
   }
 
   add(){

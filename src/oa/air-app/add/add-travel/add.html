@@ -13,24 +13,25 @@
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="addTravel"  (ngSubmit)="addSubmit()">
+  <form [formGroup]="addForm">
     <ion-list>
       <ion-item>
-        <ion-label>{{travelLabel.departPlace}}</ion-label>
+        <ion-label>{{label.departPlace}}</ion-label>
         <ion-input type="text" placeholder="请选择(必填)，例如深圳" formControlName="departPlace" text-end ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>{{travelLabel.arrivePlace}}</ion-label>
+        <ion-label>{{label.arrivePlace}}</ion-label>
         <ion-input type="text" placeholder="请选择(必填)，例如深圳" formControlName="arrivePlace" text-end></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>{{travelLabel.departTime}}</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" formControlName="departTime"  ></ion-datetime>
+        <ion-label>{{label.departTime}}</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD"  placeholder="请选择(必填)" formControlName="departTime"  ></ion-datetime>
       </ion-item>
     </ion-list>
 
     <ion-toolbar>
-      <button ion-button full type="submit" >添加</button>
+      <button *ngIf="addType" ion-button full (click)="addSubmit()">增加</button>
+      <button *ngIf="!addType" ion-button full (click)="modSubmit()">修改</button>
     </ion-toolbar>
   </form>
 

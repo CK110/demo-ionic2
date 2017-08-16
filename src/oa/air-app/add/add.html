@@ -48,21 +48,27 @@
     <ion-item-divider>
       <div style="display: flex;align-items: center;justify-content: space-between;">
         <h4>行程安排({{i+1}})</h4>
-        <a (click)="deleteTravel()">删除</a>
+        <a (click)="deleteDetail(i)">删除</a>
       </div>
     </ion-item-divider>
-    <div tappable navPush="AirAppAddTravelPage">
+    <div tappable (click)="modDetail(i,travel)" >
       <ion-item>
         <ion-label>{{travelLabel.departPlace}}</ion-label>
-        <ion-input type="text" text-end ngModel="{{travel.departPlace}}" readonly></ion-input>
+        <ion-note item-end>
+          {{travel.departPlace}}
+        </ion-note>
       </ion-item>
       <ion-item>
         <ion-label>{{travelLabel.arrivePlace}}</ion-label>
-        <ion-input type="text" text-end ngModel="{{travel.arrivePlace}}" readonly></ion-input>
+        <ion-note item-end>
+          {{travel.arrivePlace}}
+        </ion-note>
       </ion-item>
       <ion-item>
         <ion-label>{{travelLabel.departTime}}</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" ngModel="{{travel.departTime}}" readonly></ion-datetime>
+        <ion-note item-end>
+          {{travel.departTime}}
+        </ion-note>
       </ion-item>
     </div>
   </ion-list>

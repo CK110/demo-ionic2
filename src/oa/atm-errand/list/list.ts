@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the NameByIdPage page.
+ * Generated class for the ListPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-name-by-id',
-  templateUrl: 'name-by-id.html',
+  selector: 'page-list',
+  templateUrl: 'list.html',
 })
-export class NameByIdPage {
+export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NameByIdPage');
+    console.log('ionViewDidLoad ListPage');
   }
 
 }

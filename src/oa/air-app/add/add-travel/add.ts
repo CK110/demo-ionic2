@@ -16,16 +16,19 @@ import {ValidateService} from "../../../../providers/validate-service";
   templateUrl: 'add.html',
 })
 export class AirAppAddTravelPage {
-  private travelLabel:Travel =Travel_Label;
+  private label:any =Travel_Label;
 
-  private addTravel:FormGroup
+  private addForm:FormGroup;
+
+  private index:number;
+  private addType:boolean = true;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public events: Events,
               private formBuilder:FormBuilder,private validateService:ValidateService,) {
 
-    this.addTravel = this.formBuilder.group({
+    this.addForm = this.formBuilder.group({
       departPlace: ['', [Validators.required]],
       arrivePlace: ['',[Validators.required]],
       departTime: ['', [Validators.required]],
@@ -33,17 +36,37 @@ export class AirAppAddTravelPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
+    this.index = this.navParams.get('index');
+    const detail = this.navParams.get('detail');
+    if(detail){
+      this.addType = false;
+
+      this.addForm.controls['departPlace'].setValue(detail.departPlace);
+      this.addForm.controls['arrivePlace'].setValue(detail.arrivePlace);
+      this.addForm.controls['departTime'].setValue(detail.departTime);
+    }
   }
 
   addSubmit(){
-    if(this.validateService.checkFormBeforeSubmit(this.addTravel,this.travelLabel)){
+    if(this.validateService.checkFormBeforeSubmit(this.addForm,this.label)){
 
-      this.events.publish('airApp:addTravel',this.addTravel.value);
+      this.events.publish('air-app-add-deatil:addDetail',this.addForm.value);
       this.navCtrl.pop();
 
     }
 
+  }
+
+  modSubmit(){
+    if(this.validateService.checkFormBeforeSubmit(this.addForm,this.label)){
+      const param = {
+        index:this.index,
+        detail:this.addForm.value
+      }
+
+      this.events.publish('air-app-add-deatil:modDetail',param);
+      this.navCtrl.pop();
+    }
   }
 
 }
