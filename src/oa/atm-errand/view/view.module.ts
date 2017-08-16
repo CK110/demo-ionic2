@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ViewPage } from './view';
+import { AtmErrandViewPage } from './view';
 
 @NgModule({
   declarations: [
-    ViewPage,
+    AtmErrandViewPage,
   ],
   imports: [
-    IonicPageModule.forChild(ViewPage),
+    IonicPageModule.forChild(AtmErrandViewPage),
   ],
   exports: [
-    ViewPage
+    AtmErrandViewPage
   ]
 })
 export class ViewPageModule {}

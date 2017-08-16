@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ApprovePage } from './approve';
+import { AtmErrandApprovePage } from './approve';
 
 @NgModule({
   declarations: [
-    ApprovePage,
+    AtmErrandApprovePage,
   ],
   imports: [
-    IonicPageModule.forChild(ApprovePage),
+    IonicPageModule.forChild(AtmErrandApprovePage),
   ],
   exports: [
-    ApprovePage
+    AtmErrandApprovePage
   ]
 })
 export class ApprovePageModule {}

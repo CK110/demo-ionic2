@@ -9,10 +9,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 @IonicPage()
 @Component({
-  selector: 'page-approve',
+  selector: 'atm-errand-approve',
   templateUrl: 'approve.html',
 })
-export class ApprovePage {
+export class AtmErrandApprovePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

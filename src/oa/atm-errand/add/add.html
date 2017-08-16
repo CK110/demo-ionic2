@@ -1,18 +1,106 @@
-<!--
-  Generated template for the AddPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>add</ion-title>
+    <ion-title>ATM公假单</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <form [formGroup]="addForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{label.errander}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="errander" text-end ngModel="李文军" readOnly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{label.deptId}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="deptId" text-end ngModel="深圳服务站" readOnly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{label.errandMonth}}</ion-label>
+        <ion-input type="text" placeholder="请选择(必填)" formControlName="errandMonth" text-end></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{label.note}}</ion-label>
+        <ion-textarea  placeholder="请输入备注" formControlName="note" text-end ></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
 
+  <!-- 明细 -->
+  <ion-list *ngFor="let errandBill of errandBillList; let i=index">
+
+    <ion-item-divider>
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <h4>行程明细({{i+1}})</h4>
+        <a (click)="deleteDetail()">删除</a>
+      </div>
+    </ion-item-divider>
+    <div tappable (click)="modDetail(i,errandBill)">
+      <ion-item >
+        <ion-label>{{errandBillLabel.dispatcher}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.dispatcher}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.departPlace}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.departPlace}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.arrivePlace}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.arrivePlace}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.errandType}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.errandType}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.departDate}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.departDate}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.days}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.days}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{errandBillLabel.travelType}}</ion-label>
+        <ion-note item-end>
+          {{errandBill.travelType}}
+        </ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div style="display: flex;justify-content: center;">
+    <button ion-button style="width: 80%" navPush="AtmErrandAddDetailPage">
+      <ion-icon name="add" style="margin-right: 30px"></ion-icon>
+      增加公假明细
+    </button>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <div style="display: flex;align-items: center;background: #488aff;">
+    <div style=" width: 50%; border-right: 1px solid #fff;" >
+      <button ion-button full (click)="addSubmit()">提交</button>
+    </div>
+    <div style="width: 50%;">
+      <button ion-button full (click)="addSave()">保存</button>
+    </div>
+  </div>
+</ion-footer>
+
+

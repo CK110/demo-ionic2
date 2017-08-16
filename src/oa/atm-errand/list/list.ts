@@ -9,10 +9,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 @IonicPage()
 @Component({
-  selector: 'page-list',
+  selector: 'atm-errand-list',
   templateUrl: 'list.html',
 })
-export class ListPage {
+export class AtmErrandListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
