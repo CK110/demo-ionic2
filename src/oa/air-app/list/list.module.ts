@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AirAppListPage } from './list';
 import {FilterPageModule} from "./filter/filter.module";
-import {CurrentTaskPipe} from "../../../pipes/current-task/current-task";
+import {SharedPipesModule} from "../../../pipes/sharedPipesModule";
 
 @NgModule({
   declarations: [
-    AirAppListPage,
-    CurrentTaskPipe
+    AirAppListPage
   ],
   imports: [
     IonicPageModule.forChild(AirAppListPage),
-    FilterPageModule
+    FilterPageModule,
+    SharedPipesModule
   ],
   exports: [
     AirAppListPage

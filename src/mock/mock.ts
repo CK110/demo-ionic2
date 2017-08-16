@@ -47,6 +47,11 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(AirAppAPI.addSubmit(connection.request));
       }
 
+      if(Mock.onPost('/mock/oa/attend/errand/queryApp')){
+        connection.mockRespond(errandAPI.getErrandList(connection.request));
+      }
+
+
       // pass through any requests not handled above
       let realHttp = new Http(realBackend, options);
       let requestOptions = new RequestOptions({

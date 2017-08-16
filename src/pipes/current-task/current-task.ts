@@ -17,7 +17,7 @@ export class CurrentTaskPipe implements PipeTransform {
   transform(value: any[], ...args) {
     if(value.length>0){
       const taskName = value[0].taskName;
-      const actors=Object.keys(value[0].actorMap).map(key=>value[0].actorMap[key]+' ');
+      const actors=Object.keys(value[0].actorMap).map(key=>value[0].actorMap[key]);
 
       return `${taskName}: ${actors} `;
     }else {

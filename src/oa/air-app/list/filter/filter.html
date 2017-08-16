@@ -33,14 +33,21 @@
     </ion-item>
     <ion-item>
       <ion-label>流程类型</ion-label>
-      <div style="padding-left: 10%;padding-right: 5%">
-        <ion-segment [(ngModel)]="filter.formStatus" >
-          <ion-segment-button value="kittens">Kittens</ion-segment-button>
-          <ion-segment-button value="puppies">Puppies</ion-segment-button>
-          <ion-segment-button value="kittens">Kittens</ion-segment-button>
-          <ion-segment-button value="puppies">Puppies</ion-segment-button>
-        </ion-segment>
-      </div>
+      <ion-select [(ngModel)]="filter.formStatus">
+        <ion-option value="1">未提交</ion-option>
+        <ion-option value="2">审批中</ion-option>
+        <ion-option value="3">票务处理</ion-option>
+        <ion-option value="4">已结束</ion-option>
+        <ion-option value="5">撤销结束</ion-option>
+      </ion-select>
+      <!--<div style="padding-left: 10%;padding-right: 5%">-->
+        <!--<ion-segment [(ngModel)]="filter.formStatus" >-->
+          <!--<ion-segment-button value="kittens">Kittens</ion-segment-button>-->
+          <!--<ion-segment-button value="puppies">Puppies</ion-segment-button>-->
+          <!--<ion-segment-button value="kittens">Kittens</ion-segment-button>-->
+          <!--<ion-segment-button value="puppies">Puppies</ion-segment-button>-->
+        <!--</ion-segment>-->
+      <!--</div>-->
     </ion-item>
 
     <ion-toolbar>

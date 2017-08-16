@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>筛选</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <button ion-item (click)="selectClick('selectPerson')">
+    <ion-label>{{label.errander}}</ion-label>
+    <ion-input placeholder="请选择" [(ngModel)]="filter.errander" text-end></ion-input>
+  </button>
+
+  <button ion-item (click)="selectClick('selectDept')">
+    <ion-label>{{label.deptId}}</ion-label>
+    <ion-input placeholder="请选择" [(ngModel)]="filter.deptId" text-end></ion-input>
+  </button>
+
+  <ion-item>
+    <ion-label>{{label.arrivePlace}}</ion-label>
+    <ion-input placeholder="请选择" [(ngModel)]="filter.arrivePlace" text-end></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{label.flowStatus}}</ion-label>
+    <ion-select [(ngModel)]="filter.flowStatus">
+      <ion-option value="1">未提交</ion-option>
+      <ion-option value="2">审批中</ion-option>
+      <ion-option value="3">票务处理</ion-option>
+      <ion-option value="4">已结束</ion-option>
+      <ion-option value="5">撤销结束</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-toolbar>
+    <button ion-button full (click)="filterSubmit()">确定</button>
+  </ion-toolbar>
+
+</ion-content>

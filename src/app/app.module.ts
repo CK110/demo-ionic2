@@ -60,13 +60,8 @@ import {StorageService} from "../providers/storage-service";
 import {HttpClient} from "../providers/http-client";
 import {ValidateService} from "../providers/validate-service";
 import {SelectPersonPageModule} from "../pages/common/select-person/select-person.module";
-import { CurrentTaskPipe } from '../pipes/current-task/current-task';
 import { NameByIdPipe } from '../pipes/name-by-id/name-by-id';
-
-const PIPES=[
-  CurrentTaskPipe
-
-]
+import {ErrandListPageModule} from "../oa/errand/list/list.module";
 
 const Custom_Provides =[
   HttpService,
@@ -157,7 +152,9 @@ const Tab_Root_Page_Module = [
     LoginPageModule,
     Native_Module,
 
-    SelectPersonPageModule
+    SelectPersonPageModule,
+    ErrandListPageModule,
+
 
   ],
   bootstrap: [IonicApp],
