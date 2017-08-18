@@ -4,6 +4,7 @@ import {Errand, Filter} from "../model";
 import {HttpClient} from "../../../providers/http-client";
 import {ERRAND_APP_LIST} from "../../../api/api";
 import {FilterPage} from "./filter/filter";
+import {ErrandApprovePage} from "../approve/approve";
 
 /**
  * Generated class for the ListPage page.
@@ -41,6 +42,12 @@ export class ErrandListPage {
   openFilter(){
     debugger;
     this.navCtrl.push(FilterPage);
+  }
+
+  toApprovePage(errand:Errand){
+    this.navCtrl.push(ErrandApprovePage,{
+      param: { processId:'1',taskId:'1'}
+    });
   }
 
 }

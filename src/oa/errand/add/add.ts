@@ -12,7 +12,7 @@ import {ERRAND_APP_ADD} from "../../../api/api";
   templateUrl: 'add.html',
 })
 export class ErrandAddPage {
-  private label:Errand = Form_Label;
+  private label:any = Form_Label;
 
   private addForm:FormGroup;
 

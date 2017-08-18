@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AtmErrandApprovePage } from './approve';
+import {ApprovehistoryModule} from "../../../components/approvehistory/approvehistory.module";
 
 @NgModule({
   declarations: [
@@ -8,9 +9,10 @@ import { AtmErrandApprovePage } from './approve';
   ],
   imports: [
     IonicPageModule.forChild(AtmErrandApprovePage),
+    ApprovehistoryModule
   ],
   exports: [
     AtmErrandApprovePage
   ]
 })
-export class ApprovePageModule {}
+export class AtmErrandApprovePageModule {}

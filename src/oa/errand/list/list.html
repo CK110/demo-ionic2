@@ -20,7 +20,8 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let errand of errandList">
-      <div style="display: flex;align-items: center;justify-content: space-between;">
+      <div style="display: flex;align-items: center;justify-content: space-between;"
+           tappable (click)="toApprovePage(errand)">
         <div>
           <div style="margin-bottom: 6px;display: flex;align-items: center;">
             <h2 style="margin-right: 20px">{{errand.erranderName }}的订票申请单</h2>

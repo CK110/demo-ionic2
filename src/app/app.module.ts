@@ -15,7 +15,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OfficePageModule } from '../pages/office/office.module';
 
 import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.module';
-import {OA_PAGES} from "../oa/index";
 import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
 import {NoticebarModule} from "../components/noticebar/noticebar.module";
 import {CallNumber} from "@ionic-native/call-number";
@@ -133,9 +132,7 @@ const Tab_Root_Page_Module = [
 
     TabsPage,
     Tab_Root_Page,
-    OA_PAGES,
     NameByIdPipe,
-
     // PIPES,
   ],
   imports: [
@@ -144,7 +141,7 @@ const Tab_Root_Page_Module = [
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: true, // 隐藏非rootPage的tab标签
       mode:'ios', // 样式统一ios
-      backButtonText: '', //返回按钮只显示图标
+      // backButtonText: '', //返回按钮只显示图标
       preloadModules: true //提前加载模块
     }),
     Third_Comonent_Module,
@@ -163,7 +160,6 @@ const Tab_Root_Page_Module = [
 
     TabsPage,
     Tab_Root_Page,
-    OA_PAGES
   ],
   providers: [
     StatusBar,

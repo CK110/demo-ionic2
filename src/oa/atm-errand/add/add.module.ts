@@ -13,4 +13,4 @@ import { AtmErrandAddPage } from './add';
     AtmErrandAddPage
   ]
 })
-export class AddPageModule {}
+export class AtmErrandAddPageModule {}

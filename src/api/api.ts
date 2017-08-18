@@ -10,6 +10,10 @@ export const ERRAND_APP_SAVE =`${Server_Url}`;
 export const ERRAND_APP_APPROVE =`${Server_Url}`;
 export const ERRAND_APP_LIST=`${Server_Url}/oa/attend/errand/queryApp`;
 
+export const Errand_Approve_Batch_Init = `${Server_Url}/oa/attend/errand/queryInit`;
+export const Errand_Approve_Batch_Current = `${Server_Url}/oa/attend/errand/queryCurrent`;
+export const Errand_Approve_Batch_Submit = `${Server_Url}/oa/attend/errand/apvSubmit`;
+
 
 //ATM公假
 export const ATM_ERRAND_ADD =`${Server_Url}/oa/attend/errand/submitApp`;

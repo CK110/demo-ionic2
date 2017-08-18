@@ -51,6 +51,18 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(errandAPI.getErrandList(connection.request));
       }
 
+      if(Mock.onPost('/mock/oa/attend/errand/queryInit')){
+        connection.mockRespond(errandAPI.getInit(connection.request));
+      }
+
+      if(Mock.onPost('/mock/oa/attend/errand/queryCurrent')){
+        connection.mockRespond(errandAPI.getCurrent(connection.request));
+      }
+
+      if(Mock.onPost('/mock/oa/attend/errand/apvSubmit')){
+        connection.mockRespond(errandAPI.batchSubmit(connection.request));
+      }
+
 
       // pass through any requests not handled above
       let realHttp = new Http(realBackend, options);

@@ -7,12 +7,43 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>list</ion-title>
-  </ion-navbar>
+    <ion-title>ATM公假流程</ion-title>
 
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openFilter()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
+  <!--<ion-list>-->
+    <!--<ion-item *ngFor="let atmErrand of atmErrandList">-->
+      <!--<div style="display: flex;align-items: center;justify-content: space-between;">-->
+        <!--<div>-->
+          <!--<div style="margin-bottom: 6px;display: flex;align-items: center;">-->
+            <!--<h2 style="margin-right: 20px">{{atmErrand.errander }}的订票申请单</h2>-->
+
+            <!--<ion-badge color="secondary" *ngIf="true">待办</ion-badge>-->
+            <!--<ion-badge color="danger" *ngIf="false">已结束</ion-badge>-->
+            <!--<ion-badge color="dark" *ngIf="false">已撤销</ion-badge>-->
+
+          <!--</div>-->
+          <!--<p  style="margin-bottom: 4px">-->
+            <!--{{"目的地:"+ atmErrand.arrivePlace + &nbsp;&nbsp; + "预计天数:" + atmErrand.days}}-->
+          <!--</p>-->
+          <!--<p style="color: #FF6600;">-->
+            <!--{{ atmErrand.currentTaskList | currentTask}}-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<p>-->
+          <!--&lt;!&ndash;{{airApp.addtime | date:"MM-dd" }}&ndash;&gt;-->
+          <!--00-00-->
+        <!--</p>-->
+      <!--</div>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
 
 </ion-content>
