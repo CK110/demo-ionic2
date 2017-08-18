@@ -43,12 +43,12 @@ export class BatchApprovePage {
       )
     })
 
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({type:1});
 
   }
 
   dismiss(){
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({type:2});
   }
 
 }

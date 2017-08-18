@@ -146,7 +146,9 @@ export class ErrandApprovePage {
         { param: needApvList },
       )
       modal.onDidDismiss(data => {
-        this.navCtrl.pop();
+        if(data.type === 1){
+          this.navCtrl.pop();
+        }
       });
       modal.present();
     }
