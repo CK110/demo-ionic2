@@ -141,7 +141,7 @@ const Tab_Root_Page_Module = [
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: true, // 隐藏非rootPage的tab标签
       mode:'ios', // 样式统一ios
-      // backButtonText: '', //返回按钮只显示图标
+      backButtonText: '', //返回按钮只显示图标
       preloadModules: true //提前加载模块
     }),
     Third_Comonent_Module,

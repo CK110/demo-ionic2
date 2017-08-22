@@ -80,7 +80,9 @@ export class TodoPage {
   */
  openNavDetailsPage(page) {
    if(page ==="errand"){
-     this.navCtrl.push(ErrandApprovePage);
+     this.navCtrl.push(ErrandApprovePage,{
+       param: { processId:'1',taskId:'1'}
+     });
    }else{
     //  this.navCtrl.push(TodoDetailsPage, { todo: todo });
 
