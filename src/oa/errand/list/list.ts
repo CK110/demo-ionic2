@@ -40,7 +40,6 @@ export class ErrandListPage {
   }
 
   openFilter(){
-    debugger;
     this.navCtrl.push(FilterPage);
   }
 

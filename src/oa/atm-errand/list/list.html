@@ -19,31 +19,32 @@
 
 <ion-content>
 
-  <!--<ion-list>-->
-    <!--<ion-item *ngFor="let atmErrand of atmErrandList">-->
-      <!--<div style="display: flex;align-items: center;justify-content: space-between;">-->
-        <!--<div>-->
-          <!--<div style="margin-bottom: 6px;display: flex;align-items: center;">-->
-            <!--<h2 style="margin-right: 20px">{{atmErrand.errander }}的订票申请单</h2>-->
+  <ion-list>
+    <ion-item *ngFor="let atmErrand of atmErrandList" tappable (click)="toApprovePage(atmErrand)">
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <div>
+          <div style="margin-bottom: 6px;display: flex;align-items: center;">
+            <h2 style="margin-right: 20px">李文军的订票申请单</h2>
 
-            <!--<ion-badge color="secondary" *ngIf="true">待办</ion-badge>-->
-            <!--<ion-badge color="danger" *ngIf="false">已结束</ion-badge>-->
-            <!--<ion-badge color="dark" *ngIf="false">已撤销</ion-badge>-->
+            <ion-badge color="secondary" *ngIf="true">待办</ion-badge>
+            <ion-badge color="danger" *ngIf="false">已结束</ion-badge>
+            <ion-badge color="dark" *ngIf="false">已撤销</ion-badge>
 
-          <!--</div>-->
-          <!--<p  style="margin-bottom: 4px">-->
-            <!--{{"目的地:"+ atmErrand.arrivePlace + &nbsp;&nbsp; + "预计天数:" + atmErrand.days}}-->
-          <!--</p>-->
-          <!--<p style="color: #FF6600;">-->
-            <!--{{ atmErrand.currentTaskList | currentTask}}-->
-          <!--</p>-->
-        <!--</div>-->
-        <!--<p>-->
-          <!--&lt;!&ndash;{{airApp.addtime | date:"MM-dd" }}&ndash;&gt;-->
-          <!--00-00-->
-        <!--</p>-->
-      <!--</div>-->
-    <!--</ion-item>-->
-  <!--</ion-list>-->
+          </div>
+          <p  style="margin-bottom: 4px">
+            所属部门: xx服务站  公假月份: 2017-07 <br>
+            说明：xxxx
+          </p>
+          <p style="color: #FF6600;">
+            服务站经理审批: 刘永强
+          </p>
+        </div>
+        <p>
+          <!--{{airApp.addtime | date:"MM-dd" }}-->
+          08:30
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

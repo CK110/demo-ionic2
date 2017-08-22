@@ -1,18 +1,12 @@
 import { Component } from '@angular/core';
 import {Events, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import {AirApp, AirApp_Label, Travel, Travel_Label} from "../model";
+import {AirApp_Label, Travel, Travel_Label} from "../model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidateService} from "../../../providers/validate-service";
 import {HttpClient} from "../../../providers/http-client";
-import {AIR_APP_ADD} from "../../../api/api";
+import {AIR_APP_ADD_SUBMIT} from "../../../api/api";
 import {AirAppAddTravelPage} from "./add-travel/add";
 
-/**
- * Generated class for the AddPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'air-app-add',
@@ -83,7 +77,7 @@ export class AirAppAddPage {
       }else {
         //组装申请addForm信息 与 行程安排travel明细
         this.addForm.value['travel']=this.travelList;
-        this.httpClient.post(AIR_APP_ADD,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
+        this.httpClient.post(AIR_APP_ADD_SUBMIT,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
           alert(JSON.stringify(res));
         })
       }

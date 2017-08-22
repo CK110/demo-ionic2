@@ -7,6 +7,7 @@ import loginAPI from './login/login';
 import errandAPI from './errand/errand'
 import selectPersonAPI from './common/select-person/select-person';
 import {AirAppAPI} from "./air-app/air-app";
+import {AtmErrandAPI} from "./atm-errand/atm-errand";
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -61,6 +62,14 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
 
       if(Mock.onPost('/mock/oa/attend/errand/apvSubmit')){
         connection.mockRespond(errandAPI.batchSubmit(connection.request));
+      }
+
+      if(Mock.onPost('/mock/oa/attend/atmerrand/batchInit')){
+        connection.mockRespond(AtmErrandAPI.ApproveBatchInit(connection.request));
+      }
+
+      if(Mock.onPost('/mock/oa/attend/atmerrand/initApv')){
+        connection.mockRespond(AtmErrandAPI.approveInit(connection.request));
       }
 
 

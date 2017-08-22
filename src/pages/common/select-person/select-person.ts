@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {User} from "../model";
+import {User} from "../common-model";
 import {HttpClient} from "../../../providers/http-client";
 import {COMMON_SELECT_USER} from "../../../api/api";
 

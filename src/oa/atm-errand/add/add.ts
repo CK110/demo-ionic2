@@ -4,7 +4,7 @@ import {AtmErrand_Add_Detail_Label, AtmErrand_Add_Label, AtmErrandBill} from "..
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidateService} from "../../../providers/validate-service";
 import {HttpClient} from "../../../providers/http-client";
-import {ATM_ERRAND_ADD} from "../../../api/api";
+import {ATM_ERRAND_ADD_SUBMIT} from "../../../api/api";
 import {AtmErrandAddDetailPage} from "./add-detail/add-detail";
 
 @IonicPage()
@@ -65,7 +65,7 @@ export class AtmErrandAddPage {
       }else {
         //组装申请addForm信息 与 行程安排travel明细
         this.addForm.value['errandBillList']=this.errandBillList;
-        this.httpClient.post(ATM_ERRAND_ADD,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
+        this.httpClient.post(ATM_ERRAND_ADD_SUBMIT,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
           alert(JSON.stringify(res));
         })
       }

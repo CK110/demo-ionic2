@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {HttpClient} from "../../../providers/http-client";
-import {Approve, ApvRecord} from "../../../pages/common/batch-approve/model";
 import {BatchApprovePage} from "../../../pages/common/batch-approve/batch-approve";
 import {Errand_Approve_Batch_Current, Errand_Approve_Batch_Init} from "../../../api/api";
+import {Approve, ApvRecord} from "../../../pages/common/common-model";
 
 @IonicPage()
 @Component({
@@ -29,23 +29,24 @@ export class ErrandApprovePage {
   }
 
   async initInfo() {
-    // 1. 当前item 点击的流程的信息
     const param = this.navParams.get('param');
 
-    let detail={};
+    // 1. 当前item点击的流程的的相信信息
+    let currentDetail={};
+    // 2. 其他流程的参数数组
     let otherParamList:any[]=[];
 
     await this.init(param).then(v=>{
-      detail = v.detail;
+      currentDetail = v.detail;
       otherParamList= v.otherParam;
     })
 
     this.pList.push({
       param:param,
-      detail:detail,
-      apvRecord:new ApvRecord('3342313','34322432','后续工作'), // 初始赋值
+      detail:currentDetail, //后端获取的
+      apvRecord:new ApvRecord('3342313','34322432','后续工作'), // 初始赋值（根据从后端获取的detail）
       onlySave: false,
-      hasInit:true
+      hasInit:true  //已经初始化，滑动时不init
     })
 
 
