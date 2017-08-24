@@ -14,7 +14,13 @@ export class Errand {
   departDate?:string;     // 预计出发日期
   days?:string;        // 预计天数
   reason?:string;        // 出差事由
-  currentTaskList?:object;  // 当前任务列表
+  addTime?:string;   //申请时间
+  preErrandId?:string; //关联上次公假单ID
+  continueReason?:string; //续假原因
+  note?:string;  //修改备注
+  formStatus?:string; //表单状态
+  flowStatus?:string; //流程状态
+
 }
 
 /**

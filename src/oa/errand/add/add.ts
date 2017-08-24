@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidateService} from "../../../providers/validate-service";
 import {Form_Label, Errand} from "../model";
 import {HttpClient} from "../../../providers/http-client";
-import {ERRAND_APP_ADD} from "../../../api/api";
+import {ERRAND_APP_ADD_SUBMIT} from "../../../api/api";
 
 @IonicPage()
 @Component({
@@ -41,7 +41,7 @@ export class ErrandAddPage {
   addSubmit(){
     if(this.validateService.checkFormBeforeSubmit(this.addForm, this.label)){
       console.log("校验通过");
-      this.httpClient.post(ERRAND_APP_ADD,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
+      this.httpClient.post(ERRAND_APP_ADD_SUBMIT,this.addForm.value).map(res=>res.json()).subscribe((res)=>{
         console.log(res);
       })
     }

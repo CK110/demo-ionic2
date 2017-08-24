@@ -4,6 +4,7 @@ import {FilterPage} from "./filter/filter";
 import {AirApp, Filter} from "../model";
 import {HttpClient} from "../../../providers/http-client";
 import {AIR_APP_LIST} from "../../../api/api";
+import {AirAppApprovePage} from "../approve/approve";
 
 /**
  * Generated class for the ListPage page.
@@ -47,6 +48,12 @@ export class AirAppListPage {
       console.log(res);
       this.airAppList = res['list'];
     })
+  }
+
+  toApprovePage(airApp){
+    this.navCtrl.push(AirAppApprovePage,{
+      param: { bookAppId:'1',procInstId:'1'}
+    });
   }
 
 }

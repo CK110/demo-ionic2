@@ -182,4 +182,87 @@ export default {
     }))
   },
 
+  viewInit:(req:Request)=>{
+    const param = JSON.parse(req.text());
+    console.log(`errand app mock list ${JSON.stringify(param)}`);
+
+    return new Response(new ResponseOptions({
+      status: 200,
+      body: {
+        "rc": "0",
+        "currenttasklist": [
+          {
+            "actorMap": {
+              "wjchen": "陈武军",
+              "xinzhang": "张欣"
+            },
+            "taskName": "后续工作",
+            "actorIdList": [
+              "wjchen",
+              "xinzhang"
+            ],
+            "taskId": "61768"
+          }
+        ],
+        "preerrand": "",
+        "apvrecordlist": [
+          {
+            "formid": "4643095917849",
+            "sortno": "1",
+            "apvsignname": "杨锐",
+            "apvnote": "111",
+            "processname": "公假流程",
+            "apvid": "136433743329602",
+            "taskname": "一级部门经理审批",
+            "apvpassed": "Y",
+            "apvsign": "ruiyang",
+            "apvdate": "2014-08-11 16:27"
+          },
+          {
+            "formid": "4643095917849",
+            "sortno": "2",
+            "apvsignname": "杨锐",
+            "apvnote": "经理或部门总监审批",
+            "processname": "公假流程",
+            "apvid": "193682926431599",
+            "taskname": "分公司经理或部门总监审批",
+            "apvpassed": "Y",
+            "apvsign": "ruiyang",
+            "apvdate": "2014-08-11 16:28"
+          }
+        ],
+        "errand": {
+          "formid": "4643095917849",
+          "procinstid": "32121",
+          "reason": "11",
+          "errandid": "GJSZ1408110001",
+          "preerrandid": "",
+          "departdate": "2014-08-06",
+          "deptid": "275",
+          "project": {
+            "code": "研080202",
+            "name": "公司内部管理系统项目",
+            "projectid": "67"
+          },
+          "addwho": "xinzhang",
+          "deptname": "吉首服务站",
+          "errander": "xinzhang",
+          "dispatchername": "张欣",
+          "departplace": "出发地",
+          "arriveplace": "目的地",
+          "flowstatus": "0",
+          "days": "12.0",
+          "corpname": "深圳",
+          "formstatus": "1",
+          "continuereason": "",
+          "dispatcher": "xinzhang",
+          "projectid": "67",
+          "adddate": "2014-08-11 16:15:22",
+          "errandername": "张欣"
+        },
+        "cancelrecordlist": []
+      }
+    }))
+  },
+
 }

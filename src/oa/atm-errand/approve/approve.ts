@@ -26,7 +26,6 @@ export class AtmErrandApprovePage {
     console.log('ionViewDidLoad ApprovePage');
   }
 
-
   /**
    * 初始化批量审批页面
    * @returns {Promise<void>}

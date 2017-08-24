@@ -19,7 +19,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let airApp of airAppList">
+    <ion-item *ngFor="let airApp of airAppList" tappable (click)="toApprovePage(airApp)">
       <div style="display: flex;align-items: center;justify-content: space-between;">
         <div>
           <div style="margin-bottom: 6px;display: flex;align-items: center;">

@@ -48,6 +48,13 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(AirAppAPI.addSubmit(connection.request));
       }
 
+      if(Mock.onPost('/mock/oa/routine/air/batchInit')){
+        connection.mockRespond(AirAppAPI.ApproveBatchInit(connection.request));
+      }
+      if(Mock.onPost('/oa/routine/air/initApv')){
+        connection.mockRespond(AtmErrandAPI.approveInit(connection.request));
+      }
+
       if(Mock.onPost('/mock/oa/attend/errand/queryApp')){
         connection.mockRespond(errandAPI.getErrandList(connection.request));
       }
@@ -60,6 +67,11 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(errandAPI.getCurrent(connection.request));
       }
 
+      if(Mock.onPost('/mock/oa/attend/errand/viewApp')){
+        connection.mockRespond(errandAPI.viewInit(connection.request));
+      }
+
+
       if(Mock.onPost('/mock/oa/attend/errand/apvSubmit')){
         connection.mockRespond(errandAPI.batchSubmit(connection.request));
       }
@@ -71,6 +83,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
       if(Mock.onPost('/mock/oa/attend/atmerrand/initApv')){
         connection.mockRespond(AtmErrandAPI.approveInit(connection.request));
       }
+
 
 
       // pass through any requests not handled above

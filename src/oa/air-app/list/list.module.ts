@@ -11,7 +11,7 @@ import {SharedPipesModule} from "../../../pipes/sharedPipesModule";
   imports: [
     IonicPageModule.forChild(AirAppListPage),
     FilterPageModule,
-    SharedPipesModule
+    SharedPipesModule,
   ],
   exports: [
     AirAppListPage

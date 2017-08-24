@@ -112,5 +112,37 @@ export const AirAppAPI = {
         "rc": "0"
       }
     }))
+  },
+
+  ApproveBatchInit: (req:Request)=>{
+    const param = JSON.parse(req.text());
+    console.log(`errand app mock getCurrent ${JSON.stringify(param)}`);
+
+    return new Response(new ResponseOptions({
+      status: 200,
+      body: {
+        "rc": "0",
+        "detail":'',
+        other:[
+          {bookAppId:'2',procInstId:2},
+          {bookAppId:'3',procInstId:3},
+          {bookAppId:'4',procInstId:4}
+        ]
+      }
+    }))
+  },
+
+
+  approveInit:(req:Request)=>{
+    const param = JSON.parse(req.text());
+    console.log(`errand app mock list ${JSON.stringify(param)}`);
+
+    return new Response(new ResponseOptions({
+      status: 200,
+      body: {
+        rc: 0
+      }
+    }))
   }
+
 }

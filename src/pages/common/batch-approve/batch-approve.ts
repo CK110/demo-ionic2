@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams, ToastController, ViewController} from 'ionic-angular';
 import {HttpClient} from "../../../providers/http-client";
-import {Errand_Approve_Batch_Submit} from "../../../api/api";
+import {ERRAND_APPROVE_BATCH_SUBMIT} from "../../../api/api";
 
 /**
  * Generated class for the BatchApprovePage page.
@@ -37,7 +37,7 @@ export class BatchApprovePage {
    batchSubmit(){
     let result:any[]=[]
      this.list.forEach( async val=>{
-       await this.httpClient.post(Errand_Approve_Batch_Submit,val).map(res=>res.json()).subscribe(res=>{
+       await this.httpClient.post(ERRAND_APPROVE_BATCH_SUBMIT,val).map(res=>res.json()).subscribe(res=>{
           result.push(res)
         }
       )

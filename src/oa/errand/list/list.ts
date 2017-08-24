@@ -5,6 +5,7 @@ import {HttpClient} from "../../../providers/http-client";
 import {ERRAND_APP_LIST} from "../../../api/api";
 import {FilterPage} from "./filter/filter";
 import {ErrandApprovePage} from "../approve/approve";
+import {ErrandViewPage} from "../view/view";
 
 /**
  * Generated class for the ListPage page.
@@ -44,9 +45,17 @@ export class ErrandListPage {
   }
 
   toApprovePage(errand:Errand){
-    this.navCtrl.push(ErrandApprovePage,{
-      param: { processId:'1',taskId:'1'}
-    });
+
+    //未结束流程进入审批页面
+    if(errand.flowStatus === '0'){
+      this.navCtrl.push(ErrandApprovePage,{
+        param: { processId:'1',formId:'1', taskId:'1'}
+      });
+    }else{
+      this.navCtrl.push(ErrandViewPage,{
+        param: { procinstid:'1',formId:'1'}
+      });
+    }
   }
 
 }

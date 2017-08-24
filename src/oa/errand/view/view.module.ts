@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ErrandApprovePage } from './approve';
+import { ErrandViewPage } from './view';
 import {ApprovehistoryModule} from "../../../components/approvehistory/approvehistory.module";
 
 @NgModule({
   declarations: [
-    ErrandApprovePage,
+    ErrandViewPage,
   ],
   imports: [
-    IonicPageModule.forChild(ErrandApprovePage),
+    IonicPageModule.forChild(ErrandViewPage),
     ApprovehistoryModule
   ],
   exports: [
-    ErrandApprovePage
+    ErrandViewPage
   ]
 })
-export class ErrandApprovePageModule {}
+export class ErrandViewPageModule {}

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {HttpClient} from "../../../providers/http-client";
 import {BatchApprovePage} from "../../../pages/common/batch-approve/batch-approve";
-import {Errand_Approve_Batch_Current, Errand_Approve_Batch_Init} from "../../../api/api";
+import {ERRAND_APPROVE_BATCH_INIT, ERRAND_APPROVE_SINGLE_INIT} from "../../../api/api";
 import {Approve, ApvRecord} from "../../../pages/common/common-model";
 
 @IonicPage()
@@ -70,7 +70,7 @@ export class ErrandApprovePage {
       detail:{},
       otherParam:[]
     }
-    await this.httpClient.post(Errand_Approve_Batch_Init,param).map(res=>res.json()).subscribe((res)=>{
+    await this.httpClient.post(ERRAND_APPROVE_BATCH_INIT,param).map(res=>res.json()).subscribe((res)=>{
       m.detail = res['detail'];
       m.otherParam=res['other']
 
@@ -81,7 +81,7 @@ export class ErrandApprovePage {
   //滑动时查询当个页面
   async getDetail(param:any){ //不查询current
     let detail:any;
-    await this.httpClient.post(Errand_Approve_Batch_Current,param).map(res=>res.json()).subscribe((res)=>{
+    await this.httpClient.post(ERRAND_APPROVE_SINGLE_INIT,param).map(res=>res.json()).subscribe((res)=>{
       detail = res
     })
     return detail;

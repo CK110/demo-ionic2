@@ -34,34 +34,34 @@ export class TodoPage {
     }else {
       this.brokenNetwork = false;
 
-      this.alertController.create({
-        title: '每次进入TodoTab',
-        message: '请求数据',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-
-              this.todolist =[
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
-                {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'}
-              ];
-            }
-          }
-        ]
-      }).present();
+      // this.alertController.create({
+      //   title: '每次进入TodoTab',
+      //   message: '请求数据',
+      //   buttons: [
+      //     {
+      //       text: 'Cancel',
+      //       role: 'cancel',
+      //       handler: () => {
+      //         console.log('Cancel clicked');
+      //
+      //         this.todolist =[
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'},
+      //           {processName:'续订劳动合同',starterName:'陈武军',startTimeString:'2017-07-03'}
+      //         ];
+      //       }
+      //     }
+      //   ]
+      // }).present();
     }
 
 
