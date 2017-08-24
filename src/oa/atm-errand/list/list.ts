@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AtmErrandApprovePage} from "../approve/approve";
 import {AtmErrand} from "../model";
 import {FilterPage} from "./filter/filter";
+import {AtmErrandViewPage} from "../view/view";
 
 /**
  * Generated class for the ListPage page.
@@ -31,8 +32,19 @@ export class AtmErrandListPage {
   }
 
   toApprovePage(atmErrand:AtmErrand){
-    this.navCtrl.push(AtmErrandApprovePage,{
-      param: { processId:'1',taskId:'1'}
+    //未结束流程进入审批页面
+    // if(atmErrand.flowStatus === '0'){
+    //   this.navCtrl.push(AtmErrandApprovePage,{
+    //     param: { taskId:'1'}
+    //   });
+    // }else{
+    //   this.navCtrl.push(AtmErrandViewPage,{
+    //     param: { piId:'1',formId:'1'}
+    //   });
+    // }
+
+    this.navCtrl.push(AtmErrandViewPage,{
+      param: { piId:'1',formId:'1'}
     });
   }
 

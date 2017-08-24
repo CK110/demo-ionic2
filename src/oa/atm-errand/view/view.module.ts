@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AtmErrandViewPage } from './view';
+import {ApprovehistoryModule} from "../../../components/approvehistory/approvehistory.module";
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { AtmErrandViewPage } from './view';
   ],
   imports: [
     IonicPageModule.forChild(AtmErrandViewPage),
+    ApprovehistoryModule
   ],
   exports: [
     AtmErrandViewPage

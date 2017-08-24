@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content (swipe)="swipePage($event)">
   <ion-list>
     <ion-item-divider>
       <div style="display: flex;align-items: center;justify-content: space-between;">
@@ -235,18 +235,7 @@
 
   </div>
 
-  <ion-list>
-    <ion-item-divider>
-      <div style="display: flex;align-items: center;justify-content: space-between;">
-        <h4>审批历史</h4>
-      </div>
-    </ion-item-divider>
-    <ion-item style="border-bottom: 0px">
-      <!--<approve-history [history]="apvHistoryList"></approve-history>-->
-      <approve-history></approve-history>
-    </ion-item>
-  </ion-list>
-
+  <approve-history></approve-history>
 
   <ion-list>
     <ion-item-divider>

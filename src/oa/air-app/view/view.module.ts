@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AirAppViewPage } from './view';
+import {ApprovehistoryModule} from "../../../components/approvehistory/approvehistory.module";
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { AirAppViewPage } from './view';
   ],
   imports: [
     IonicPageModule.forChild(AirAppViewPage),
+    ApprovehistoryModule
   ],
   exports: [
     AirAppViewPage

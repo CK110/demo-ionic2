@@ -5,6 +5,7 @@ import {AirApp, Filter} from "../model";
 import {HttpClient} from "../../../providers/http-client";
 import {AIR_APP_LIST} from "../../../api/api";
 import {AirAppApprovePage} from "../approve/approve";
+import {AirAppViewPage} from "../view/view";
 
 /**
  * Generated class for the ListPage page.
@@ -51,9 +52,16 @@ export class AirAppListPage {
   }
 
   toApprovePage(airApp){
-    this.navCtrl.push(AirAppApprovePage,{
-      param: { bookAppId:'1',procInstId:'1'}
-    });
+    //未结束流程进入审批页面
+    if(airApp.flowStatus === '0'){
+      this.navCtrl.push(AirAppApprovePage,{
+        param: { bookAppId:'1',procInstId:'1'}
+      });
+    }else{
+      this.navCtrl.push(AirAppViewPage,{
+        param: { bookAppId:'1',procInstId:'1'}
+      });
+    }
   }
 
 }
