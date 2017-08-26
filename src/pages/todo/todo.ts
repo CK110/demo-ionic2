@@ -18,7 +18,7 @@ export class TodoPage {
 
   searchFilter:object={
     filter:'',
-    orderBy:'desc',
+    desc:true,//降序
     page: '1',
     pagesize:'20'
 

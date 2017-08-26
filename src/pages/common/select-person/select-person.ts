@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {User} from "../common-model";
 import {HttpClient} from "../../../providers/http-client";
 import {COMMON_SELECT_USER} from "../../../api/api";
@@ -23,21 +23,27 @@ export class SelectPersonPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              // public event:Event,
-              public httpClient:HttpClient) {
+              public httpClient:HttpClient,
+              public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectPersonPage');
   }
 
-  getFilterUserList(event:Event){
+  getFilterList(event:Event){
     console.log(this.filter);
 
     this.httpClient.post(COMMON_SELECT_USER,JSON.stringify({'filter':this.filter})).map(res=>res.json()).subscribe(res=>{
       this.userList= res['userList'];
     })
-
   }
 
+  selectItem(user:any){
+    this.viewCtrl.dismiss({item:user});
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss({type:2});
+  }
 }

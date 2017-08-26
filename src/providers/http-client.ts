@@ -19,7 +19,6 @@ export class HttpClient{
   }
 
   post(url: string, body?: any, showLoading:boolean=true):Observable<Response> {
-    debugger;
     let headers = new Headers();
     this.createAuthorizationHeader(headers);
     let loading ;

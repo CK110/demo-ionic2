@@ -44,9 +44,9 @@
     <ion-list *ngSwitchCase="'myApprove'">
       <ion-item-divider >
         <div style="display: flex;justify-content: flex-end" tappable (click)="changeOrderBy()">
-          <p style="display: inline-block;margin-right: 4px">时间降序</p>
-          <ion-icon name="arrow-round-down" *ngIf="true"></ion-icon>
-          <ion-icon name="arrow-round-up" *ngIf="true"></ion-icon>
+          <p style="display: inline-block;margin-right: 4px">时间排序</p>
+          <ion-icon name="arrow-round-down" *ngIf="searchFilter.desc"></ion-icon>
+          <ion-icon name="arrow-round-up" *ngIf="!searchFilter.desc"></ion-icon>
         </div>
       </ion-item-divider>
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage('errand')">

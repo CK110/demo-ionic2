@@ -41,3 +41,5 @@ export const AIR_APP_LIST = `${Server_Url}/oa/routine/air/queryAirApp`;
 
 //获取用户select
 export const COMMON_SELECT_USER = `${Server_Url}/common/selectPerson`;
+export const COMMON_SELECT_DEPT = `${Server_Url}/common/selectDept`;
+

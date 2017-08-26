@@ -22,8 +22,6 @@ export class BatchApprovePage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private httpClient:HttpClient,
-              private toastCtrl:ToastController,
-              private alertCtrl:AlertController,
               private viewCtrl:ViewController) {
 
     console.log( navParams.get('param'));

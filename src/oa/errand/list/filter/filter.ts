@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, ViewController} from 'ionic-angular';
+import { ModalController, NavController, ViewController} from 'ionic-angular';
 import {Filter, Filter_Label} from "../../model";
+import {SelectPersonPage} from "../../../../pages/common/select-person/select-person";
+import {SelectDeptPage} from "../../../../pages/common/select-dept/select-dept";
 
-/**
- * Generated class for the FilterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @Component({
   selector: 'errand-list-filter',
   templateUrl: 'filter.html',
@@ -18,7 +14,8 @@ export class FilterPage {
 
   private filter:Filter= new Filter();
 
-  constructor(public navCtrl: NavController,public viewController:ViewController) {
+  constructor(public navCtrl: NavController,
+              public viewController:ViewController,public modalCtrl:ModalController) {
   }
 
   ionViewDidLoad() {
@@ -31,10 +28,19 @@ export class FilterPage {
 
   selectClick(page:string){
     if(page === 'selectPerson'){
-      this.navCtrl.push('SelectPersonPage');
+      let modal = this.modalCtrl.create(SelectPersonPage);
+      //得到选择的item
+      modal.onDidDismiss(data => {
+        console.log(data)
+      });
+      modal.present();
     }
     if(page === 'selectDept'){
-      this.navCtrl.push('SelectDeptPage');
+      let modal = this.modalCtrl.create(SelectDeptPage);
+      modal.onDidDismiss(data => {
+        console.log(data)
+      });
+      modal.present();
     }
   }
 }
