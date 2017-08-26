@@ -18,17 +18,23 @@ export class HttpClient{
     headers.append('Authorization', 'Basic ' + token );
   }
 
-  post(url: string, body?: any):Observable<Response> {
+  post(url: string, body?: any, showLoading:boolean=true):Observable<Response> {
+    debugger;
     let headers = new Headers();
     this.createAuthorizationHeader(headers);
-
-    let loading = this.loadingCtrl.create();
+    let loading ;
+    if(showLoading){
+      loading = this.loadingCtrl.create();
+    }
 
     return Observable.create(observer => {
-      loading.present()
+      if(showLoading){
+        loading.present()
+      }
       this.http.post(url, body,{headers: headers}).subscribe(res => {
-        loading.dismiss();
-
+        if(showLoading) {
+          loading.dismiss();
+        }
         observer.next(res);
       }, err => {
         console.log('处理请求失败');

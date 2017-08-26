@@ -12,11 +12,11 @@ export default {
       body: {
         rc: 1,
         userList: [
-          {username:'a陈凯',userid:'00001'},
-          {username:'b陈凯',userid:'00001'},
-          {username:'c陈凯',userid:'00001'},
-          {username:'d陈凯',userid:'00001'},
-          {username:'e陈凯',userid:'00001'},
+          {username:'a陈凯',userid:'00001a'},
+          {username:'b陈凯',userid:'00001s'},
+          {username:'c陈凯',userid:'00001d'},
+          {username:'d陈凯',userid:'00001f'},
+          {username:'e陈凯',userid:'00001g'},
         ]
       }
     }))

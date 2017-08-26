@@ -20,13 +20,6 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-
   <ion-item *ngIf="brokenNetwork" style="background-color: #efcdcd;">
     <div style="display: flex;align-items: center;color:#ef4659;">
       <ion-icon name="alert" style="margin-left: 10px; "></ion-icon>
@@ -37,7 +30,25 @@
   </ion-item>
 
   <div [ngSwitch]="type">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-searchbar [(ngModel)]="searchFilter.filter" [debounce]="'1000'" (ionInput)="getFilteredList()"></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+
+
     <ion-list *ngSwitchCase="'myApprove'">
+      <ion-item-divider >
+        <div style="display: flex;justify-content: flex-end" tappable (click)="changeOrderBy()">
+          <p style="display: inline-block;margin-right: 4px">时间降序</p>
+          <ion-icon name="arrow-round-down" *ngIf="true"></ion-icon>
+          <ion-icon name="arrow-round-up" *ngIf="true"></ion-icon>
+        </div>
+      </ion-item-divider>
       <button ion-item *ngFor="let todo of todolist" (click)="openNavDetailsPage('errand')">
         <div class="micro-app-todo">
           <i class="iconfont icon-xudinglaodonghetong1"></i>

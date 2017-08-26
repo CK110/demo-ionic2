@@ -8,6 +8,7 @@ import errandAPI from './errand/errand'
 import selectPersonAPI from './common/select-person/select-person';
 import {AirAppAPI} from "./air-app/air-app";
 import {AtmErrandAPI} from "./atm-errand/atm-errand";
+import {TodoAPI} from "./todo/todo";
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -84,6 +85,12 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         connection.mockRespond(AtmErrandAPI.approveInit(connection.request));
       }
 
+
+
+      //TDDO
+      if(Mock.onPost('/mock/app/todo/queryTask')){
+        connection.mockRespond(TodoAPI.getList(connection.request));
+      }
 
 
       // pass through any requests not handled above
