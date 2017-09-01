@@ -13,7 +13,9 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content no-bounce>
+
+  <!--<index-list [items]="indexList"></index-list>-->
 
   <ion-list>
     <ion-item>
@@ -28,6 +30,7 @@
       </ion-note>
     </ion-item>
   </ion-list>
+
 
   <ion-item>
     <ion-label>html Date</ion-label>
@@ -53,5 +56,6 @@
 
   <approve-history [history]="historyMore" [flowStatus]="'0'"></approve-history>
   <approve-history [history]="historyMoreEnd" [flowStatus]="'1'"></approve-history>
+
 
 </ion-content>

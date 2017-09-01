@@ -1,5 +1,8 @@
 const Server_Url='http://localhost:8085/mock'
 
+//测试indexList
+export const INDEX_LIST = `${Server_Url}/mock/api/getContacts` ; //登录
+
 //登录
 export const LOGIN = `${Server_Url}/api/login` ; //登录
 export const TEST = `${Server_Url}/test` ; //登录

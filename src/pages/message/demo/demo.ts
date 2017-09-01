@@ -6,6 +6,8 @@ import {Http} from "@angular/http";
 import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
 import { Geolocation } from '@ionic-native/geolocation';
+import {HttpClient} from "../../../providers/http-client";
+import {INDEX_LIST} from "../../../api/api";
 declare var navigator;
 
 
@@ -24,6 +26,8 @@ export class DemoPage {
 
   message:any; //获得的 message
 
+  indexList:any[];
+
 
   constructor(private datePicker: DatePicker,
               public http:Http,
@@ -31,12 +35,14 @@ export class DemoPage {
               public alertCtrl: AlertController,
               public device:Device,
               public emailComposer:EmailComposer,
-              public geolocation: Geolocation) {
+              public geolocation: Geolocation,public httpClient:HttpClient) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DemoPage');
+
+    this.getIndexList();
   }
 
 
@@ -377,4 +383,11 @@ export class DemoPage {
       "apvdate": "2014-08-11 16:28"
     },
   ];
+
+
+  getIndexList(){
+    this.httpClient.post(INDEX_LIST).subscribe((res)=>{
+      this.indexList= res.json()['contacts'];
+    })
+  }
 }

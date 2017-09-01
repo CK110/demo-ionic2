@@ -142,7 +142,8 @@ const Tab_Root_Page_Module = [
       tabsHideOnSubPages: true, // 隐藏非rootPage的tab标签
       mode:'ios', // 样式统一ios
       backButtonText: '', //返回按钮只显示图标
-      preloadModules: true //提前加载模块
+      preloadModules: true ,//提前加载模块
+      swipeBackEnabled: true // 滑动返回
     }),
     Third_Comonent_Module,
     Tab_Root_Page_Module,

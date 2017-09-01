@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { DemoPage } from './demo';
 import {ApprovehistoryModule} from "../../../components/approvehistory/approvehistory.module";
+import {IndexListComponentModule} from "../../../components/contract/index-list.module";
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {ApprovehistoryModule} from "../../../components/approvehistory/approvehi
   ],
   imports: [
     IonicPageModule.forChild(DemoPage),
-    ApprovehistoryModule
+    ApprovehistoryModule,
+    IndexListComponentModule
   ],
   exports: [
     DemoPage

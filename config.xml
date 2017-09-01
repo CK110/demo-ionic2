@@ -6,6 +6,10 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -94,6 +98,10 @@
         </config-file>
     </platform>
     <allow-navigation href="http://192.168.2.5:8101" />
+    <allow-navigation href="http://192.168.2.5:8100" />
+    <allow-navigation href="http://10.2.214.191:8100" />
+    <allow-navigation href="http://10.2.214.191:8101" />
+    <allow-navigation href="http://192.168.2.5:8102" />
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <plugin name="com-sarriaroman-photoviewer" spec="^1.1.10" />
@@ -124,6 +132,7 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
     <plugin name="cordova-plugin-touch-id" spec="^3.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="git+https://github.com/ionic-team/cordova-plugin-wkwebview-engine.git" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
     <plugin name="cordova-sms-plugin" spec="^0.1.11" />
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />

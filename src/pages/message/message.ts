@@ -4,7 +4,8 @@ import {Events, IonicPage, NavController, PopoverController} from "ionic-angular
 import {ToolPage} from "./tool/tool";
 import {DemoPage} from "./demo/demo";
 import {HttpClient} from "../../providers/http-client";
-import {TEST} from "../../api/api";
+import {ContactPage} from "./contract/contact";
+import {INDEX_LIST} from "../../api/api";
 
 @IonicPage()
 @Component({
@@ -20,6 +21,7 @@ export class MessagePage {
 
   filter:any;
 
+
   constructor(private userData:UserData,
               public events:Events,
               public popoverCtrl: PopoverController,
@@ -28,6 +30,7 @@ export class MessagePage {
     this.userData.getUsername().then((username)=>{
       this.username = username;
     });
+
 
   }
 
@@ -74,5 +77,9 @@ export class MessagePage {
 
   }
 
+
+  openContract(){
+    this.navCtrl.push(ContactPage);
+  }
 
 }
