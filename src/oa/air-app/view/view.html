@@ -1,0 +1,237 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>陈武军的订票申请查看</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider>
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <h4>GJSZ1706150001</h4>
+        <h4>2017.06.15</h4>
+      </div>
+    </ion-item-divider>
+    <ion-item >
+      <ion-row>
+        <ion-col col-3><h4>申请人:</h4>
+        </ion-col>
+        <ion-col col-9>陈武军<p margin-top>深圳公司|产品测试部</p></ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item>
+      <ion-row>
+        <ion-col col-3><h4>乘机人:</h4></ion-col>
+        <ion-col col-9>钟云红</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3><h4>派遣人:</h4></ion-col>
+        <ion-col col-9>陈武军</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3><h4>派遣日期:</h4></ion-col>
+        <ion-col col-9>2017.7.10</ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item>
+      <ion-row>
+        <ion-col col-3><h4>项目:</h4></ion-col>
+        <ion-col col-9>建设银行跨平台项目</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3><h4>出差事由:</h4></ion-col>
+        <ion-col col-9>参加建设银行跨平台项目会议</ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <!-- 订票申请 -->
+  <div *ngIf="true">
+    <ion-list>
+      <ion-item>
+        <!--<ion-row>-->
+
+        <!--</ion-row>-->
+        <ion-row>
+          <ion-col col-3><h4>订票点:</h4></ion-col>
+          <ion-col col-9>东方航空</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3><h4>出票日期:</h4></ion-col>
+          <ion-col col-9>2017.7.5</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3><h4>备注:</h4></ion-col>
+          <ion-col col-9>打折机票</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3><h4>折后价:</h4></ion-col>
+          <ion-col col-9>¥500 (折前价：¥1000 )</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3><h4>燃油附加费:</h4></ion-col>
+          <ion-col col-9>¥100</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-row>
+          <div>
+            南京 ---> 深圳
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3><h4>预计出发时间:</h4></ion-col>
+          <ion-col col-9>7月15号左右回来</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- 退票申请 -->
+  <div *ngIf="true">
+    <ion-list>
+      <ion-item-divider>退票前机票信息</ion-item-divider>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4>
+            深圳 <br>
+            9:10 <br>
+            7.10(周三)
+          </ion-col>
+          <ion-col col-4>
+
+          </ion-col>
+          <ion-col col-4>
+            南京 <br>
+            12:00 <br>
+            7.10(周三)
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>折后价:</ion-col>
+          <ion-col col-9>¥ 500 (折前价：¥ 1000 )</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>燃油附加费:</ion-col>
+          <ion-col col-9>¥ 100</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item-divider>行政退票信息</ion-item-divider>
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>退票通知人:</ion-col>
+          <ion-col col-9>钟云黉</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>退票日期:</ion-col>
+          <ion-col col-9>2017.7.5</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>退票原因:</ion-col>
+          <ion-col col-9>工作原因不出差</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>退票手续费:</ion-col>
+          <ion-col col-9>¥ 100</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>退票返回金额:</ion-col>
+          <ion-col col-9>¥ 600</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>机票费用归属:</ion-col>
+          <ion-col col-9>部分金额自费  (自费金额: ¥100)</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!--作废申请-->
+  <div *ngIf="true">
+    <ion-list>
+      <ion-item-divider>行政作废信息</ion-item-divider>
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>作废通知人:</ion-col>
+          <ion-col col-9>陈武军</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>出票日期:</ion-col>
+          <ion-col col-9>2017.7.4</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>作废日期:</ion-col>
+          <ion-col col-9>2017.7.5</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>作废返回金额:</ion-col>
+          <ion-col col-9>¥ 600</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>作废原因:</ion-col>
+          <ion-col col-9>工作原因不出差</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>机票费用归属:</ion-col>
+          <ion-col col-9>部分金额自费  ( 自费金额: ¥100 )</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!--改签申请-->
+  <div *ngIf="true">
+    <ion-list>
+      <ion-item-divider>行政改签信息</ion-item-divider>
+      <ion-item>
+        <ion-row>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>改签通知人:</ion-col>
+          <ion-col col-9>陈武军</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>改签日期:</ion-col>
+          <ion-col col-9>2017.7.5</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>改签原因:</ion-col>
+          <ion-col col-9>工作原因推迟出差</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>改签手续费:</ion-col>
+          <ion-col col-9>¥ 100</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>改签后票价:</ion-col>
+          <ion-col col-9>¥ 600</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>改签费用归属:</ion-col>
+          <ion-col col-9>全部公费</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+
+
+  <approve-history></approve-history>
+
+
+</ion-content>

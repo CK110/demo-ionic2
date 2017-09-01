@@ -17,10 +17,6 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
-  3333333333333
-  4444444444444
-  5555555555555
-  7777777777777
   <ion-list>
     <ion-item-sliding>
       <ion-item>
@@ -82,6 +78,32 @@
   <button ion-button full (click)="incrementBadge()">增加badge</button>
   <button ion-button full (click)="decrementBadge()">减小badge</button>
   <button ion-button full (click)="openDemo()">打开demo</button>
+  <button ion-button full (click)="openContract()">打开联系人</button>
+
+
+  <!--<ion-list radio-group [(ngModel)]="filter">-->
+    <!--<ion-item>-->
+      <!--<ion-label>Friends</ion-label>-->
+      <!--<ion-radio value="friends" checked></ion-radio>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label>Family</ion-label>-->
+      <!--<ion-radio value="family"></ion-radio>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label>Enemies</ion-label>-->
+      <!--<ion-radio value="enemies" [disabled]="isDisabled"></ion-radio>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
+
+  <!--<ion-item>-->
+    <!--<ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" ></ion-datetime>-->
+    <!--<ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" ></ion-datetime>-->
+  <!--</ion-item>-->
+  <!--<ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" ></ion-datetime>-->
+  <!--<ion-datetime displayFormat="MM/DD/YYYY"  placeholder="请选择(必填)" ></ion-datetime>-->
+
 
 
 </ion-content>

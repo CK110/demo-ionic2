@@ -44,11 +44,3 @@ code-push release-cordova  ZJFTOA-iOS ios -d Production #发布到code-push-serv
 code-push deployment ls ZJFTOA-iOS -k // 查看
 ```
 
-```
-git remote add all https://git.oschina.NET/xxx/xxx.git
-git remote set-url --add all https://github.com/xxx/xxx.git
-git push all --all
-
-```
-
-

@@ -1,77 +1,10 @@
-approve-history {
-
-  .ant-history-header{
-    border-left: 4px solid red;
-    padding-left: 8px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #5f5c5c;
-  }
-  .ant-timeline{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+approve-history{
+  .approve-history-end .ant-timeline-item-tail {
+    border-left: 2px dotted #e9e9e9;
+    display: none;
   }
 
-  .ant-timeline-item{
-    position: relative;
-    padding: 0 0 12px;
-    list-style: none;
-    margin: 0;
+  nz-timeline .ant-timeline-item-head-custom{
+    padding: 0px;
   }
-
-  .ant-timeline-item-over{
-    position: relative;
-    list-style: none;
-    margin: 0;
-  }
-
-  .ant-timeline-item-tail {
-    position: absolute;
-    left: 5px;
-    top: 0;
-    height: 100%;
-    border-left: 2px solid #e9e9e9;
-  }
-
-  .ant-timeline-item-head {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    border-radius: 100px;
-    border: 2px solid transparent;
-  }
-
-  .ant-timeline-item-head-blue {
-    border-color: #108ee9;
-    color: #108ee9;
-  }
-  .ant-timeline-item-content {
-    padding: 0 0 10px 24px;
-    font-size: 12px;
-    position: relative;
-    top: -3px;
-  }
-
-  .ant-timeline-item-content-over{
-    padding: 0 0 0 24px;
-    font-size: 12px;
-    position: relative;
-    top: -3px;
-  }
-
-  .ant-timeline-item-head-red {
-    border-color: #f04134;
-    color: #f04134;
-    margin-bottom: 2px;
-  }
-
-  .ant-timeline-item-head-green {
-    border-color: #00a854;
-    color: #00a854;
-  }
-
-
 }

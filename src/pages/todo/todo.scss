@@ -2,19 +2,13 @@ page-todo {
   .micro-app-todo{
     display: flex;
   }
-  .micro-app-corner-icon{
-    width: 40px;
-    height: 40px;
-    font-size: 28px;
-    background: #38adff;
-    border-radius: 50%;
-    padding-top: 6px;
-    display: flex;
-    justify-content: center;
-    color: #fff;
-  }
-
   .micro-app-detail{
     padding-left: 4px;
+  }
+
+  .spinner-container{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 }

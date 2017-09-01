@@ -8,96 +8,160 @@
 // Additionally, this file can be also used as an entry point
 // to import other Sass files to be included in the output CSS.
 //
-// Shared Sass variables, which can be used to adjust Ionic's
+// Sha#4ca7ed Sass variables, which can be used to adjust Ionic's
 // default Sass variables, belong in "theme/variables.scss".
 //
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-@font-face {font-family: "Ionicons";
-  src: url('../assets/iconfont/iconfont.eot?t=1499305577337'); /* IE9*/
-  src: url('../assets/iconfont/iconfont.eot?t=1499305577337#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../assets/iconfont/iconfont.woff?t=1499305577337') format('woff'), /* chrome, firefox */
-  url('../assets/iconfont/iconfont.ttf?t=1499305577337') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../assets/iconfont/iconfont.svg?t=1499305577337#iconfont') format('svg'); /* iOS 4.1- */
+@font-face {font-family: "iconfont";
+  src: url('../assets/iconfont/iconfont.eot?t=1502700208946'); /* IE9*/
+  src: url('../assets/iconfont/iconfont.eot?t=1502700208946#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/iconfont/iconfont.woff?t=1502700208946') format('woff'), /* chrome, firefox */
+  url('../assets/iconfont/iconfont.ttf?t=1502700208946') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../assets/iconfont/iconfont.svg?t=1502700208946#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.icon {
-  font-family:"Ionicons" ;
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:40px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ion-ios-zhuanzhengshenqing:before { content: "\e672"; }
+.icon-gongjiashenqing:before { content: "\e600"; color: #4ca7ed }
 
-.ion-ios-holidays:before { content: "\e634"; }
+.icon-liuchengshenpi:before { content: "\e601"; color: #4ca7ed}
 
-.ion-ios-atm:before { content: "\e6ba"; }
+.icon-xiujiashenqing:before { content: "\e602"; color: #4ca7ed}
 
-.ion-ios-notebook:before { content: "\e687"; }
+.icon-wodeshenqing:before { content: "\e603"; color: #4ca7ed}
 
-.ion-ios-fukuan:before { content: "\e683"; }
+.icon-dingpiaoshenqing:before { content: "\e604"; color: #4ca7ed}
 
-.ion-ios-icon:before { content: "\e678"; }
+.icon-gonggao:before { content: "\e605"; color: #4ca7ed}
 
-.ion-ios-jiekuan:before { content: "\e60e"; }
+.icon-feiyongbaoxiao:before { content: "\e606"; color: #4ca7ed}
 
-.ion-ios-cizhicitui:before { content: "\e64d"; }
+.icon-chalvbaoxiao:before { content: "\e607"; color: #4ca7ed}
 
-.ion-ios-dingpiao:before { content: "\e619"; }
+.icon-yuangongdangan:before { content: "\e608"; color: #4ca7ed}
 
-.ion-ios-apply:before { content: "\e60f"; }
+.icon-yuangongshengyin:before { content: "\e609"; color: #4ca7ed}
 
-.ion-ios-weihu:before { content: "\e617"; }
+.icon-jiekuandan:before { content: "\e60a"; color: #4ca7ed}
 
-.ion-ios-yingpinjilu:before { content: "\e63a"; }
+.icon-renyuanbuchong:before { content: "\e60b"; color: #4ca7ed}
 
-.ion-ios-abgangzhuanban:before { content: "\e76c"; }
+.icon-yingpinkaohe:before { content: "\e60c"; color: #4ca7ed}
 
-.ion-ios-hukou:before { content: "\e600"; }
+.icon-yingjieshengyingpinkaohe:before { content: "\e60d"; color: #4ca7ed}
 
-.ion-ios-wodejiaqi:before { content: "\e697"; }
+.icon-jipiaofukuan:before { content: "\e60e"; color: #4ca7ed}
 
-.ion-ios-xunlianpeiyang:before { content: "\e68e"; }
+.icon-peixunshenqing:before { content: "\e60f"; color: #4ca7ed}
 
-.ion-ios-weihu1:before { content: "\e69f"; }
+.icon-ATMweihuyingjiekaohe:before { content: "\e610"; color: #4ca7ed}
 
-.ion-ios-feiyongbaoxiao:before { content: "\e648"; }
+.icon-gangweitiaodong:before { content: "\e611"; color: #4ca7ed}
 
-.ion-ios-gonggaoguanli:before { content: "\e612"; }
+.icon-shixishengchongdi:before { content: "\e612"; color: #4ca7ed}
 
-.ion-ios-yingjiebiyesheng:before { content: "\e601"; }
+.icon-zhuanzhengkaohe:before { content: "\e613"; color: #4ca7ed}
 
-.ion-ios-xuding:before { content: "\e6f6"; }
+.icon-ATMneibugangweitiaodong:before { content: "\e614"; color: #4ca7ed}
 
-.ion-ios-renyuanzengjia:before { content: "\e689"; }
+.icon-cituishenqing:before { content: "\e615"; color: #4ca7ed}
 
-.ion-ios-gonggaoguanli1:before { content: "\e60d"; }
+.icon-hukoutiaodong:before { content: "\e616"; color: #4ca7ed}
 
-.ion-ios-chailvbaoxiao:before { content: "\e63b"; }
+.icon-bijibengoumaishenqing:before { content: "\e617"; color: #4ca7ed}
 
-.ion-ios-bijibendiannao:before { content: "\e603"; }
+.icon-lizhishenqing:before { content: "\e618"; color: #4ca7ed}
 
-.ion-ios-atm-away:before { content: "\e61f"; }
+.icon-ATMshebaogongjijinzhuanyi:before { content: "\e619"; color: #4ca7ed}
 
-.ion-ios-lizhi:before { content: "\e626"; }
+.icon-xudinglaodonghetong:before { content: "\e61a"; color: #4ca7ed}
 
-.ion-ios-shebao:before { content: "\e64e"; }
+.icon-fengongsi:before { content: "\e61b"; color: #4ca7ed}
 
-.ion-ios-atm1:before { content: "\e605"; }
+.icon-fuwuzhan:before { content: "\e61c"; color: #4ca7ed}
 
-.ion-ios-xiujiashenqing:before { content: "\e60c"; }
+.icon-benbumen:before { content: "\e61d"; color: #4ca7ed}
 
-.ion-ios-gongjia:before { content: "\e639"; }
+.icon-tongshi:before { content: "\e61e"; color: #4ca7ed}
 
-.ion-ios-zhuangang:before { content: "\e635"; }
+.icon-sushe:before { content: "\e61f"; color: #4ca7ed}
 
-.ion-ios-zengjia:before { content: "\e608"; }
+.icon-banbenshuoming:before { content: "\e620"; color: #4ca7ed}
 
-.ion-ios-gongsi:before { content: "\e609"; }
+.icon-changjianwenti:before { content: "\e621"; color: #4ca7ed}
 
+.icon-daibantixing:before { content: "\e622"; color: #4ca7ed}
+
+.icon-gongzuotongzhi:before { content: "\e623"; color: #4ca7ed}
+
+.icon-xinxiaoxi:before { content: "\e624"; color: #4ca7ed}
+
+.icon-gonggao1:before { content: "\e625"; color: #4ca7ed}
+
+.icon-shezhi:before { content: "\e626"; color: #4ca7ed}
+
+.icon-liuchengshenpi1:before { content: "\e627"; color: #4ca7ed}
+
+.icon-wodeshenqing1:before { content: "\e628"; color: #4ca7ed}
+
+.icon-gongjiashenqing1:before { content: "\e629"; color: #4ca7ed}
+
+.icon-xiujiashenqing1:before { content: "\e62a"; color: #4ca7ed}
+
+.icon-feiyongbaoxiao1:before { content: "\e62b"; color: #4ca7ed}
+
+.icon-dingpiaoshenqing1:before { content: "\e62c"; color: #4ca7ed}
+
+.icon-yuangongshengyin1:before { content: "\e62d"; color: #4ca7ed}
+
+.icon-gonggao2:before { content: "\e62e"; color: #4ca7ed}
+
+.icon-yuangongdangan1:before { content: "\e62f"; color: #4ca7ed}
+
+.icon-chalvbaoxiao1:before { content: "\e630"; color: #4ca7ed}
+
+.icon-jipiaofukuan1:before { content: "\e631"; color: #4ca7ed}
+
+.icon-yingpinkaohe1:before { content: "\e632"; color: #4ca7ed}
+
+.icon-jiekuandan1:before { content: "\e633"; color: #4ca7ed}
+
+.icon-peixunshenqing1:before { content: "\e634"; color: #4ca7ed}
+
+.icon-renyuanbuchong1:before { content: "\e635"; color: #4ca7ed}
+
+.icon-ATMweihuyingpinkaohe:before { content: "\e636"; color: #4ca7ed}
+
+.icon-yingjieshengyingpinkaohe1:before { content: "\e637"; color: #4ca7ed}
+
+.icon-shixishengchongdi1:before { content: "\e638"; color: #4ca7ed}
+
+.icon-Atmneibugangweitiaodong:before { content: "\e639"; color: #4ca7ed}
+
+.icon-lizhishenqing1:before { content: "\e63a"; color: #4ca7ed}
+
+.icon-gangweitiaodong1:before { content: "\e63b"; color: #4ca7ed}
+
+.icon-zhuanzhengkaohe1:before { content: "\e63c"; color: #4ca7ed}
+
+.icon-cituishenqing1:before { content: "\e63d"; color: #4ca7ed}
+
+.icon-bijibendiannaoshenqing:before { content: "\e63e"; color: #4ca7ed}
+
+.icon-hukoutiaodong1:before { content: "\e63f"; color: #4ca7ed}
+
+.icon-ATMshebaogongjijinzhuanyi1:before { content: "\e640"; color: #4ca7ed}
+
+.icon-xudinglaodonghetong1:before { content: "\e641"; color: #4ca7ed}
 
 
 // 图标大小控制，不包含颜色 start
@@ -117,3 +181,14 @@
    color: #fff;
  }
 // 图标大小控制，不包含颜色 end
+
+
+.toast-text-center{
+  text-align:center;
+}
+
+textarea {
+  resize: both;
+  height: 100px;
+}
+

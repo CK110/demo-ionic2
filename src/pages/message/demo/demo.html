@@ -13,7 +13,9 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content no-bounce>
+
+  <!--<index-list [items]="indexList"></index-list>-->
 
   <ion-list>
     <ion-item>
@@ -29,6 +31,7 @@
     </ion-item>
   </ion-list>
 
+
   <ion-item>
     <ion-label>html Date</ion-label>
     <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="htmlDate"></ion-datetime>
@@ -43,6 +46,16 @@
 
   <button ion-button full (click)="getGeoLocation()">获取位置信息</button>
   <button ion-button full (click)="getGeoLationByBaidu()" >百度定位</button>
+
+  <br>
+  <br>
+
+  <approve-history [history]="historyTwo" [flowStatus]="'0'"></approve-history>
+  <approve-history [history]="historyTwoEnd" [flowStatus]="'1'"></approve-history>
+
+
+  <approve-history [history]="historyMore" [flowStatus]="'0'"></approve-history>
+  <approve-history [history]="historyMoreEnd" [flowStatus]="'1'"></approve-history>
 
 
 </ion-content>

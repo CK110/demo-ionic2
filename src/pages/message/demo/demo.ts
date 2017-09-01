@@ -6,6 +6,8 @@ import {Http} from "@angular/http";
 import {Device} from "@ionic-native/device";
 import {EmailComposer} from "@ionic-native/email-composer";
 import { Geolocation } from '@ionic-native/geolocation';
+import {HttpClient} from "../../../providers/http-client";
+import {INDEX_LIST} from "../../../api/api";
 declare var navigator;
 
 
@@ -24,6 +26,8 @@ export class DemoPage {
 
   message:any; //获得的 message
 
+  indexList:any[];
+
 
   constructor(private datePicker: DatePicker,
               public http:Http,
@@ -31,12 +35,14 @@ export class DemoPage {
               public alertCtrl: AlertController,
               public device:Device,
               public emailComposer:EmailComposer,
-              public geolocation: Geolocation) {
+              public geolocation: Geolocation,public httpClient:HttpClient) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DemoPage');
+
+    this.getIndexList();
   }
 
 
@@ -154,5 +160,234 @@ export class DemoPage {
       }).present();
     });
 
+  }
+
+
+
+
+  // 审批历史demo数据
+  historyTwo:any[] = [
+    {
+      "formid": "4643095917849",
+      "sortno": "1",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "136433743329602",
+      "taskname": "一级部门经理审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:27"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": ""
+    },
+  ];
+
+  historyTwoEnd =[
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "姗姗",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "财务审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "仲程",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "总裁审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+  ];
+
+
+  historyMore=[
+    {
+      "formid": "4643095917849",
+      "sortno": "1",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "136433743329602",
+      "taskname": "一级部门经理审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:27"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "姗姗",
+      "apvnote": "",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "财务审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": ""
+    },
+  ];
+
+
+  historyMoreEnd=[
+    {
+      "formid": "4643095917849",
+      "sortno": "1",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "136433743329602",
+      "taskname": "一级部门经理审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:27"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "杨锐",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "分公司经理或部门总监审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "姗姗",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "财务审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+    {
+      "formid": "4643095917849",
+      "sortno": "2",
+      "apvsignname": "仲程",
+      "apvnote": "哈哈刷卡回声嘹亮has啦",
+      "processname": "公假流程",
+      "apvid": "193682926431599",
+      "taskname": "总裁审批",
+      "apvpassed": "Y",
+      "apvsign": "ruiyang",
+      "apvdate": "2014-08-11 16:28"
+    },
+  ];
+
+
+  getIndexList(){
+    this.httpClient.post(INDEX_LIST).subscribe((res)=>{
+      this.indexList= res.json()['contacts'];
+    })
   }
 }

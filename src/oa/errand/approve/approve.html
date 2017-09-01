@@ -1,26 +1,119 @@
 <ion-header>
   <ion-navbar>
-
-    <ion-title>
-      公假单
-    </ion-title>
+    <ion-title>公假审批</ion-title>
 
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content (swipe)="swipePage($event)">
+    <ion-list>
+      <ion-item-divider>
+        <div style="display: flex;align-items: center;justify-content: space-between;">
+          <h4>GJSZ1706150001</h4>
+          <h4>2017.06.15</h4>
+        </div>
+      </ion-item-divider>
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>
+            <h4>出差人:</h4>
+          </ion-col>
+          <ion-col col-9>
+           陈武军
+            <p margin-top>
+              深圳公司|产品测试部
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-  <ion-item>
-  </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>
+            <h4>出发到达：</h4>
+          </ion-col>
+          <ion-col col-9>
+           深圳 --> 南京
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <h4>出发到达：</h4>
+          </ion-col>
+          <ion-col col-9>
+           2017.7.10 (预计 3.0 天)
+          </ion-col>
+        </ion-row>
+      </ion-item>
 
-  <ion-item style="border-bottom: 0px">
-    <approve-history [history]="apvHistoryList"></approve-history>
-  </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>
+            <h4>项目:</h4>
+          </ion-col>
+          <ion-col col-9>
+            建设银行跨平台项目 >
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <h4>出差事由:</h4>
+          </ion-col>
+          <ion-col col-9>
+            参加建设银行跨平台项目会议
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+            <h4>近期公假:</h4>
+          </ion-col>
+          <ion-col col-9>
+            2017.5.10 | 2017.2.3 | 2016.12.15
+          </ion-col>
+        </ion-row>
 
+      </ion-item>
+    </ion-list>
+  <!--</ion-card>-->
+
+  <approve-history></approve-history>
+
+
+  <ion-list>
+    <ion-item-divider>
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <h4>审批结论</h4>
+      </div>
+    </ion-item-divider>
+    <ion-item >
+      <ion-label>结果:</ion-label>
+      <ion-select [(ngModel)]="pList[activePage].apvRecord.apvPassed">
+
+        <ion-option value="1">同意</ion-option>
+        <ion-option value="2">不同意，返回上一步</ion-option>
+        <ion-option value="3">不同意，退回修改</ion-option>
+        <ion-option value="4">不同意，流程结束</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item >
+      <ion-label>意见:</ion-label>
+      <ion-textarea placeholder="请输入审批意见(非必填)" [(ngModel)]="pList[activePage].apvRecord.apvNote"></ion-textarea>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-note item-end style="color:red;margin-right: -10px"><h5>仅保存，不提交</h5></ion-note>
+        <ion-toggle checked="false" [(ngModel)]="pList[activePage].onlySave" ></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-toolbar>
+    <p text-center style="color: red">
+      <<<<<<<<<<<<<< 滑动以审批同类型流程({{activePage+1}})
+    </p>
+  </ion-toolbar>
 </ion-content>
 
 
 <ion-footer>
-  <button ion-button full>审批</button>
+  <button ion-button full (click)="toBatchApprovePage()">批量审批</button>
 </ion-footer>

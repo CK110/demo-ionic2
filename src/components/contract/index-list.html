@@ -1,0 +1,34 @@
+<div style=" width: 100%;display: flex;
+  justify-content: space-between; height: 100%;overflow: hidden;">
+  <div class="main-wrapper"  #scrollContent tappable (scroll)="onScroll($event)" >
+    <ion-list #scheduleList style="margin: 0">
+      <ion-item-group *ngFor="let item of items" #itemGroup>
+        <ion-item-divider >
+          {{item.index}}
+      </ion-item-divider>
+        <ion-item *ngFor="let i of item['list']">
+        {{i.name}}
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>
+
+  <div style="width:6%;
+        position: absolute;right: 0;display: flex;
+        justify-content:center;flex-direction: column;
+        text-align: center; background-color: #f5f5f5;height: 100%;z-index: 1000;-webkit-touch-callout: none "
+       (touchstart)="touchstart($event)"
+       (touchmove)="touchmove($event)"
+       (touchend)="touchend($event)"
+  >
+    <div class="index-bar" *ngFor="let item of items;let i = index"
+         [class.indexed-menu-activate]="item.index === currentIndicator">
+      {{item.index}}
+    </div>
+  </div>
+
+  <div class="modal" [class.show]="showModal">
+    {{currentIndicator}}
+  </div>
+
+</div>

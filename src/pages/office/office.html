@@ -8,26 +8,29 @@
 
 
 <ion-content>
+
+
   <ion-item>
     <div class="item-header">常用功能</div>
     <ion-grid>
       <ion-row>
+        <ion-col col-3 tappable [navPush]="'ProcesslistPage'" >
+          <div class="micro-app">
+            <i class="iconfont icon-liuchengshenpi"></i>
+            <span class="micro-app-name">流程审批</span>
+          </div>
+        </ion-col>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <i class="iconfont icon-wodeshenqing"></i>
+            <span class="micro-app-name">我的申请</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-3 tappable [navPush]="'ErrandAddPage'">
+          <div class="micro-app">
+            <i class="iconfont icon-gongjiashenqing"></i>
             <span class="micro-app-name">公假申请</span>
-          </div>
-        </ion-col>
-        <ion-col col-3>
-          <div class="micro-app">
-            <ion-icon name="dingpiao" class="micro-app-icon"></ion-icon>
-            <span class="micro-app-name">订票申请</span>
-          </div>
-        </ion-col>
-        <ion-col col-3>
-          <div class="micro-app">
-            <ion-icon name="feiyongbaoxiao" class="micro-app-icon"></ion-icon>
-            <span class="micro-app-name">费用报销</span>
           </div>
         </ion-col>
         <ion-col col-3>
@@ -55,19 +58,19 @@
         <ion-row>
           <ion-col col-3 tappable [navPush]="'ErrandAddPage'" >
             <div class="micro-app">
-              <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+              <i class="iconfont icon-gongjiashenqing"></i>
               <span class="micro-app-name">公假申请</span>
             </div>
           </ion-col>
           <ion-col col-3>
             <div class="micro-app">
-              <ion-icon name="dingpiao" class="micro-app-icon"></ion-icon>
+              <i class="iconfont icon-xiujiashenqing"></i>
               <span class="micro-app-name">休假申请</span>
             </div>
           </ion-col>
-          <ion-col col-3>
+          <ion-col col-3 tappable [navPush]="'AtmErrandAddPage'">
             <div class="micro-app">
-              <ion-icon name="feiyongbaoxiao" class="micro-app-icon"></ion-icon>
+              <i class="iconfont icon-gongjiashenqing"></i>
               <span class="micro-app-name">ATM公假申请</span>
             </div>
           </ion-col>
@@ -79,16 +82,21 @@
     <div class="item-header">行政事务</div>
     <ion-grid>
       <ion-row>
+        <ion-col col-3 tappable [navPush]="'AirAppAddPage'">
+          <div class="micro-app">
+            <i class="iconfont icon-dingpiaoshenqing"></i>
+            <span class="micro-app-name">订票管理</span>
+          </div>
+        </ion-col>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
-            <span class="micro-app-name">订票管理</span>
+            <i class="iconfont icon-liuchengshenpi"></i>
+            <span class="micro-app-name">员工档案</span>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-item>
-
 
   <ion-item>
     <div class="item-header">财务</div>
@@ -96,13 +104,13 @@
       <ion-row>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <i class="iconfont icon-feiyongbaoxiao"></i>
             <span class="micro-app-name">费用报销</span>
           </div>
         </ion-col>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <i class="iconfont icon-chalvbaoxiao1"></i>
             <span class="micro-app-name">差旅报销</span>
           </div>
         </ion-col>
@@ -116,46 +124,17 @@
       <ion-row>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <i class="iconfont icon-gonggao"></i>
             <span class="micro-app-name">公告</span>
           </div>
         </ion-col>
         <ion-col col-3>
           <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
+            <i class="iconfont icon-yuangongshengyin"></i>
             <span class="micro-app-name">员工声音</span>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-item>
-
-  <ion-item>
-    <div class="item-header">流程审批</div>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-          <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
-            <span class="micro-app-name">流程审批</span>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
-
-  <ion-item>
-    <div class="item-header">档案查询</div>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-          <div class="micro-app">
-            <ion-icon name="gongjia" class="micro-app-icon"></ion-icon>
-            <span class="micro-app-name">员工档案</span>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
-
 </ion-content>

@@ -4,7 +4,8 @@ import {Events, IonicPage, NavController, PopoverController} from "ionic-angular
 import {ToolPage} from "./tool/tool";
 import {DemoPage} from "./demo/demo";
 import {HttpClient} from "../../providers/http-client";
-import {TEST} from "../../api/api";
+import {ContactPage} from "./contract/contact";
+import {INDEX_LIST} from "../../api/api";
 
 @IonicPage()
 @Component({
@@ -18,6 +19,9 @@ export class MessagePage {
   username:string;
   badgeNumber:number=0;
 
+  filter:any;
+
+
   constructor(private userData:UserData,
               public events:Events,
               public popoverCtrl: PopoverController,
@@ -27,14 +31,15 @@ export class MessagePage {
       this.username = username;
     });
 
+
   }
 
   ionViewWillEnter() {
-    this.httpClient.post(TEST,JSON.stringify({"name":"222","sex":"男"}))
-      .map(res=> res.json())
-      .subscribe((data)=>{
-          console.dir(data);
-      })
+    // this.httpClient.post(TEST,JSON.stringify({"name":"222","sex":"男"}))
+    //   .map(res=> res.json())
+    //   .subscribe((data)=>{
+    //       console.dir(data);
+    //   })
   }
 
   popPage(myEvent){
@@ -72,5 +77,9 @@ export class MessagePage {
 
   }
 
+
+  openContract(){
+    this.navCtrl.push(ContactPage);
+  }
 
 }

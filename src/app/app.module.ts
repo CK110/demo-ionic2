@@ -15,7 +15,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OfficePageModule } from '../pages/office/office.module';
 
 import { RollnoticeComponentModule } from '../components/rollnotice/rollnotice.module';
-import {OA_PAGES} from "../oa/index";
 import {ApprovehistoryModule} from "../components/approvehistory/approvehistory.module";
 import {NoticebarModule} from "../components/noticebar/noticebar.module";
 import {CallNumber} from "@ionic-native/call-number";
@@ -58,7 +57,10 @@ import {MessagePageModule} from "../pages/message/message.module";
 import {JMessageHelper} from "../providers/jmessage-helper";
 import {StorageService} from "../providers/storage-service";
 import {HttpClient} from "../providers/http-client";
-
+import {ValidateService} from "../providers/validate-service";
+import {SelectPersonPageModule} from "../pages/common/select-person/select-person.module";
+import { NameByIdPipe } from '../pipes/name-by-id/name-by-id';
+import {ErrandListPageModule} from "../oa/errand/list/list.module";
 
 const Custom_Provides =[
   HttpService,
@@ -67,7 +69,8 @@ const Custom_Provides =[
   NativeService,
   JMessageHelper,
   StorageService,
-  HttpClient
+  HttpClient,
+  ValidateService
 ]
 
 const Native_Provides=[
@@ -129,7 +132,8 @@ const Tab_Root_Page_Module = [
 
     TabsPage,
     Tab_Root_Page,
-    OA_PAGES,
+    NameByIdPipe,
+    // PIPES,
   ],
   imports: [
     BrowserModule,
@@ -138,12 +142,17 @@ const Tab_Root_Page_Module = [
       tabsHideOnSubPages: true, // 隐藏非rootPage的tab标签
       mode:'ios', // 样式统一ios
       backButtonText: '', //返回按钮只显示图标
-      preloadModules: true //提前加载模块
+      preloadModules: true ,//提前加载模块
+      swipeBackEnabled: true // 滑动返回
     }),
     Third_Comonent_Module,
     Tab_Root_Page_Module,
     LoginPageModule,
     Native_Module,
+
+    SelectPersonPageModule,
+    ErrandListPageModule,
+
 
   ],
   bootstrap: [IonicApp],
@@ -152,7 +161,6 @@ const Tab_Root_Page_Module = [
 
     TabsPage,
     Tab_Root_Page,
-    OA_PAGES
   ],
   providers: [
     StatusBar,

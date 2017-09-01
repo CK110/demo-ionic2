@@ -5,14 +5,14 @@ export default {
   login: (req:Request)=>{
 
     const param = JSON.parse(req.text());
-
-    if( param.user === 'wjchen'&& param.password === '000001' ){
+    if( param.username === 'wjchen'&& param.password === '000001' ){
       return new Response(new ResponseOptions({
         status: 200,
         body: {
-          code: 1,
-          user: {
-            name:'wjchen'
+          rc: 1,
+          data: {
+            username:'wjchen',
+            token:'0000011111100000011'
           }
         }
       }))
@@ -20,7 +20,7 @@ export default {
       return new Response(new ResponseOptions({
         status: 200,
         body: {
-          code: 2,
+          rc: 0,
           user: {
           }
         }

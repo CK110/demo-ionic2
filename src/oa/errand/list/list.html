@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>公假流程</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openFilter()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let errand of errandList">
+      <div style="display: flex;align-items: center;justify-content: space-between;"
+           tappable (click)="toApprovePage(errand)">
+        <div>
+          <div style="margin-bottom: 6px;display: flex;align-items: center;">
+            <h2 style="margin-right: 20px">{{errand.erranderName }}的订票申请单</h2>
+
+            <ion-badge color="secondary" *ngIf="true">待办</ion-badge>
+            <ion-badge color="danger" *ngIf="false">已结束</ion-badge>
+            <ion-badge color="dark" *ngIf="false">已撤销</ion-badge>
+
+          </div>
+          <p  style="margin-bottom: 4px">
+            {{"目的地:"+ errand.arrivePlace + &nbsp;&nbsp; + "预计天数:" + errand.days}}
+          </p>
+          <p style="color: #FF6600;">
+            {{ errand.currentTaskList | currentTask}}
+          </p>
+        </div>
+        <p>
+          <!--{{airApp.addtime | date:"MM-dd" }}-->
+          00-00
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
